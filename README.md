@@ -8,7 +8,8 @@
 - MIDI, OSC를 활용하여 연주 소프트웨어 창작을 위한 능력 습득
 
 #### 교재
-- Ajay Kapur, Perry Cook, Spencer Salazar, and Ge Wang, **Programming for Musicians and Digital Artists - Creating Music with ChucK**, Manning Publications Co., 2015
+- [ChucK : Strongly-timed, Concurrent, and On-the-fly Music Programming Language](https://chuck.cs.princeton.edu/)
+- Ajay Kapur, Perry Cook, Spencer Salazar, and Ge Wang, **Programming for Musicians and Digital Artists - Creating Music with ChucK**, Manning Publications Co., 2015. 구입 : [교보문고](http://www.kyobobook.co.kr/product/detailViewEng.laf?ejkGb=BNT&mallGb=ENG&barcode=9781617291708&orderClick=LAG&Kc=), [Amazon](https://www.amazon.com/Programming-Musicians-Digital-Artists-Creating/dp/1617291706/)
 
 #### 수업 내용
 - 기본 : 소리, 음파, ChucK 프로그래밍 기본
