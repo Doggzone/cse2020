@@ -6,7 +6,7 @@
   - Ajay Kapur, Perry Cook, Spencer Salazar, and Ge Wang, **Programming for Musicians and Digital Artists - Creating Music with ChucK**, Manning Publications Co., 2015
 
 ### 담당교수
-- Name: [](http://softopians.github.io/doggzone)
+- Name: [도경구](http://softopians.github.io/doggzone)
 - Email: doh@hanyang.ac.kr
 - Homepage : http://plasse.hanyang.ac.kr/~doh
 
