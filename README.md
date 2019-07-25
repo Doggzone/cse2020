@@ -24,7 +24,7 @@
 - MIDI, OSC,등의 외부기기와 통합 
 
 #### 담당교수
-- Name: [도경구](http://softopians.github.io/doggzone)
-- Email: doh@hanyang.ac.kr
-- Homepage : http://plasse.hanyang.ac.kr/~doh
+- 이름: [도경구](http://softopians.github.io/doggzone)
+- 이메일: doh@hanyang.ac.kr
+- 홈페이지 : http://plasse.hanyang.ac.kr/~doh
 
