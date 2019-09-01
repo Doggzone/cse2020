@@ -12,17 +12,17 @@
 - Ajay Kapur, Perry Cook, Spencer Salazar, and Ge Wang, **Programming for Musicians and Digital Artists - Creating Music with ChucK**, Manning Publications Co., 2015. 구입 : [교보문고](http://www.kyobobook.co.kr/product/detailViewEng.laf?ejkGb=BNT&mallGb=ENG&barcode=9781617291708&orderClick=LAG&Kc=), [Amazon](https://www.amazon.com/Programming-Musicians-Digital-Artists-Creating/dp/1617291706/)
 
 #### 수업 내용
-- 기본 : 소리, 음파, ChucK 프로그래밍 기본
-- ChucK 라이브러리 도구
-- 배열 : 작곡 데이터 정리와 접근
-- 소리 파일과 소리 조작
-- 자가 함수 제작
-- 유닛 제너레이터를 통한 소리 함성 및 처리
-- 소리 합성 ToolKit
-- 멀티 스레딩과 동시계산 
-- 객체와 클래스
-- 이벤트를 활용한 인터쉬레드 통신
-- MIDI, OSC,등의 외부기기와 통합 
+1. 기본 : 소리, 음파, ChucK 프로그래밍 기본
+2. ChucK 라이브러리 도구
+3. 배열 : 작곡 데이터 정리와 접근
+4. 소리 파일과 소리 조작
+5. 자가 함수 제작
+6. 유닛 제너레이터를 통한 소리 함성 및 처리
+7. 소리 합성 ToolKit
+8. 멀티 스레딩과 동시계산 
+9. 객체와 클래스
+10. 이벤트를 활용한 인터쉬레드 통신
+11. MIDI, OSC,등의 외부기기와 통합 
 
 #### 평가
 - 출석 : 10%
