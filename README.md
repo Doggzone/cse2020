@@ -47,4 +47,4 @@
 - 교수: [도경구](http://softopians.github.io/doggzone), doh@hanyang.ac.kr
 - 조교: 모지환, jhmo@plasse.hanyang.ac.kr
 
-![COMPUTSERICA](https://i.imgur.com/6ChSQKG.png)
+![COMPUTSERICA](https://i.imgur.com/GS9NtxY.png)
