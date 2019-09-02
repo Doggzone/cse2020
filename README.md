@@ -24,8 +24,8 @@
 
 | 주 | 일 | 내용 | 비고 | 자료 |
 |:----:|:-----:|:-----:|:-----:|:-----:|
-|  1  | 9월5일 | 오리엔테이션 | - | |
-|  2  | 9월12일 | 기본 : 소리, 음파, ChucK 프로그래밍 기본 | 추석 | |
+|  1  | 9월5일 | 오리엔테이션 | - | [slide0](https://drive.google.com/file/d/1D3iad52W4JVhNyx4Mq1dJgcn_zzKJ43-/view?usp=sharing) |
+|  2  | 9월12일 | 기본 : 소리, 음파, ChucK 프로그래밍 기본 | 추석 | [slide1](https://drive.google.com/file/d/1D30xAwXdKHxRP8aJfIx5zzMM0-rbnemh/view?usp=sharing) |
 |  3  | 9월19일 | ChucK 라이브러리 도구 | - | |
 |  4  | 9월26일 | 배열 : 작곡 데이터 정리와 접근 | 출장 | |
 |  5  | 10월3일 | 소리 파일과 소리 조작 | 개천절 | |
