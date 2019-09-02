@@ -1,5 +1,9 @@
 ![COMPUTSERICA](https://i.imgur.com/GS9NtxY.png)
 
+### CSE2020 음악프로그래밍
+
+한양대학교 ERICA 소프트웨어학부 2019년 2학기 
+
 소리 합성과 음악 연주에 특화된 프로그래밍 언어인 ChucK을 사용하여, 음악을 연주하는 소프트웨어를 창작하는데 필요한 프로그램 논리와 기술을 배우고, 
 다양한 음악 창작 프로그래밍 실습과 작품발표 콘서트를 통하여 컴퓨터음악을 창작할 수 있는 기본기를 닦는다. 
 
@@ -49,4 +53,3 @@
 - 교수: [도경구](http://softopians.github.io/doggzone), doh@hanyang.ac.kr
 - 조교: 모지환, jhmo@plasse.hanyang.ac.kr
 
-한양대학교 ERICA 소프트웨어학부 2019년 2학기 
