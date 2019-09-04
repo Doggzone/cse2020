@@ -3,8 +3,6 @@ layout: page
 title: 용어
 ---
 
-### 용어
-
 - amplitude : 진폭
 - frequency : 주파수, 진동수
 - loudness : 소리크기
