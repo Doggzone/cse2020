@@ -13,6 +13,7 @@
 
 #### 교재
 - Ajay Kapur, Perry Cook, Spencer Salazar, and Ge Wang, [Programming for Musicians and Digital Artists - Creating Music with ChucK](https://www.manning.com/books/programming-for-musicians-and-digital-artists), Manning Publications Co., 2015.
+- [Lecture Videos](https://www.kadenze.com/courses/introduction-to-programming-for-musicians-and-digital-artists/info)
 - [ChucK : Strongly-timed, Concurrent, and On-the-fly Music Programming Language](https://chuck.cs.princeton.edu/)
 - Michael Hewitt, Music Theory for Computer Musicians, Course Technology, 2008.
 
