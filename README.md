@@ -49,7 +49,7 @@
 - 시험 1 & 2 : 40%
 
 #### 교수진
-- 교수: [도경구](http://softopians.github.io/doggzone), doh@hanyang.ac.kr
+- 교수: [도경구](http://doggzone.github.io/home), doh@hanyang.ac.kr
 - 조교: 모지환, jhmo@plasse.hanyang.ac.kr
 - 문의: computserica@gmail.com
 
