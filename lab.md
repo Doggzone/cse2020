@@ -34,7 +34,7 @@ Hello, Computer Music!
 | 라 | A | 440.0 | 라# | A# | 466.16 | 
 | 시 | B | 493.88 ||||
 
-![Cmajor](https://i.imgur.com/fAuWFdI.png)
+![Cmajor](https://i.imgur.com/hFYouk4.png)
 
 #### 4
 
