@@ -34,6 +34,8 @@ Hello, Computer Music!
 | 라 | A | 440.0 | 라# | A# | 466.16 | 
 | 시 | B | 493.88 ||||
 
+![Cmajor](https://i.imgur.com/fAuWFdI.png)
+
 #### 4
 
 계명 별로 변수를 선언하여 위의 `학교종` 프로그램을 재작성하자.
