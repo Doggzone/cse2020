@@ -8,7 +8,7 @@ title: 실습
 #### 1 
 콘솔 모니터에 아래 문장을 프린트하는 프로그램을 작성하자.
 ```
-Hello, World!
+Hello, Computer Music!
 ```
 
 #### 2 
