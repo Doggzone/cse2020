@@ -42,4 +42,8 @@ Hello, Computer Music!
 
 다음 곡을 연주하는 프로그램을 작성하자.
 
-![학교종](https://i.imgur.com/cOpJDnx.png)
+![학교종](https://i.imgur.com/YrnHK7d.png)
+
+#### 6
+
+
