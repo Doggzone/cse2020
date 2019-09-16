@@ -44,7 +44,7 @@ Hello, Computer Music!
 
 다음 곡을 연주하는 프로그램을 작성하자.
 
-![WhereIsThumbkin](https://i.imgur.com/CpYD1Zr.png)
+![WhereIsThumbkin](https://i.imgur.com/74f4Bif.png)
 
 #### 6
 
