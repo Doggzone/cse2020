@@ -34,7 +34,7 @@ Hello, Computer Music!
 |  라  |  A   |   440.0   | 라#/시b  |  A#/Bb  |  466.16   |
 |  시  |  B   |  493.88   |      |      |           |
 
-![piano](https://i.imgur.com/wQ5z43X.png)
+![piano](https://i.imgur.com/fJ0mBGF.png)
 
 ![Cmajor](https://i.imgur.com/hFYouk4.png)
 
