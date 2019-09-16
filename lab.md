@@ -20,7 +20,7 @@ Hello, Computer Music!
 
 #### 3
 다음 `학교종` 곡을 연주하는 프로그램을 작성하자.
-![학교종](https://i.imgur.com/YrnHK7d.png)
+![학교종](https://i.imgur.com/FcCZKh0.png)
 음별 주파수는 아래 표를 참조하자.
 
 | 계명 | Note | Frequency | 
