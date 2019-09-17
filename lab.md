@@ -55,7 +55,7 @@ Hello, Computer Music!
 
 이번에는 같은 곡을 다음 악보대로 화음으로 연주하는 프로그램을 작성하자.
 
-![Where Is Thumbkin 2](https://i.imgur.com/SSkJdxb.png)
+![Where Is Thumbkin 2](https://i.imgur.com/zQbfm9I.png)
 
 발진기는 배운 네 가지 중에서 어떤 것을 사용해도 좋다.
 
