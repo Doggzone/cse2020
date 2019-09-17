@@ -18,25 +18,28 @@ Hello, Computer Music!
 - `TriOsc`
 - `SawOsc`
 
-#### 3
-다음 `학교종` 곡을 연주하는 프로그램을 작성하자.
-![학교종](https://i.imgur.com/FcCZKh0.png)
+#### 음계별 주파수
 
-음별 주파수는 아래 표를 참조하자.
+음의 기준은 피아노의 4옥타브의 라(A)이며 이음의 주파수는 440Hz이다.
+인접하는 음계 사이의 주파수는 2^(1/12)배 만큼 차이가 나며,
+같은 음계에서 옥타브가 올라갈 때마다 2배씩 주파수가 증가한다.
 
-| 계명 | Note | Frequency | 계명 | Note | Frequency |
-|:----:|:----:|:---------:|:----:|:----:|:---------:|
-|  도  |  C   |  261.63   | 도#/레b  |  C#/Db  |  277.18   |
-|  레  |  D   |  293.66   | 레#/미b |  D#/Eb  |  311.13   |
-|  미  |  E   |  329.63   |      |      |           |
-|  파  |  F   |  349.23   | 파#/솔b  |  F#/Gb  |  369.99   |
-|  솔  |  G   |   392.0   | 솔#/라b  |  G#/Ab  |  415.30   |
-|  라  |  A   |   440.0   | 라#/시b  |  A#/Bb  |  466.16   |
-|  시  |  B   |  493.88   |      |      |           |
+![PianoKeys](https://i.imgur.com/lrf0W0b.png)
 
-![piano](https://i.imgur.com/fJ0mBGF.png)
+계산 결과는 다음과 같다.
+
+![FrequencyTable](https://i.imgur.com/Nu8Bq6j.png)
+
 
 ![Cmajor](https://i.imgur.com/hFYouk4.png)
+
+![piano](https://i.imgur.com/wQ5z43X.png)
+
+#### 3
+
+위 표의 주파수를 참고하여 다음 `학교종` 곡을 연주하는 프로그램을 작성하자. 
+
+![학교종](https://i.imgur.com/FcCZKh0.png)
 
 #### 4
 
@@ -44,10 +47,9 @@ Hello, Computer Music!
 
 #### 5
 
-다음 곡을 연주하는 프로그램을 작성하자.
+위 표의 주파수를 참고하여 다음 곡을 연주하는 프로그램을 작성하자.
 
 ![WhereIsThumbkin](https://i.imgur.com/74f4Bif.png)
 
 #### 6
-
 
