@@ -20,11 +20,11 @@ Hello, Computer Music!
 
 #### 음계별 주파수
 
+![PianoKeys](https://i.imgur.com/lrf0W0b.png)
+
 음의 기준은 피아노의 4옥타브의 라(A)이며 이음의 주파수는 440Hz이다.
 인접하는 음계 사이의 주파수는 2^(1/12)배 만큼 차이가 나며,
 같은 음계에서 옥타브가 올라갈 때마다 2배씩 주파수가 증가한다.
-
-![PianoKeys](https://i.imgur.com/lrf0W0b.png)
 
 계산 결과는 다음과 같다.
 
