@@ -22,7 +22,7 @@ Hello, Computer Music!
 
 ![PianoKeys](https://i.imgur.com/lrf0W0b.png)
 
-음의 기준은 피아노의 4옥타브의 라(A)이며 이음의 주파수는 440Hz이다.
+음의 기준은 피아노의 4옥타브의 라(A)이며 이 음의 주파수는 440Hz이다.
 인접하는 음계 사이의 주파수는 2^(1/12)배 만큼 차이가 나며,
 같은 음계에서 옥타브가 올라갈 때마다 2배씩 주파수가 증가한다.
 
@@ -52,4 +52,10 @@ Hello, Computer Music!
 ![WhereIsThumbkin](https://i.imgur.com/74f4Bif.png)
 
 #### 6
+
+이번에는 같은 곡을 다음 악보대로 화음으로 연주하는 프로그램을 작성하자.
+
+![Where Is Thumbkin 2](https://i.imgur.com/SSkJdxb.png)
+
+발진기는 배운 네 가지 중에서 어떤 것을 사용해도 좋다.
 
