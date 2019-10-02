@@ -81,11 +81,11 @@ Listing 2.8 코드를 Math.srandom() 함수를 사용하여 seed를 지정하고
 
 ![Cmajorscale](https://i.imgur.com/fxL4hiB.png)
 
-C major scale을 위의 악보와 같이 연주하는 프로그램을 MIDI와 배열을 사용하여 작성해보자.
+C major scale을 위의 악보와 같이 연주하는 프로그램을 MIDI 음 배열을 사용하여 작성해보자.
 
 #### 2
 
-다음은 Beverly Hill Cops 영화 주제곡 도입 부분의 악보를 MIDI와 음MIDI 배열로 작성한 것이다.
+다음은 Beverly Hill Cops 영화 주제곡 도입 부분의 악보를 MIDI 계명과 음표 배열로 작성한 것이다.
 
 ```
 0.1 :: second => dur en; // eighth (1/8)
