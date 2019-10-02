@@ -3,7 +3,7 @@ layout: page
 title: 실습
 ---
 
-### Lab#2
+## Lab#2
 
 #### 1
 
@@ -11,7 +11,7 @@ Listing 2.1 코드를 `for` 루프 대신 `while` 루프를 사용하여 똑같�
 
 #### 2
 
-![MIDI](https://i.imgur.com/UJyi7eO.png)
+![Notes](https://i.imgur.com/Icg2eto.png)
 
 반음계(chromatic scale)를 위와 같이 연주하는 프로그램을 다음과 같이 작성할 수 있다.
 
@@ -73,7 +73,7 @@ Listing 2.8 코드를 Math.srandom() 함수를 사용하여 seed를 지정하고
 
 
 
-### Lab#3
+## Lab#3
 
 ![MusicalNotes](https://i.imgur.com/wBRfkeW.png) ![RegularNotes](https://i.imgur.com/IAUOPIY.png) ![DottedNotes](https://i.imgur.com/gTJM0Ir.png)
 
@@ -142,7 +142,7 @@ Lab#1.6에서 작성한 곡을 다음 악보대로 화음으로 연주하는 프
 
 
 
-### Lab#1
+## Lab#1
 
 #### 1 
 콘솔 모니터에 아래 문장을 프린트하는 프로그램을 작성하자.
