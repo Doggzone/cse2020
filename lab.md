@@ -11,7 +11,7 @@ Listing 2.1 코드를 `for` 루프 대신 `while` 루프를 사용하여 똑같�
 
 #### 2
 
-![Notes](https://i.imgur.com/Icg2eto.png)
+![MusicalNotes](https://i.imgur.com/uOZUoEy.png)
 
 반음계(chromatic scale)를 위와 같이 연주하는 프로그램을 다음과 같이 작성할 수 있다.
 
