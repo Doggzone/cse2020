@@ -50,6 +50,6 @@
 
 #### 교수진
 - 교수: [도경구](http://doggzone.github.io/home), doh@hanyang.ac.kr
-- 조교: 모지환, jhmo@plasse.hanyang.ac.kr
+- 조교: 모지환, gugusny5758@gmail.com
 - 문의: computserica@gmail.com
 
