@@ -4,9 +4,11 @@ title: 용어
 ---
 
 - amplitude : 진폭
+- beat : (악보에서) 박자
 - compression : 압축 <-> rarefaction(희박)의 반대
 - frequency : 주파수, 진동수
 - loudness : 소리크기
+- measure : (악보에서) 마디
 - noise : 잡음
 - oscillate : 진동하다. 흔들다.
 - oscillation : 진동
