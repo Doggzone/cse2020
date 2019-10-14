@@ -27,8 +27,8 @@
 |:----:|:-----:|:-----:|:-----:|:-----:|:-----:|
 |  1  | 9월5일 | 오리엔테이션 | - | [slide0](https://drive.google.com/file/d/1D3iad52W4JVhNyx4Mq1dJgcn_zzKJ43-/view?usp=sharing) | |
 |  2  | 9월19일 | 기본 : 소리, 음파, ChucK 프로그래밍 기본 | - | [slide1](https://drive.google.com/file/d/1D30xAwXdKHxRP8aJfIx5zzMM0-rbnemh/view?usp=sharing) | [작품모음1](https://youtu.be/_a4yccSagKU) |
-|  3  | 10월3일 | ChucK 라이브러리 도구 | - | [slide2](https://drive.google.com/file/d/1RYjOnLYOyjBcTN5aoOhnQMFotaDU-xo2/view?usp=sharing) | [작품모음2](https://youtu.be/-oblQimHZ5Y) |
-|  4  | 10월3일 | 배열 : 작곡 데이터 정리와 접근 | - | [slide3](https://drive.google.com/file/d/1RiRPwouV9YrCoaZTwQT-0srWrEWIxdFU/view?usp=sharing) | |
+|  3  | 10월3일 | ChucK 라이브러리 도구 | - | [slide2](https://drive.google.com/file/d/1RYjOnLYOyjBcTN5aoOhnQMFotaDU-xo2/view?usp=sharing) |  |
+|  4  | 10월3일 | 배열 : 작곡 데이터 정리와 접근 | - | [slide3](https://drive.google.com/file/d/1RiRPwouV9YrCoaZTwQT-0srWrEWIxdFU/view?usp=sharing) | [작품모음2](https://youtu.be/-oblQimHZ5Y) |
 |  5  | 10월10일 | 소리 파일과 소리 조작 | - | [slide4](https://drive.google.com/file/d/1PLj5RkghvPmZ_vV9JR3VbmGToHrj4zJ1/view?usp=sharing) | |
 |  6  | 10월17일 | 자가 함수 제작 | - | | |
 |  7  | 10월24일 | 유닛 제너레이터를 통한 소리 함성 및 처리 | 시험#1 | | |
