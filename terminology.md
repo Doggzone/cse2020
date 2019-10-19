@@ -3,10 +3,13 @@ layout: page
 title: 용어
 ---
 
+- ADC : analog-digital converter
 - amplitude : 진폭
 - beat : (악보에서) 박자
 - compression : 압축 <-> rarefaction(희박)의 반대
+- DAC : digital-analog converter
 - frequency : 주파수, 진동수
+- frequency modulation (FM) : 주파수 변조
 - loudness : 소리크기
 - measure : (악보에서) 마디
 - noise : 잡음
