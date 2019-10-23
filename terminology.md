@@ -15,6 +15,7 @@ title: 용어
 - formant : 공명
 - frequency : 주파수, 진동수
 - frequency modulation (FM) : 주파수 변조
+- harmonic : 음이 조화하는
 - harmonics : 화성학
 - intensity : 세기 (amplitude와 상응하고, amplitude가 높으면 intensity도 높습니다. 단위dB)
 - loudness : 소리크기
