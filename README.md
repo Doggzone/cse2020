@@ -30,14 +30,14 @@
 |  3  | 10월3일 | ChucK 라이브러리 도구 | - | [slide2](https://drive.google.com/file/d/1RYjOnLYOyjBcTN5aoOhnQMFotaDU-xo2/view?usp=sharing) |  |
 |  4  | 10월3일 | 배열 : 작곡 데이터 정리와 접근 | - | [slide3](https://drive.google.com/file/d/1RiRPwouV9YrCoaZTwQT-0srWrEWIxdFU/view?usp=sharing) | [작품모음2](https://youtu.be/-oblQimHZ5Y) |
 |  5  | 10월10일 | 소리 파일과 소리 조작 | - | [slide4](https://drive.google.com/file/d/1PLj5RkghvPmZ_vV9JR3VbmGToHrj4zJ1/view?usp=sharing) | |
-|  6  | 10월17일 | 자가 함수 제작 | - | [slide5](https://drive.google.com/file/d/1-2Wm17impsLzfA2c-WZGAuhwID4R1yQ1/view?usp=sharing) | [작품모음3]() |
-|  7  | 10월24일 | 유닛 제너레이터를 통한 소리 함성 및 처리 | 시험#1 | | 작품모음4 |
-|  8  | 10월31일 | 멀티 스레딩과 동시계산 | - | | 작품모음5 |
-|  9  | 11월7일 | 객체와 클래스 | - | | 작품모음6 |
-|  10 | 11월14일 | 이벤트를 활용한 인터쉬레드 통신 | - | | |
-|  11 | 11월21일 | MIDI, OSC,등의 외부기기와 통합 | - | | |
-|  12 | 11월28일 | 프로젝트 기획 및 개발 | 시험#2 | | |
-|  13 | 12월5일 | 프로젝트 기획 및 개발 | - | | |
+|  6  | 10월17일 | 자가 함수 제작 | - | [slide5](https://drive.google.com/file/d/1-2Wm17impsLzfA2c-WZGAuhwID4R1yQ1/view?usp=sharing) | 작품모음3 |
+|  7  | 10월24일 | 유닛 제너레이터를 통한 소리 합성 및 처리 | 시험#1 | | |
+|  8  | 10월31일 | 소리 합성 툴 킷 | - | | 작품모음4 |
+|  9  | 11월7일 | 멀티 스레딩과 동시계산 | - | | 작품모음5 |
+|  10 | 11월14일 | 객체와 클래스 | - | | 작품모음6 |
+|  11 | 11월21일 | 이벤트를 활용한 인터쉬레드 통신 | - | | |
+|  12 | 11월28일 | MIDI, OSC 등의 외부기기와 통합 | -  | | |
+|  13 | 12월5일 | 프로젝트 기획 및 개발 | 시험#2 | | |
 |  14 | 12월12일 | 프로젝트 리허설 | - | | |
 |  15 | 12월19일 | 프로젝트 발표 | - | | |
 
