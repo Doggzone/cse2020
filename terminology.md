@@ -5,14 +5,18 @@ title: 용어
 
 - acoustics : 음향학
 - ADC : analog-digital converter
-- amplitude : 진폭
+- amplitude : 진폭 (sine wave상에서 세로축으로 올라가고 내려가는 것)
 - beat : (악보에서) 박자
 - compression : 압축 <-> rarefaction(희박)의 반대
 - DAC : digital-analog converter
 - damping : 소리 줄이기, 진동의 진폭을 감소시키기
 - detune : 음정을 미세하게 다르게하다
+- duration : 시간 상의 구간(기간)
+- formant : 공명
 - frequency : 주파수, 진동수
 - frequency modulation (FM) : 주파수 변조
+- harmonics : 화성학
+- intensity : 세기 (amplitude와 상응하고, amplitude가 높으면 intensity도 높습니다. 단위dB)
 - loudness : 소리크기
 - measure : (악보에서) 마디
 - noise : 잡음
@@ -24,6 +28,8 @@ title: 용어
 - rarefaction : 희박  <-> compression(압축)의 반대
 - resonance : 공명
 - reverberation : 반향, 잔향, 메아리
+- spectrogram - 음향분석을 할 때 사용하는 그래프로써 가로축을 시간, 세로축을 주파수, 색의 농도를 강도(intensity)로 하여 보여주는 그래프
+- spectrum : spectrogram에서 시간축으로 한 지점 혹은 구간에서의 복합파가 가지는 각각의 sinewave의 amplitude를 보여주는 그래프(구간이 선택 될 경우에는 구간의 평균)
 - strum : (현악기를) 손끝으로 타다, 켜다, 퉁기다, 치다
 - synthesis : 합성
 - transposition : 이조(조바꾸기)
