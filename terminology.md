@@ -23,6 +23,7 @@ title: 용어
 - oscillate : 진동하다. 흔들다.
 - oscillation : 진동
 - oscillator : 발진기
+- phase : 위상
 - pitch : 고저(높낮이)
 - pluck : (현을) 퉁기다, 뜯다
 - rarefaction : 희박  <-> compression(압축)의 반대
