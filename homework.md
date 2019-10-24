@@ -6,6 +6,27 @@ title: 숙제
 #### 사운드 파일 만드는 방법
 - [How to export ChucK programs to M4A audio files](https://drive.google.com/file/d/10iSfsImAsepDx5R_78rQ4kKglKhZgYk8/view?usp=sharing)
 
+## Homework#5
+
+이 과제는 ChucK 프로그래밍 언어에서 제공하는 유닛제너레이터(UGen)와 오디오 효과를 잘 활용하여 흥미있는 소리를 만들어 내는 방법을 익히는 것을 목표로 수행한다.
+
+STK 악기와 오디오 효과를 활용하여 30초 동안 재생하는 음악을 만들어보자.
+
+#### 주의 사항
+
+-	STK 악기 (`Flute`, `Mandolin`, `Brass` 등) 중에서 하나를 골라서 사용한다.
+-   공부한 오디오 효과(`Delay`, `Echo`, `PitShift` 등)를 최대한 활용한다.
+-	`.ck` 소스 파일을 구글클래스 룸에 제출한다.
+-	프로그램 맨 상단에 본인의 학번과 이름을 기입한다.
+-	제출 마감 : 11월 7일 오후 1시
+
+#### 채점 기준
+
+-	학번, 이름 기입 : 10%
+-	수업시간에 다룬 지식 적용의 다양성 : 50%
+-	음악성 : 40%
+
+
 ## Homework#4
 
 이 과제는 ChucK 프로그래밍에서 음악을 창작하는데 필요한 함수를 어떻게 작성하고 활용하는지를 익히는 것을 목표로 수행한다.
