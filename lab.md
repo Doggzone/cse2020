@@ -3,6 +3,25 @@ layout: page
 title: 실습
 ---
 
+## Lab#6
+
+#### 1
+`Lab#3-4`에서 작성한 `학교종`을 연주하는 프로그램을 `SqrOsc`와 `Envelope` UGen을 사용하여 재작성해보자. 
+
+#### 2
+`학교종`을 연주하는 프로그램을 `SawOsc`와 `ADSR` UGen을 사용하여 재작성해보자. 가장 마음에 드는 연주가 되도록 파라미터를 조정해보자.
+
+
+#### 3
+`SinOsc` 2개를 각각 Carrier와 Modulator로 사용하여 주파수를 변조하고 `ADSR`를 활용하여 `학교종`을 연주하는 프로그램을 재작성해보자. 
+
+#### 4
+Karplus-Strong Plucked String Systehsis 알고리즘을 활용하여 `학교종`을 연주하는 프로그램을 재작성해보자.
+
+#### 5
+#Lab#6-4에서 작성한 `학교종`을 연주하는 프로그램에 `Chorus`와 `PitShift` 오디오 효과를 추가하여 어떤 소리가 나는지 들어보자.
+
+
 ## Lab#5
 
 #### 1
