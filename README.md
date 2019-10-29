@@ -32,7 +32,7 @@
 |  5  | 10월10일 | 소리 파일과 소리 조작 | - | [notes4](https://drive.google.com/file/d/1PLj5RkghvPmZ_vV9JR3VbmGToHrj4zJ1/view?usp=sharing) | [작품모음3](https://youtu.be/IbtwAa6ZPtY) |
 |  6  | 10월17일 | 자가 함수 제작 | - | [notes5](https://drive.google.com/file/d/1-2Wm17impsLzfA2c-WZGAuhwID4R1yQ1/view?usp=sharing) | [작품모음4](https://youtu.be/tq9XKwosofY) |
 |  7  | 10월24일 | 유닛 제너레이터를 통한 소리 합성 및 처리 | 시험#1 | [notes6](https://drive.google.com/file/d/1-uMk-PfVLfhMKErEpw8Tb5vu_i2731TG/view?usp=sharing) | |
-|  8  | 10월31일 | 소리 합성 툴 킷 | - | | 작품모음5 |
+|  8  | 10월31일 | 소리 합성 툴 킷 | - | [note7](https://drive.google.com/file/d/1-vB-2tq6fFJS_tQAJikzLOR7InDZoF6O/view?usp=sharing) | 작품모음5 |
 |  9  | 11월7일 | 멀티 스레딩과 동시계산 | - | | 작품모음6 |
 |  10 | 11월14일 | 객체와 클래스 | - | | 작품모음7 |
 |  11 | 11월21일 | 이벤트를 활용한 인터쉬레드 통신 | - | | |
