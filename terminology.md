@@ -12,6 +12,11 @@ title: 용어
 - damping : 소리 줄이기, 진동의 진폭을 감소시키기
 - detune : 음정을 미세하게 다르게하다
 - duration : 시간 상의 구간(기간)
+- filter : 필터
+  - high-pass filter (HPF) : 지정한 주파수보다 높은 주파수만 통과시키고, 낮은 주파수는 약화시키는 필터
+  - low-pass filter (LPF) : 지정한 주파수보다 낮은 주파수만 통과시키고, 높은 주파수는 약화시키는 필터
+  - band-pass filter (BPF) : 지정한 구간의 주파수만 통과시키고, 이외 구간은 약화시키는 필터
+  - band-reject filter (BRF) : BPF와 반대
 - formant : 공명
 - frequency : 주파수, 진동수
 - frequency modulation (FM) : 주파수 변조
