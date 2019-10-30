@@ -36,6 +36,9 @@ title: 용어
 - rarefaction : 희박  <-> compression(압축)의 반대
 - resonance : 공명
 - reverberation : 반향, 잔향, 메아리
+- signal : 시그널
+  - dry signal : 아무 영향을 받지 않아 변경되지 않은 시그널
+  - wet signal : 외부 영향을 받아 변경된 시그널
 - spectrogram - 음향분석을 할 때 사용하는 그래프로써 가로축을 시간, 세로축을 주파수, 색의 농도를 강도(intensity)로 하여 보여주는 그래프
 - spectrum : spectrogram에서 시간축으로 한 지점 혹은 구간에서의 복합파가 가지는 각각의 sinewave의 amplitude를 보여주는 그래프(구간이 선택 될 경우에는 구간의 평균)
 - strum : (현악기를) 손끝으로 타다, 켜다, 퉁기다, 치다
