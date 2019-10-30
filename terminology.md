@@ -25,6 +25,7 @@ title: 용어
 - oscillation : 진동
 - oscillator : 발진기
 - phase : 위상
+- phoneme : 음소 (개개의 언어에 있어서 의미를 구별하는 작용을 하는 음성상의 최소 단위)
 - pitch : 고저(높낮이)
 - pluck : (현을) 퉁기다, 뜯다
 - rarefaction : 희박  <-> compression(압축)의 반대
