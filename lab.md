@@ -3,6 +3,72 @@ layout: page
 title: 실습
 ---
 
+### Lab#7
+
+#### 1
+
+다음 스케일을 STK UGen `BlowHole`, `BlowBotl`, `Saxofony`로 연주하는 프로그램을 만들어서 각각 어떤 소리가 나는지 들어 보자.
+
+```
+[60, 62, 64, 65, 67, 69, 71, 72, 71, 69, 67, 65, 64, 62, 60] 
+@=> int scale[];
+```
+
+#### 2
+
+다음 스케일을 STK UGen `Mandolin`으로 연주하는 프로그램을 만들고,
+
+```
+[60, 62, 64, 65, 67, 69, 71, 72, 71, 69, 67, 65, 64, 62, 60] 
+@=> int scale[];
+```
+
+0.1과 0.9 범위 내에서 `.bodySize`, `.pluckPos`, `.stringDamping`, `.stringDetune` 파라미터 값을 각각 변경하면서 소리가 어떻게 변화하는지 들어보자. 각 파라미터가 소리에 어떤 영향을 미치는지 느낄 수 있을 때까지 실험을 반복하자.
+
+#### 3
+
+다음 스케일을 STK UGen `Bowed`로 연주하는 프로그램을 만들고,
+
+```
+[60, 62, 64, 65, 67, 69, 71, 72, 71, 69, 67, 65, 64, 62, 60] 
+@=> int scale[];
+```
+
+0.1과 0.9 범위 내에서 `.bowPressure`, `.bowPosition`, `.vibratoGain`, `.volume` 파라미터 값을 각각 변경하면서 소리가 어떻게 변화하는지 들어보자. 각 파라미터가 소리에 어떤 영향을 미치는지 느낄 수 있을 때까지 실험을 반복하자.
+
+
+#### 4
+
+```
+Moog mog => dac;
+200.0 => mog.freq;
+
+while (true) {
+    Math.random2f(0.1,1.0) => mog.filterQ;
+    Math.random2f(0.01,1.0) => mog.filterSweepRate;
+    1 => mog.noteOn;
+    if (Math.random2(0,10) == 0) {
+        Math.random2f(1.0,20.0) => mog.vibratoFreq;
+        0.5 => mog.vibratoGain;
+        second => now;
+    }
+    else {
+        0.01 => mog.vibratoGain;
+        0.0125::second => now;
+    }
+    1 => mog.noteOff;
+    0.125::second => now;
+}
+
+```
+
+위 프로그램을 실행하여 소리를 들어본 다음, 아래 파라미터 값에 따라서 소리가 어떻게 달라지는지 프로그램을 수정하여 각각 들어보자.
+- `filterQ` 
+- `filterSweepRate` 
+- `vibratoFreq` 
+- `vibratoGain` 
+
+
 ## Lab#6
 
 #### 1
