@@ -113,11 +113,14 @@ tn, sn, tn, sn, wn
 
 #### 6. Bach의 Crab Canon
 
-바하의 크랩캐논은 악보를 정방향으로, 역방향으로 동시에 연주하여 화음을 이루도록 만든 곡이다. 
+[Bach’s Crab Canon](https://kottke.org/17/02/bachs-crab-canon-is-a-musical-palindrome\)
 
-![CrabCanon](https://i.imgur.com/3zHVp7F.png)
+바하의 The Musical Offering에 포함되어 있는 Crab Canon은 음악적 팰린드롬이다. 그냥 순서대로 또는 거꾸로 한방향으로 연주해도 되고, 순서대로와 거꾸로를 동시에 양방향으로 연주해도 된다.
 
-이 곡을 두개의 다른 악기를 사용하여 정방향과 역방향으로 동시에 연주하는 프로그램을 아래 코드를 활용하여 만들어보자. 힌트: 악보를 거꾸로 연주하는 함수를 따로 작성하여 사용하면 편리하다.
+![CrabCanon](https://i.imgur.com/XBUxfWQ.png)
+
+이 곡을 두개의 다른 악기를 사용하여 정방향과 역방향으로 동시에 연주하는 프로그램을 아래 MIDI 악보 코드를 활용하여 만들어보자. 힌트: 악보를 거꾸로 연주하는 함수를 따로 작성하여 사용하면 편리하다.
+
 
 ```
 0.2::second => dur en; // eighth note (1/8)
