@@ -113,7 +113,7 @@ tn, sn, tn, sn, wn
 
 #### 6. Bach의 Crab Canon
 
-[Bach’s Crab Canon](https://kottke.org/17/02/bachs-crab-canon-is-a-musical-palindrome\)
+[Bach’s Crab Canon](https://www.youtube.com/watch?v=xUHQ2ybTejU)
 
 바하의 The Musical Offering에 포함되어 있는 Crab Canon은 음악적 팰린드롬이다. 그냥 순서대로 또는 거꾸로 한방향으로 연주해도 되고, 순서대로와 거꾸로를 동시에 양방향으로 연주해도 된다.
 
