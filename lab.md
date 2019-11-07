@@ -22,6 +22,26 @@ title: 실습
 
 `StkInstrument` 악기, `int` 타입의 MIDI 음 배열, `dur` 타입의 재생시간 배열을 인수로 받아서, 주어진 악기로 주어진 음 배열을 차례대로 주어진 재생시간 배열의 시간에 맞추어 스피커로 출력하는 프로시저 함수 `play`를 작성해보자. 각 음은 Lab#8-2에서 작성한 `playNote` 함수를 사용해야 한다.
 
+아래 코드를 테스트 케이스로 사용하여 실행해보자.
+
+```
+0.2::second => dur en; // eighth notes (1/8)
+en * 2 => dur qn; // quarter notes (1/4)
+qn * 2 => dur hn; // half notes (1/2)
+
+[
+65, 67, 69, 65,  65, 67, 69, 65,  69, 70, 72,  69, 70, 72,
+72, 74, 72, 70, 69, 65, 72, 74, 72, 70, 69, 65, 65, 60, 65, 65, 60, 65
+]
+@=> int melody[];
+
+[
+qn, qn, qn, qn,  qn, qn, qn, qn, qn, qn, hn,  qn, qn, hn,
+en, en, en, en, qn, qn, en, en, en, en, qn, qn, qn, qn, hn, qn, qn, hn
+]
+@=> dur melodyDur[];
+```
+
 #### 4 여러 음 동시에 내기
 
 다음 악보는 Lab#1-6과 Lab#3-5에서 작성해본 적이 있는 곡이다.
