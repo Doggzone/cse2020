@@ -3,7 +3,7 @@ layout: page
 title: 실습
 ---
 
-### Lab#8
+## Lab#8
 
 #### 1.
 
@@ -156,7 +156,7 @@ en, en, en, en, qn, qn, qn, qn
 
 
 
-### Lab#7
+## Lab#7
 
 #### 1
 
