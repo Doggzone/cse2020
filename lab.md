@@ -5,7 +5,7 @@ title: 실습
 
 ### Lab#8
 
-#### 1
+#### 1.
 
 교재의 `Listing 8.2`를 아래 사항을 최대한 적용하여 자신 고유의 드럼머신을 만들어보자.
 
@@ -14,11 +14,11 @@ title: 실습
 - 랜덤 함수 사용
 - 배열 또는 나머지 연산 사용
 
-#### 2 `playNote` 함수 만들기
+#### 2. `playNote` 함수 만들기
 
 `StkInstrument` 악기, `int` 타입의 MIDI 음, `dur` 타입의 재생시간을 인수로 받아서, 주어진 악기로 주어진 재생시간동안 주어진 음을 스피커로 출력하는 프로시저 함수 `playNote`를 작성해보자.
 
-#### 3 `play` 함수 만들기
+#### 3. `play` 함수 만들기
 
 `StkInstrument` 악기, `int` 타입의 MIDI 음 배열, `dur` 타입의 재생시간 배열을 인수로 받아서, 주어진 악기로 주어진 음 배열을 차례대로 주어진 재생시간 배열의 시간에 맞추어 스피커로 출력하는 프로시저 함수 `play`를 작성해보자. 각 음은 Lab#8-2에서 작성한 `playNote` 함수를 사용해야 한다.
 
@@ -32,17 +32,15 @@ qn * 2 => dur hn; // half notes (1/2)
 [
 65, 67, 69, 65,  65, 67, 69, 65,  69, 70, 72,  69, 70, 72,
 72, 74, 72, 70, 69, 65, 72, 74, 72, 70, 69, 65, 65, 60, 65, 65, 60, 65
-]
-@=> int melody[];
+] @=> int melody[];
 
 [
 qn, qn, qn, qn,  qn, qn, qn, qn, qn, qn, hn,  qn, qn, hn,
 en, en, en, en, qn, qn, en, en, en, en, qn, qn, qn, qn, hn, qn, qn, hn
-]
-@=> dur melodyDur[];
+] @=> dur melodyDur[];
 ```
 
-#### 4 여러 음 동시에 내기
+#### 4. 여러 음 동시에 내기
 
 다음 악보는 Lab#1-6과 Lab#3-5에서 작성해본 적이 있는 곡이다.
 
@@ -58,36 +56,31 @@ qn * 2 => dur hn; // half notes (1/2)
 [
 65, 67, 69, 65,  65, 67, 69, 65,  69, 70, 72,  69, 70, 72,
 72, 74, 72, 70, 69, 65, 72, 74, 72, 70, 69, 65, 65, 60, 65, 65, 60, 65
-]
-@=> int melody[];
+] @=> int melody[];
 
 [
 65, 67, 69, 65,  65, 67, 69, 65,  69, 70, 72,  69, 70, 72, 
 72, 74, 72, 70, 69, 65, 72, 74, 72, 70, 69, 65, 69, 64, 69, 69, 64, 69
-]
-@=> int high[];
+] @=> int high[];
 
 [
 qn, qn, qn, qn,  qn, qn, qn, qn, qn, qn, hn,  qn, qn, hn,
 en, en, en, en, qn, qn, en, en, en, en, qn, qn, qn, qn, hn, qn, qn, hn
-]
-@=> dur melodyDur[];
+] @=> dur melodyDur[];
 
 [
 53, 60, 53,  53, 60, 53,  53, 60, 53,  53, 60, 53,
 53, 60, 53,  53, 60, 53,  53, 60, 53,  53, 60, 53
-]
-@=> int low[];
+] @=> int low[];
 
 [
 qn, qn, hn,  qn, qn, hn,  qn, qn, hn,  qn, qn, hn,
 qn, qn, hn,  qn, qn, hn,  qn, qn, hn,  qn, qn, hn
-]
-@=> dur lowDur[];
+] @=> dur lowDur[];
 
 ```
 
-#### 5 돌림노래
+#### 5. 돌림노래
 
 이번엔 다음 곡을 돌림노래로 연주해보자. 
 
@@ -107,20 +100,18 @@ sn * 6 => dur wn; // whole note (1)
 64, 62, 64, 65, 67,
 72, 72, 72, 67, 67, 67, 64, 64, 64, 60, 60, 60,
 67, 65, 64, 62, 60
-]
-@=> int melody[];
+] @=> int melody[];
 
 [
 hn, hn, tn, sn, hn, 
 tn, sn, tn, sn, wn,
 sn, sn, sn, sn, sn, sn, sn, sn, sn, sn, sn, sn,
 tn, sn, tn, sn, wn
-]
-@=> dur melodyDur[];
+] @=> dur melodyDur[];
 
 ```
 
-#### 6 Bach의 Crab Canon
+#### 6. Bach의 Crab Canon
 
 바하의 크랩캐논은 악보를 정방향으로, 역방향으로 동시에 연주하여 화음을 이루도록 만든 곡이다. 
 
@@ -144,8 +135,7 @@ en * 4 => dur hn; // half note (1/2)
 73, 70, 68, 67, 69, 71, 72, 74, 75, 72, 71, 69, 
 71, 72, 74, 75, 77, 74, 67, 74, 72, 74, 75, 77,
 75, 74, 72, 71, 72, 67, 63, 60
-]
-@=> int notes[];
+] @=> int notes[];
 
 [
 hn, hn, hn, hn, hn, qn, 
@@ -157,8 +147,7 @@ en, en, en, en, en, en, en, en, en, en, en, en,
 en, en, en, en, en, en, en, en, en, en, en, en,
 en, en, en, en, en, en, en, en, en, en, en, en, 
 en, en, en, en, qn, qn, qn, qn
-]
-@=> dur durs[];
+] @=> dur durs[];
 
 ```
 
