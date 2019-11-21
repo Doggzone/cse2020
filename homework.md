@@ -12,8 +12,7 @@ Lab#10에서 작업한 Drum Machine을 이벤트 구동 방식으로 완성해�
 
 #### 주의 사항
 
-`initialize.ck`, `score.ck`, `kick.ck`, `snare.ck`, `hihat.ck`, `cowbell.ck`, `clap.ck`, `BPM.ck` 파일을 포함해야 하고 필요한 경우 추가로 클래스 파일을 만들어 작성한다.
-- 
+- `initialize.ck`, `score.ck`, `kick.ck`, `snare.ck`, `hihat.ck`, `cowbell.ck`, `clap.ck`, `BPM.ck` 파일을 포함해야 하고 필요한 경우 추가로 클래스 파일을 만들어 작성한다.
 -	`.ck` 소스 파일을 `DrumMachine` 폴더에 담고, 실행에 필요한 모든 파일을 `zip`으로 압축하여 묶어서 파일명을 학번으로 하여 구글클래스룸에 제출한다.
 -	모든 프로그램 파일의 맨 상단에 본인의 학번과 이름을 주석으로 기입한다.
 -	제출 마감 : 11월 28일 오후 1시
