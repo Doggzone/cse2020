@@ -17,6 +17,9 @@
 - [ChucK : Strongly-timed, Concurrent, and On-the-fly Music Programming Language](https://chuck.cs.princeton.edu/)
 - Michael Hewitt, Music Theory for Computer Musicians, Course Technology, 2008.
 
+#### 소프트웨어
+- [SimpleSynth-1.1](https://drive.google.com/file/d/1m5Ptim3mOtKX_62PS7QxH-CcJzZ1Nwyv/view?usp=sharing)
+
 #### 수업 시간 및 장소
 - 시간 : 목 13:00~17:00 
 - 장소 : 학연산클러스터지원센터 506호 IC-PBL Making Maroon
