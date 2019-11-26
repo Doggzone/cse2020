@@ -18,7 +18,8 @@
 - Michael Hewitt, Music Theory for Computer Musicians, Course Technology, 2008.
 
 #### 소프트웨어
-- [SimpleSynth-1.1](https://drive.google.com/file/d/1m5Ptim3mOtKX_62PS7QxH-CcJzZ1Nwyv/view?usp=sharing)
+- MIDI SYnthesizer for Mac : [SimpleSynth-1.1](https://drive.google.com/file/d/1m5Ptim3mOtKX_62PS7QxH-CcJzZ1Nwyv/view?usp=sharing)
+- MIDI SYnthesizer for Windows : []()
 
 #### 수업 시간 및 장소
 - 시간 : 목 13:00~17:00 
