@@ -18,8 +18,8 @@
 - Michael Hewitt, Music Theory for Computer Musicians, Course Technology, 2008.
 
 #### 소프트웨어
-- MIDI Synthesizer for Mac : [SimpleSynth-1.1](https://drive.google.com/file/d/1m5Ptim3mOtKX_62PS7QxH-CcJzZ1Nwyv/view?usp=sharing)
-- MIDI Synthesizer for Windows : [VirtualMIDISynth](https://drive.google.com/file/d/1pFt0gkHuKLSyVQh0WX6rIIP5aeoa3IL4/view?usp=sharing)
+- MIDI Out Synthesizer : [SimpleSynth-1.1](https://drive.google.com/file/d/1m5Ptim3mOtKX_62PS7QxH-CcJzZ1Nwyv/view?usp=sharing)(for Mac), [VirtualMIDISynth](https://drive.google.com/file/d/1pFt0gkHuKLSyVQh0WX6rIIP5aeoa3IL4/view?usp=sharing)(for Windows)
+- MIDI In Synthesizer : [Chirp](http://tanageraudioworks.com/chirp.php?1)(for Mac and Windows)
 
 #### 수업 시간 및 장소
 - 시간 : 목 13:00~17:00 
