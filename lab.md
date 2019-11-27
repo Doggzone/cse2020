@@ -5,8 +5,7 @@ title: 실습
 
 ## Lab#10
 
-#### 9장에서 공부한 Drum Machine을 이벤트를 활용하여 똑같이 작동하도록 재작성해보자. 
-
+#### SimpleSynth-1.1(for Mac), VirtualMIDISynth(for Windows) 중 하나흫 설치하고, 이 가상 MIDI 신세사이저로 `Listing11.1Twinkle.ck`파일을 실행해보자.
 
 ## Lab#9
 
