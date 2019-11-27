@@ -40,7 +40,7 @@
 |  9  | 11월7일 | 멀티 스레딩과 동시계산 | - | [notes8](https://drive.google.com/file/d/1H5F1EG2VHSj77s0ehX41NiyEha9RPa0i/view?usp=sharing) | 작품모음6 |
 |  10 | 11월14일 | 객체와 클래스 | - | [notes9](https://drive.google.com/file/d/1DcZNs7V_u5ymwLgzhEZq7TgL_dkAXSjQ/view?usp=sharing) | 작품모음7 |
 |  11 | 11월21일 | 이벤트를 활용한 인터쉬레드 통신 | - | [notes10](https://drive.google.com/file/d/1gG3Mo-etcVq9bhuwOmTMncIeqDKBy9fk/view?usp=sharing) | |
-|  12 | 11월28일 | MIDI, OSC 등의 외부기기와 통합 | -  | | |
+|  12 | 11월28일 | MIDI, OSC 등의 외부기기와 통합 | -  | [notes11](https://drive.google.com/file/d/1KI1nxgeaQCwtxCw9zug1A5KKG33tUgY1/view?usp=sharing) | |
 |  13 | 12월5일 | 프로젝트 기획 및 개발 | 시험#2 | | |
 |  14 | 12월12일 | 프로젝트 리허설 | - | | |
 |  15 | 12월19일 | 프로젝트 발표 | - | | |
