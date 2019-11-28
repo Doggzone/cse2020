@@ -18,8 +18,7 @@
 - Michael Hewitt, Music Theory for Computer Musicians, Course Technology, 2008.
 
 #### 소프트웨어
-- MIDI Out Synthesizer : [SimpleSynth-1.1](https://drive.google.com/file/d/1m5Ptim3mOtKX_62PS7QxH-CcJzZ1Nwyv/view?usp=sharing)(for Mac), [VirtualMIDISynth](https://drive.google.com/file/d/1pFt0gkHuKLSyVQh0WX6rIIP5aeoa3IL4/view?usp=sharing)(for Windows)
-- MIDI In Synthesizer : [Chirp](http://tanageraudioworks.com/chirp.php?1)(for Mac and Windows)
+- [VIRTUAL MIDI PIANO KEYBOARD](http://vmpk.sourceforge.net/) : VMPK is a MIDI-event generator and receiver
 
 #### 참조
 - [Stanford Laptop Orchestra](http://slork.stanford.edu/)
