@@ -23,6 +23,7 @@
 
 #### 참조
 - [Stanford Laptop Orchestra](http://slork.stanford.edu/)
+- [Samsara: The KarmetiK Machine Orchestra](https://www.facebook.com/karmetik/videos/10153588268247091/)
 
 #### 수업 시간 및 장소
 - 시간 : 목 13:00~17:00 
