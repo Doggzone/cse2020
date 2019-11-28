@@ -6,6 +6,10 @@ title: 숙제
 #### 사운드 파일 만드는 방법
 - [How to export ChucK programs to M4A audio files](https://drive.google.com/file/d/10iSfsImAsepDx5R_78rQ4kKglKhZgYk8/view?usp=sharing)
 
+## Homework#8 (점수 없음)
+
+1. 자신의 컴퓨터에 맞는 Virtual MIDI Synthesizer를 하나 골라 설치한 다음, Listing 11.1을 실행하여 확인해보자.
+
 ## Homework#8
 
 Lab#10에서 작업한 Drum Machine을 이벤트 구동 방식으로 완성해보자. 교재 9장의 Drum Machine과 동일하게 작동해야 한다. 
