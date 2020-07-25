@@ -36,21 +36,21 @@
 
 | 주 | 일 | 내용                                     | 비고   | 자료                                                                                          | 숙제 |
 |:--:|:--:|:----------------------------------------:|:------:|:---------------------------------------------------------------------------------------------:|:----:|
-| 1  |    |               오리엔테이션               |   \-   | [notes0](https://drive.google.com/file/d/1D3iad52W4JVhNyx4Mq1dJgcn_zzKJ43-/view?usp=sharing)  |      |
-| 2  |    | 기본 : 소리, 음파, ChucK 프로그래밍 기본 |   \-   | [notes1](https://drive.google.com/file/d/1D30xAwXdKHxRP8aJfIx5zzMM0-rbnemh/view?usp=sharing)  |      |
-| 3  |    |          ChucK 라이브러리 도구           |   \-   | [notes2](https://drive.google.com/file/d/1RYjOnLYOyjBcTN5aoOhnQMFotaDU-xo2/view?usp=sharing)  |      |
-| 4  |    |      배열 : 작곡 데이터 정리와 접근      |   \-   | [notes3](https://drive.google.com/file/d/1RiRPwouV9YrCoaZTwQT-0srWrEWIxdFU/view?usp=sharing)  |      |
-| 5  |    |          소리 파일과 소리 조작           |   \-   | [notes4](https://drive.google.com/file/d/1PLj5RkghvPmZ_vV9JR3VbmGToHrj4zJ1/view?usp=sharing)  |      |
-| 6  |    |              자가 함수 제작              |   \-   | [notes5](https://drive.google.com/file/d/1-2Wm17impsLzfA2c-WZGAuhwID4R1yQ1/view?usp=sharing)  |      |
-| 7  |    | 유닛 제너레이터를 통한 소리 합성 및 처리 | 시험#1 | [notes6](https://drive.google.com/file/d/1-uMk-PfVLfhMKErEpw8Tb5vu_i2731TG/view?usp=sharing)  |      |
-| 8  |    |             소리 합성 툴 킷              |   \-   | [notes7](https://drive.google.com/file/d/1-vB-2tq6fFJS_tQAJikzLOR7InDZoF6O/view?usp=sharing)  |      |
-| 9  |    |          멀티 스레딩과 동시계산          |   \-   | [notes8](https://drive.google.com/file/d/1H5F1EG2VHSj77s0ehX41NiyEha9RPa0i/view?usp=sharing)  |      |
-| 10 |    |              객체와 클래스               |   \-   | [notes9](https://drive.google.com/file/d/1DcZNs7V_u5ymwLgzhEZq7TgL_dkAXSjQ/view?usp=sharing)  |      |
-| 11 |    |     이벤트를 활용한 인터쉬레드 통신      |   \-   | [notes10](https://drive.google.com/file/d/1gG3Mo-etcVq9bhuwOmTMncIeqDKBy9fk/view?usp=sharing) |      |
-| 12 |    |      MIDI, OSC 등의 외부기기와 통합      |   \-   | [notes11](https://drive.google.com/file/d/1KI1nxgeaQCwtxCw9zug1A5KKG33tUgY1/view?usp=sharing) |      |
-| 13 |    |          프로젝트 기획 및 개발           | 시험#2 |                                                                                               |      |
-| 14 |    |             프로젝트 리허설              |   \-   |                                                                                               |      |
-| 15 |    |              프로젝트 발표               |   \-   |                                                                                               |      |
+| 1  |  9/3  |               음악 프로그래밍 소개   |   \-   | [notes0](https://drive.google.com/file/d/1D3iad52W4JVhNyx4Mq1dJgcn_zzKJ43-/view?usp=sharing)  |      |
+| 2  |  9/7,10  | 기본 : 소리, 음파, ChucK 프로그래밍 |   \-   | [notes1](https://drive.google.com/file/d/1D30xAwXdKHxRP8aJfIx5zzMM0-rbnemh/view?usp=sharing)  |      |
+| 3  | 9/14,17   |          ChucK 라이브러리 도구           |   \-   | [notes2](https://drive.google.com/file/d/1RYjOnLYOyjBcTN5aoOhnQMFotaDU-xo2/view?usp=sharing)  |      |
+| 4  | 9/21,24   |      배열 : 작곡 데이터 정리와 접근      |   \-   | [notes3](https://drive.google.com/file/d/1RiRPwouV9YrCoaZTwQT-0srWrEWIxdFU/view?usp=sharing)  |      |
+| 5  | 9/28, 10/5   |          소리 파일과 소리 조작           |   \-   | [notes4](https://drive.google.com/file/d/1PLj5RkghvPmZ_vV9JR3VbmGToHrj4zJ1/view?usp=sharing)  |      |
+| 6  | 10/8,12   |              자가 함수 제작              |   \-   | [notes5](https://drive.google.com/file/d/1-2Wm17impsLzfA2c-WZGAuhwID4R1yQ1/view?usp=sharing)  |      |
+| 7  | 10/15,19   | 유닛 제너레이터를 통한 소리 합성 및 처리 | 시험#1 | [notes6](https://drive.google.com/file/d/1-uMk-PfVLfhMKErEpw8Tb5vu_i2731TG/view?usp=sharing)  |      |
+| 8  | 10/22,26   |             소리 합성 툴 킷              |   \-   | [notes7](https://drive.google.com/file/d/1-vB-2tq6fFJS_tQAJikzLOR7InDZoF6O/view?usp=sharing)  |      |
+| 9  | 10/29, 11/2   |          멀티 스레딩과 동시계산          |   \-   | [notes8](https://drive.google.com/file/d/1H5F1EG2VHSj77s0ehX41NiyEha9RPa0i/view?usp=sharing)  |      |
+| 10 | 11/5,9   |              객체와 클래스               |   \-   | [notes9](https://drive.google.com/file/d/1DcZNs7V_u5ymwLgzhEZq7TgL_dkAXSjQ/view?usp=sharing)  |      |
+| 11 | 11/12,16   |     이벤트를 활용한 인터쉬레드 통신      |   \-   | [notes10](https://drive.google.com/file/d/1gG3Mo-etcVq9bhuwOmTMncIeqDKBy9fk/view?usp=sharing) |      |
+| 12 | 11/19,23   |      MIDI, OSC 등의 외부기기와 통합      |   \-   | [notes11](https://drive.google.com/file/d/1KI1nxgeaQCwtxCw9zug1A5KKG33tUgY1/view?usp=sharing) |      |
+| 13 | 11/26,30   |          프로젝트 기획 및 개발           | 시험#2 |                                                                                               |      |
+| 14 | 12/3,7   |             프로젝트 발표 리허설              |   \-   |                                                                                               |      |
+| 15 | 12/10,14   |              프로젝트 발표               |   \-   |                                                                                               |      
 
 ### 평가
 
