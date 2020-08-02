@@ -47,9 +47,9 @@
 | 9  | 10/29, 11/2   |          멀티 스레딩과 동시계산          |   \-   | [notes8](https://drive.google.com/file/d/1H5F1EG2VHSj77s0ehX41NiyEha9RPa0i/view?usp=sharing)  |      |
 | 10 | 11/5,9   |              객체와 클래스               |   \-   | [notes9](https://drive.google.com/file/d/1DcZNs7V_u5ymwLgzhEZq7TgL_dkAXSjQ/view?usp=sharing)  |      |
 | 11 | 11/12,16   |     이벤트를 활용한 인터쉬레드 통신      |   \-   | [notes10](https://drive.google.com/file/d/1gG3Mo-etcVq9bhuwOmTMncIeqDKBy9fk/view?usp=sharing) |      |
-| 12 | 11/19,23   |      MIDI, OSC 등의 외부기기와 통합      |   \-   | [notes11](https://drive.google.com/file/d/1KI1nxgeaQCwtxCw9zug1A5KKG33tUgY1/view?usp=sharing) |      |
-| 13 | 11/26,30   |          프로젝트 기획 및 개발 (대면수업)           | 시험#2 |                                                                                               |      |
-| 14 | 12/3,7   |             프로젝트 발표 리허설 (대면수업)             |   \-   |                                                                                               |      |
+| 12 | 11/19,23   |      MIDI, OSC 등의 외부기기와 통합      |   시험#2    | [notes11](https://drive.google.com/file/d/1KI1nxgeaQCwtxCw9zug1A5KKG33tUgY1/view?usp=sharing) |      |
+| 13 | 11/26,30   |          프로젝트 기획 및 개발 (대면수업)           | \-  |                                                                                               |      |
+| 14 | 12/3,7   |             프로젝트 발표 리허설 (대면수업)             |      |                                                                                               |      |
 | 15 | 12/10,14   |              프로젝트 발표 (대면수업)              |   \-   |                                                                                               |      
 
 ### 평가
