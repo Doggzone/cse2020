@@ -1,3 +1,8 @@
+---
+layout: page
+title: English
+---
+
 Division of Computer Science, Hanyang University ERICA (Fall, 2020)
 
 ![COMPUTSERICA](https://i.imgur.com/3A8uLLH.png)
