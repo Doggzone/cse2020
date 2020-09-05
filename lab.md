@@ -19,13 +19,13 @@ title: 실습
 
 주파수 표를 참고하여 다음 `학교종` 곡을 연주하는 프로그램을 작성하자.
 
-![학교종](https://i.imgur.com/FcCZKh0.png)
+![School Bells](https://i.imgur.com/y7zaem9.png)
+
+![Frequency Table](https://i.imgur.com/9yx6sau.png)
 
 ![Cmajor](https://i.imgur.com/hFYouk4.png)
 
 ![piano](https://i.imgur.com/wQ5z43X.png)
-
-![Frequency Table](https://i.imgur.com/9yx6sau.png)
 
 -	먼저 진동기를 선택하여 `dac`에 연결하자. `SinOsc`를 선택하였다면 다음과 같이 연결한다.
 
