@@ -1,21 +1,20 @@
 ---
-
 layout: page
 
 title: 실습
 ---
 
-##Lab#1
+## Lab#1
 
 
-#### 1. 나의 첫 ChucK 프로그램
+### 1. 나의 첫 ChucK 프로그램
 
 -	`SinOsc` 발진기(oscillator)로 아래 나열한 주파수(frequency, pitch)와 소리크기(loudness, gain, volume)를 바꾸어 가며 소리의 차이를 들어보자.
 	-	주파수: 220, 330, 440, 660Hz
 	-	소리크기: 0.25, 0.5, 0.75, 1.0
 -	이번엔 발진기를 `TriOsc`, `SqrOsc`, `SawOsc`로 각각 바꾸어 소리의 차이를 들어보자.
 
-#### 2. 학교종
+### 2. 학교종
 
 주파수 표를 참고하여 다음 `학교종` 곡을 연주하는 프로그램을 작성하자.
 
@@ -56,8 +55,12 @@ beat => now;
 ```
 
 -	한 음씩 코드를 만들 다음, 실행 버튼을 눌러 수시로 제대로 박자에 맞게 소리가 나는지 확인한다.
--	완성하면 `schoolbells.ck` 이름으로 파일로 저장하여, 파일을 제출한다.
+-	완성하면 `schoolbells.ck` 이름으로 파일로 저장해둔다. 제출할 필요는 없다.
 
-#### 3. Where Is Thumbkin?
+### 3. Where Is Thumbkin?
 
-주파수 표를 참고하여 다음 곡을 연주하는 프로그램을 작성하자. ![WhereIsThumbkin](https://i.imgur.com/XkKuqjm.png)
+주파수 표를 참고하여 다음 곡을 연주하는 프로그램을 작성하자. 
+
+![WhereIsThumbkin](https://i.imgur.com/XkKuqjm.png)
+
+완성하면 `thumbkin.ck` 이름으로 파일로 저장하고, 파일을 제출한다.
