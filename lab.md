@@ -25,6 +25,8 @@ title: 실습
 
 ![piano](https://i.imgur.com/wQ5z43X.png)
 
+![Frequency Table](https://i.imgur.com/9yx6sau.png)
+
 -	먼저 진동기를 선택하여 `dac`에 연결하자. `SinOsc`를 선택하였다면 다음과 같이 연결한다.
 
 ```
