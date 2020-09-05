@@ -11,7 +11,7 @@ title: 숙제
 
 ### Homework#1
 
-Lab#3 코드를 확장하여 다음 트리오 곡을 연주하는 프로그램을 작성하자.
+Lab#1-3 코드를 확장하여 다음 트리오 곡을 연주하는 프로그램을 작성하자.
 
 ![Where Is Thumbkin 2](https://i.imgur.com/ajiw85k.png)
 
