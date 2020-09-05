@@ -5,7 +5,7 @@ layout: page
 title: 실습
 ---
 
-##Lab#1
+## Lab#1
 
 
 #### 1. 나의 첫 ChucK 프로그램
