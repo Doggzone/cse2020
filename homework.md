@@ -8,7 +8,6 @@ title: 숙제
 
 - [How to export ChucK programs to M4A audio files](https://drive.google.com/file/d/10iSfsImAsepDx5R_78rQ4kKglKhZgYk8/view?usp=sharing)
 
-
 ### Homework#1
 
 Lab#1-3 코드를 확장하여 다음 트리오 곡을 연주하는 프로그램을 작성하자.
