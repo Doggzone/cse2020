@@ -38,7 +38,7 @@
 |:--:|:--:|:----------------------------------------:|:------:|:---------------------------------------------------------------------------------------------:|:----:|
 | 1  |  9/3  |               음악 프로그래밍 소개   |   \-   | [notes0](https://drive.google.com/file/d/18ZijyrpzVGpweK32KkZU9HtcPD-fGdl0/view?usp=sharing)  |      |
 | 2  |  9/7,10  | 기본 : 소리, 음파, ChucK 프로그래밍 |   \-   | [notes1](https://drive.google.com/file/d/1VuLMAKRv0eQyQLd2loQ0-47OZ-2DvqR8/view?usp=sharing)  |      |
-| 3  | 9/14,17   |          ChucK 라이브러리 도구           |   \-   | notes2  |      |
+| 3  | 9/14,17   |          ChucK 라이브러리 도구           |   \-   | [notes2](https://drive.google.com/file/d/1g5FuRtG0_D9ntCgu8R6zQGSnvIyEswAe/view?usp=sharing)  |      |
 | 4  | 9/21,24   |      배열 : 작곡 데이터 정리와 접근      |   \-   | notes3  |      |
 | 5  | 9/28, 10/5   |          소리 파일과 소리 조작           |   \-   | notes4  |      |
 | 6  | 10/8,12   |              자가 함수 제작              |   \-   | notes5  |      |
