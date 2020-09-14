@@ -4,6 +4,90 @@ layout: page
 title: 실습
 ---
 
+## Lab#2
+
+### 1. 반음계 연주 (소요 예상시간: 25분, 제출할 필요 없음)
+
+![chromaticscale](https://i.imgur.com/oAMq9Jq.png)
+
+반음계(chromatic scale)를 위 악보와 같이 연주하는 프로그램을 다음과 같이 작성할 수 있다.
+
+```
+SqrOsc scale => dac;
+
+// note length
+0.3::second => dur quarter_note;
+quarter_note => dur qn; // quarter note (1/4)
+quarter_note * 2 => dur hn; // half note (1/2)
+
+// volume
+0.5 => scale.gain;
+
+// play
+for (48 => int i; i <= 60; i++) {
+    Std.mtof(i) => scale.freq;
+    if (i == 60)
+        hn => now;
+    else
+        qn => now;
+}
+for (60 => int i; i >= 48; i--) {
+    Std.mtof(i) => scale.freq;
+    if (i == 48)
+        hn => now;
+    else
+        qn => now;
+}
+```
+
+이 프로그램을 실행하여 소리를 들어보자. 
+음과 음 사이에 간격이 전혀 없어 같은 음이 연속으로 나는 경우 이어져 들린다. 
+음의 뒷 부분의 일부(4분음표 길이의 1/6)를 소리를 나지 않게 하여, 
+이어지는 음 사이 끊어서 들리도록 다음 코드를 활용하여 위 프로그램을 수정해보자.
+
+```
+// note length
+0.3::second => dur quarter_note;
+quarter_note * (5.0/6) => dur qn; // quarter note sound (1/4)*(5/6)
+quarter_note / 6 => dur qn_rest; // quarter note no sound (1/4)*(1/6)
+qn * 2 => dur hn; // half note sound 
+qn_rest * 2 => dur hn_rest; // half note no sound
+
+// volume
+0.5 => float on;
+0.0 => float off;
+```
+
+주의: `5/6`과 `5.0/6`의 차이점을 확인하고 넘어가자.
+
+
+### 2. A Random Love Supreme (소요 예상시간: 75분, 제출할 필요 없음)
+
+1. 아래 악보를 `SinOsc`로 무한 반복하여 연주하는 프로그램을 만들자. 
+첫 음은 A3로 MIDI 번호로 57이다.
+각 음을 소리내는 요령은 앞 문제와 동일하게 한다. (음당 소리의 on:off 비율이 5:1) 
+
+![97878](https://i.imgur.com/MAGrxzH.jpg)
+
+2. 마디를 반복할 때마다 각 음을 MIDI 번호 기준 `-12 ~ +12` 범위에서 랜덤하게
+높이거나 낮추어서 연주하도록 프로그램을 수정하자.
+
+3. `Pan2` 객체를 활용하여 마디를 반복할 때마다 랜덤하게 소리가 나는 위치가 변하도록
+프로그램을 수정하자.
+
+4. 두엣으로 화음에 맞추어 연주하기 위하여 다음 악보와 같이 하단을 추가하였다.
+악보 하단을 `TriOsc`로 악보 상단과 함께 두엣으로 연주하도록 프로그램을 확장하자.
+하단 음은 D3이다.
+
+![73192](https://i.imgur.com/oJbjS86.jpg)
+
+5. 악보 하단을 1/8의 확률로 랜덤하게 선택하여 연주하도록 프로그램을 수정하자.
+다시 말하면, 악보 상단은 쉬지않고 되풀이 하지만, 악보 하단은 8번에 1번 정도만 연주하게 한다.
+
+
+
+
+
 ## Lab#1
 
 
