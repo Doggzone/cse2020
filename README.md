@@ -30,7 +30,7 @@
 ### 수업 시간 및 장소
 
 -	시간 : 월 11:00-13:00, 목 11:00-13:00
--	장소 : 비대면 실시간 온라인 강의 및 실습 (13-15주차 프로젝트 대면 수업 예정 - 상황에 따라 비대면 전환 가능) 
+-	장소 : Blackboard - 비대면 실시간 온라인 강의 및 실습 (13-15주차 프로젝트 대면 수업 예정 - 상황에 따라 비대면 전환 가능) 
 
 ### 수업 일정
 
@@ -39,7 +39,7 @@
 | 1  |  9/3  |               음악 프로그래밍 소개   |   \-   | [notes0](https://drive.google.com/file/d/18ZijyrpzVGpweK32KkZU9HtcPD-fGdl0/view?usp=sharing)  |      |
 | 2  |  9/7,10  | 기본 : 소리, 음파, ChucK 프로그래밍 |   \-   | [notes1](https://drive.google.com/file/d/1VuLMAKRv0eQyQLd2loQ0-47OZ-2DvqR8/view?usp=sharing)  |      |
 | 3  | 9/14,17   |          ChucK 라이브러리 도구           |   \-   | [notes2](https://drive.google.com/file/d/1g5FuRtG0_D9ntCgu8R6zQGSnvIyEswAe/view?usp=sharing)  |      |
-| 4  | 9/21,24   |      배열 : 작곡 데이터 정리와 접근      |   \-   | notes3  |      |
+| 4  | 9/21,24   |      배열 : 작곡 데이터 정리와 접근      |   \-   | [notes3](https://drive.google.com/file/d/1Mqdz03ATHZ5D_uUm4gSvwP01Yrdo_LiL/view?usp=sharing)  |      |
 | 5  | 9/28, 10/5   |          소리 파일과 소리 조작           |   \-   | notes4  |      |
 | 6  | 10/8,12   |              자가 함수 제작              |   \-   | notes5  |      |
 | 7  | 10/15,19   | 유닛 제너레이터를 통한 소리 합성 및 처리 | 시험#1 | notes6  |      |
