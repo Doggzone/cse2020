@@ -4,6 +4,109 @@ layout: page
 title: 실습
 ---
 
+## Lab#3
+
+![MusicalNotes](https://i.imgur.com/wBRfkeW.png) 
+![RegularNotes](https://i.imgur.com/IAUOPIY.png) 
+![DottedNotes](https://i.imgur.com/gTJM0Ir.png)
+
+### 1. C major Scale
+
+![Cmajorscale](![CmajorScale](https://i.imgur.com/8lPX0lP.png))
+
+MIDI 음번호와 배열을 사용하여 C major Scale을 
+위 악보와 같이 연주하는 ChucK 프로그램을 아래와 같이 작성하였다.
+코드를 이해한 다음 실행해보자.
+
+```
+SinOsc s => dac;
+
+// volume
+0.6 => float on;
+0.0 => float off;
+
+// note length
+0.5::second => dur beat; // quarter (1/4) note duration
+beat / 5 => dur rest; // duration of no sound after each note
+beat - rest => dur qn; // quarter (1/4) note sound
+
+// MIDI notes
+[60, 62, 64, 65, 67, 69, 71, 72, 
+     71, 69, 67, 65, 64, 62, 60] @=> int scaleNotes[];
+
+// play
+for (0 => int i; i < scaleNotes.cap(); i++) {
+    Std.mtof(scaleNotes[i]) => s.freq;
+    on => s.gain;
+    qn => now;
+    off => s.gain;
+    rest => now;
+}
+```
+
+### 2. 학교종
+
+다음 곡을 악보대로 연주하는 프로그램을 MIDI와 배열을 사용하여 작성하자.
+
+![SchoolBells](https://i.imgur.com/4maIvOY.png)
+
+### 3. Where Is Thumbkin?
+
+다음 곡을 악보대로 연주하는 프로그램을 MIDI와 배열을 사용하여 작성하자.
+
+![Where Is Thumbkin?](https://i.imgur.com/qFoAyA5.png)
+
+
+### 4. Theme from Beverly Hill Cops
+
+다음은 Beverly Hill Cops 영화 주제곡 도입 부분의 악보를 MIDI 계명과 음표 배열로 작성한 것이다.
+
+```
+// Harold Faltermeyer's Theme from the film Beverly Hills Cop (1984)
+[65, -1, 68, -1, 65, 65, 70, 65, 63,
+ 65, -1, 72, -1, 65, 65, 73, 72, 68,
+ 65, 72, 77, 65, 63, 63, 60, 67, 65] @=> int bhcopNotes[];
+
+[qn, qn, qn, en, qn, en, qn, qn, qn,
+ qn, qn, qn, en, qn, en, qn, qn, qn,
+ qn, qn, qn, en, qn, en, qn, qn, hn] @=> dur bhcopDurs[];
+```
+
+MIDI 음 배열의 -1은 쉼표를 나타낸다. 이 악보를 `TriOsc`로 연주하도록 프로그램을 완성해보자. 같은 음이 연속되는 경우 음이 이어지는 것을 방지하기 위할 용도로 `rest` 변수를 활용하자.
+
+### 5. For Elise
+
+다음은 베토벤의 `엘리제를 위하여`의 도입 부분의 악보이다. 
+이를 연주하는 프로그램을 MIDI와 배열을 사용하여 작성해보자.
+
+![forElise](https://i.imgur.com/Gsed2sv.png)
+
+```
+// note length
+0.3::second => dur sn; // sixteenth (1/16)
+0.6::second => dur en; // eighth (1/8)
+
+// For Elise by Beethoven
+[76, 75, 76, 75, 76, 71, 74, 72, 69] @=> int forEliseNotes1[];
+[sn, sn, sn, sn, sn, sn, sn, sn, en] @=> dur forEliseDurs1[];
+[60, 64, 69, 71] @=> int forEliseNotes2[];
+[sn, sn, sn, en] @=> dur forEliseDurs2[];
+[64, 68, 71, 72] @=> int forEliseNotes3[];
+[sn, sn, sn, en] @=> dur forEliseDurs3[];
+[64, 72, 71, 69] @=> int forEliseNotes4[];
+[sn, sn, sn, en] @=> dur forEliseDurs4[];
+```
+
+악보에 표시된 대로 두 번 반복해야 한다.
+
+그리고 악보에 연속 이어지는 음이 없으므로,
+이번엔 음의 끝 부분의 소리를 죽이지 말고 박자 전체를 소리나게 해보자.
+
+
+
+
+
+
 ## Lab#2
 
 ### 1. 반음계 연주 (소요 예상시간: 25분, 제출할 필요 없음)
