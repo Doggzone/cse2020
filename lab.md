@@ -12,7 +12,7 @@ title: 실습
 
 ### 1. C major Scale
 
-![Cmajorscale](![CmajorScale](https://i.imgur.com/8lPX0lP.png))
+![Cmajor Scale](https://i.imgur.com/8lPX0lP.png)
 
 MIDI 음번호와 배열을 사용하여 C major Scale을 
 위 악보와 같이 연주하는 ChucK 프로그램을 아래와 같이 작성하였다.
