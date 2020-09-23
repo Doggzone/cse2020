@@ -37,14 +37,14 @@
 | 주 | 일 | 내용                                     | 비고   | 자료                                                                                          | 숙제 |
 |:--:|:--:|:----------------------------------------:|:------:|:---------------------------------------------------------------------------------------------:|:----:|
 | 1  |  9/3  |               음악 프로그래밍 소개   |   \-   | [notes0](https://drive.google.com/file/d/18ZijyrpzVGpweK32KkZU9HtcPD-fGdl0/view?usp=sharing)  |      |
-| 2  |  9/7,10  | 기본 : 소리, 음파, ChucK 프로그래밍 |   \-   | [notes1](https://drive.google.com/file/d/1VuLMAKRv0eQyQLd2loQ0-47OZ-2DvqR8/view?usp=sharing)  |      |
-| 3  | 9/14,17   |          ChucK 라이브러리 도구           |   \-   | [notes2](https://drive.google.com/file/d/1g5FuRtG0_D9ntCgu8R6zQGSnvIyEswAe/view?usp=sharing)  |      |
-| 4  | 9/21,24   |      배열 : 작곡 데이터 정리와 접근      |   \-   | [notes3](https://drive.google.com/file/d/1Mqdz03ATHZ5D_uUm4gSvwP01Yrdo_LiL/view?usp=sharing)  |      |
-| 5  | 9/28, 10/5   |          소리 파일과 소리 조작           |   \-   | notes4  |      |
-| 6  | 10/8,12   |              자가 함수 제작              |   \-   | notes5  |      |
-| 7  | 10/15,19   | 유닛 제너레이터를 통한 소리 합성 및 처리 | 시험#1 | notes6  |      |
-| 8  | 10/22,26   |             소리 합성 툴 킷              |   \-   | notes7 |      |
-| 9  | 10/29, 11/2   |          멀티 스레딩과 동시계산          |   \-   | notes8  |      |
+| 2  |  9/7,10  | 기본 : 소리, 음파, ChucK 프로그래밍 |   \-   | [notes1](https://drive.google.com/file/d/1VuLMAKRv0eQyQLd2loQ0-47OZ-2DvqR8/view?usp=sharing)  | 숙제#1     |
+| 3  | 9/14,17   |          ChucK 라이브러리 도구           |   \-   | [notes2](https://drive.google.com/file/d/1g5FuRtG0_D9ntCgu8R6zQGSnvIyEswAe/view?usp=sharing)  | 숙제#2 |
+| 4  | 9/21,24   |      배열 : 작곡 데이터 정리와 접근      |   \-   | [notes3](https://drive.google.com/file/d/1Mqdz03ATHZ5D_uUm4gSvwP01Yrdo_LiL/view?usp=sharing)  | 숙제#3 |
+| 5  | 9/28, 10/5   |          소리 파일과 소리 조작           |   \-   | notes4  |  |
+| 6  | 10/8,12   |              자가 함수 제작              |   \-   | notes5  |  |
+| 7  | 10/15,19   | 유닛 제너레이터를 통한 소리 합성 및 처리 | 시험#1 | notes6  |    |
+| 8  | 10/22,26   |             소리 합성 툴 킷              |   \-   | notes7 | |
+| 9  | 10/29, 11/2   |          멀티 스레딩과 동시계산          |   \-   | notes8  |  |
 | 10 | 11/5,9   |              객체와 클래스               |   \-   | notes9  |      |
 | 11 | 11/12,16   |     이벤트를 활용한 인터쉬레드 통신      |   \-   | notes10 |      |
 | 12 | 11/19,23   |      MIDI, OSC 등의 외부기기와 통합      |   시험#2    | notes11 |      |
