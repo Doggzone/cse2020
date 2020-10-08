@@ -4,6 +4,110 @@ layout: page
 title: 실습
 ---
 
+## Lab#5
+
+### 1
+
+함수를 활용하여 Lab#4-1에서 작성한 프로그램을 개선해보자.
+
+주어진 `audio` 폴더에 있는 12개의 샘플의 소리를 차례로 모두 들어볼 수 있도록 작성한 프로그램은 같은 패턴의 코드가 12번 반복되어 코드가 길어지고 가독성이 낮다.
+
+Lab#4-1에서 작성한 코드와 똑같이 작동하도록 아래 코드의 `......` 부분을 채워서 `hearSample` 함수를 완성해보자.
+
+```
+SndBuf sample => dac;
+
+me.dir() => string path; 
+
+hearSample(sample, path + "audio/clap_01.wav"); 
+hearSample(sample, path + "audio/click_01.wav"); 
+hearSample(sample, path + "audio/click_02.wav"); 
+hearSample(sample, path + "audio/cowbell_01.wav"); 
+hearSample(sample, path + "audio/hihat_01.wav"); 
+hearSample(sample, path + "audio/hihat_04.wav"); 
+hearSample(sample, path + "audio/kick_01.wav"); 
+hearSample(sample, path + "audio/snare_01.wav"); 
+hearSample(sample, path + "audio/snare_02.wav"); 
+hearSample(sample, path + "audio/snare_03.wav"); 
+hearSample(sample, path + "audio/stereo_fx_01.wav"); 
+hearSample(sample, path + "audio/stereo_fx_03.wav"); 
+
+fun void hearSample(SndBuf sample, string where) {
+    ......
+}
+```
+
+### 2
+
+다음의 5개의 파라미터를 인수로 받아서 소리를 내는 프로시저 함수 `playNote` 함수를 작성해보자.
+- `Osc osc` : 소리 진동기
+- `int note` : MIDI 음계
+- `dur duration` :  `note` 음의 재생 시간
+- `float gain` : `note` 음의 음량 (`0.0~1.0`)
+- `dur tail` : 여러 음을 연속 재생하는 경우 연결음을 구분하기 위하여 끝 부분에서 소음하는 시간의 길이
+
+이 함수를 호출하면 `osc` 진동기로 `note` 음을 `gain`의 크기로 `duration` 길이 만큼 재생한다. 단, 음 뒷 부분의 `tail` 길이 만큼은 소음한다. 즉, 실제로 소리나는 시간은 `duration - tail` 이다.
+
+```
+fun void playNote(Osc osc, int note, dur duration, float gain, dur tail) {
+    ...
+}
+```
+
+### 3
+
+다음의 5개의 파라미터를 인수로 받아서 소리를 내는 프로시저 함수 `playNotes` 함수를 작성해보자.
+- `Osc osc` : 소리 진동기
+- `int notes[]` : MIDI 음계 배열 (`-1`은 쉼표를 나타낸다.)
+- `dur durs[]` : 음의 재생 시간 배열
+- `float gain` : 음량 (`0.0~1.0`)
+- `dur tail` : 여러 음을 연속 재생하는 경우 연결음을 구분하기 위하여 소음하는 시간의 길이
+
+이 함수를 호출하면 `osc` 진동기로 `notes` 배열에 나열된 음을 `gain`의 크기로 `duration` 배열에 나열된 길이 만큼 앞에서부터 차례로 재생한다. 단, 각 음 뒷 부분의 `tail` 길이 만큼은 소음한다.
+
+```
+fun void playNotes(Osc osc, int notes[], dur durs[], float gain, dur tail) {
+    ...
+}
+```
+
+### 4
+
+Lab#5-3에서 작성한 `playNotes` 함수를 활용하여 Lab#3-4에서 작성한 Beverly Hill Cops 영화 주제곡 프로그램을 개선해보자.
+
+
+### 5
+
+Lab#5-2에서 작성한 `playNote` 함수와 Lab#5-3에서 작성한 `playNotes` 함수를 활용하여 Lab#3-5에서 작성한 베토벤의 `엘리제를 위하여` 프로그램을 개선해보자.
+
+
+### 6
+
+Lab#4-3에서 작성한 프로그램을 다음 함수 2개를 활용하여 재작성해보자.
+
+```
+fun void playDrum(SndBuf drum, int hits[], int beat) {
+    if (hits[beat])
+        0 => drum.pos;
+}
+```
+
+
+```
+fun void leadVoice(Osc sound, int distance, float volume, int low, int high) {
+    Math.random2(0,distance-1) => int play;
+    Math.random2(low,high) => int note;
+    if (play == 0) {
+        Std.mtof(note) => sound.freq;
+        volume => sound.gain;
+    }
+    else
+        0.0 => sound.gain;
+}
+```
+
+
+
 ## Lab#4
 
 ### 1
