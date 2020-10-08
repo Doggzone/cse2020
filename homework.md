@@ -9,7 +9,7 @@ title: 숙제
 - [How to export ChucK programs to M4A audio files](https://drive.google.com/file/d/10iSfsImAsepDx5R_78rQ4kKglKhZgYk8/view?usp=sharing)
 
 
-### Homework#4 (제출 마감 9월 19일 오전 11시)
+### Homework#4 (제출 마감 10월 19일 오전 11시)
 
 이 과제는 ChucK 프로그래밍에서 음악을 창작하는데 필요한 함수를 어떻게 작성하고 활용하는지를 익히는 것을 목표로 수행한다.
 
