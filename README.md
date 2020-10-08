@@ -41,7 +41,7 @@
 | 3  | 9/14,17   |          ChucK 라이브러리 도구           |   \-   | [notes2](https://drive.google.com/file/d/1g5FuRtG0_D9ntCgu8R6zQGSnvIyEswAe/view?usp=sharing)  | 숙제#2 |
 | 4  | 9/21,24   |      배열 : 작곡 데이터 정리와 접근      |   \-   | [notes3](https://drive.google.com/file/d/1Mqdz03ATHZ5D_uUm4gSvwP01Yrdo_LiL/view?usp=sharing)  | 숙제#3 |
 | 5  | 9/28, 10/5   |          소리 파일과 소리 조작           |   \-   | [notes4](https://drive.google.com/file/d/1i8aKq6DxJ8H3HUuNMfEUGGjjsq3Zxi6J/view?usp=sharing)  | - |
-| 6  | 10/8,12   |              자가 함수 제작              |   \-   | notes5  |  |
+| 6  | 10/8,12   |              자가 함수 제작              |   \-   | [notes5](https://drive.google.com/file/d/1o6KtI5bczyuo-sd6xcYYXNl9Td-xG6W1/view?usp=sharing)  | 숙제#4 |
 | 7  | 10/15,19   | 유닛 제너레이터를 통한 소리 합성 및 처리 | 시험#1 | notes6  |    |
 | 8  | 10/22,26   |             소리 합성 툴 킷              |   \-   | notes7 | |
 | 9  | 10/29, 11/2   |          멀티 스레딩과 동시계산          |   \-   | notes8  |  |
