@@ -8,7 +8,7 @@ title: 숙제
 
 - [How to export ChucK programs to M4A audio files](https://drive.google.com/file/d/10iSfsImAsepDx5R_78rQ4kKglKhZgYk8/view?usp=sharing)
 
-## Homework#5
+### Homework#5 (제출 마감 10월 29일 오전 11시)
 
 이 과제는 ChucK 프로그래밍 언어에서 제공하는 유닛제너레이터(UGen)와 오디오 효과를 잘 활용하여 흥미있는 소리를 만들어 내는 방법을 익히는 것을 목표로 수행한다.
 
