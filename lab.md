@@ -83,11 +83,6 @@ while (true) {
 ### 3
 `SinOsc` 2개를 각각 Carrier와 Modulator로 사용하여 주파수를 변조하고 `ADSR`를 활용하여 `학교종`을 연주하는 프로그램을 재작성해보자. 
 
-### 4
-Karplus-Strong Plucked String Systehsis 알고리즘을 활용하여 `학교종`을 연주하는 프로그램을 재작성해보자.
-
-### 5
-Lab#6-4에서 작성한 `학교종`을 연주하는 프로그램에 `Chorus`와 `PitShift` 오디오 효과를 추가하여 어떤 소리가 나는지 들어보자.
 
 ## Lab#5
 
