@@ -44,7 +44,7 @@
 | 6  | 10/8,12   |              자가 함수 제작              |   \-   | [notes5](https://drive.google.com/file/d/1o6KtI5bczyuo-sd6xcYYXNl9Td-xG6W1/view?usp=sharing)  | 숙제#4 |
 | 7  | 10/15,19   | 유닛 제너레이터를 통한 소리 합성 및 처리 | 시험#1 (10/19) | [notes6](https://drive.google.com/file/d/1tXRmxxUyaCW3mZBB7IfOGUCtx-t0PWJN/view?usp=sharing)  |  -  |
 | 8  | 10/22,26   |             소리 합성 툴 킷              |   \-   | [notes7](https://drive.google.com/file/d/1LcwfpxeWURsDoJZrHvHikv0urPiSwLXZ/view?usp=sharing) | 숙제#5 |
-| 9  | 10/29, 11/2   |          멀티 스레딩과 동시계산          |   \-   | notes8  |  |
+| 9  | 10/29, 11/2   |          멀티 스레딩과 동시계산          |   \-   | [notes8](https://drive.google.com/file/d/1kUQzc5bcoedKQbsTcHngpoWfooOSvNFh/view?usp=sharing)  | 숙제#6 |
 | 10 | 11/5,9   |              객체와 클래스               |   \-   | notes9  |      |
 | 11 | 11/12,16   |     이벤트를 활용한 인터쉬레드 통신      |   \-   | notes10 |      |
 | 12 | 11/19,23   |      MIDI, OSC 등의 외부기기와 통합      |   시험#2    | notes11 |      |
