@@ -4,6 +4,171 @@ layout: page
 title: 실습
 ---
 
+## Lab#8
+
+### 1. `playNote` 함수 만들기
+
+`StkInstrument` 악기, `int` 타입의 MIDI 음, `dur` 타입의 재생시간을 인수로 받아서, 주어진 악기로 주어진 재생시간동안 주어진 음을 스피커로 출력하는 프로시저 함수 `playNote`를 작성하자.
+
+```
+fun void playNote(StkInstrument instrument, int note, dur duration)
+```
+
+### 2. `play` 함수 만들기
+
+`StkInstrument` 악기, `int` 타입의 MIDI 음 배열, `dur` 타입의 재생시간 배열을 인수로 받아서, 주어진 악기로 주어진 음 배열을 차례대로 주어진 재생시간 배열의 시간에 맞추어 스피커로 출력하는 프로시저 함수 `play`를 작성해보자. 각 음은 앞에서 작성한 `playNote` 함수를 사용해야 한다.
+
+```
+fun void play(StkInstrument instrument, int note[], dur duration[])
+```
+
+아래 코드를 테스트 케이스로 사용하여 실행해보자.
+
+```
+0.2::second => dur en; // eighth notes (1/8)
+en * 2 => dur qn; // quarter notes (1/4)
+qn * 2 => dur hn; // half notes (1/2)
+
+[
+65, 67, 69, 65,  65, 67, 69, 65,  69, 70, 72,  69, 70, 72,
+72, 74, 72, 70, 69, 65, 72, 74, 72, 70, 69, 65, 65, 60, 65, 65, 60, 65
+]
+@=> int melody[];
+
+[
+qn, qn, qn, qn,  qn, qn, qn, qn, qn, qn, hn,  qn, qn, hn,
+en, en, en, en, qn, qn, en, en, en, en, qn, qn, qn, qn, hn, qn, qn, hn
+]
+@=> dur melodyDur[];
+```
+
+
+### 3. 여러 음 동시에 내기
+
+다음 악보는 Lab#1-3과 Lab#3-3에서 작성해본 적이 있는 곡이다.
+
+![Where Is Thumbkin 2](https://i.imgur.com/ajiw85k.png)
+
+2-3개의 다른 음을 동시에 내어 화음을 이룬다. 이번엔 `spork`를 사용하여 서로 다른 3개의 `shread`가 동시에 다른 소리를 내어 화음이 나도록 아래 코드를 참고하여 프로그램을 작성해보자. 악기는 자유로이 선택하고, 위에서 작성한 `play` 함수를 활용해도 좋다.
+
+```
+0.2::second => dur en; // eighth notes (1/8)
+en * 2 => dur qn; // quarter notes (1/4)
+qn * 2 => dur hn; // half notes (1/2)
+
+[
+65, 67, 69, 65,  65, 67, 69, 65,  69, 70, 72,  69, 70, 72,
+72, 74, 72, 70, 69, 65, 72, 74, 72, 70, 69, 65, 65, 60, 65, 65, 60, 65
+]
+@=> int melody[];
+
+[
+65, 67, 69, 65,  65, 67, 69, 65,  69, 70, 72,  69, 70, 72, 
+72, 74, 72, 70, 69, 65, 72, 74, 72, 70, 69, 65, 69, 64, 69, 69, 64, 69
+]
+@=> int high[];
+
+[
+qn, qn, qn, qn,  qn, qn, qn, qn, qn, qn, hn,  qn, qn, hn,
+en, en, en, en, qn, qn, en, en, en, en, qn, qn, qn, qn, hn, qn, qn, hn
+]
+@=> dur melodyDur[];
+
+[
+53, 60, 53,  53, 60, 53,  53, 60, 53,  53, 60, 53,
+53, 60, 53,  53, 60, 53,  53, 60, 53,  53, 60, 53
+]
+@=> int low[];
+
+[
+qn, qn, hn,  qn, qn, hn,  qn, qn, hn,  qn, qn, hn,
+qn, qn, hn,  qn, qn, hn,  qn, qn, hn,  qn, qn, hn
+]
+@=> dur lowDur[];
+
+```
+
+### 4. 돌림노래
+
+이번엔 다음 곡을 돌림노래로 연주해보자. 
+
+![Row-Row-Row-Your-Boat](https://i.imgur.com/rvB5d4E.png)
+
+4개의 개별 개체를 만들어 차례로 2 마디씩 늦게 연주를 시작하도록 하면 돌림노래가 완성된다. 악기는 자유로이 선택하고, 아래 코드와 위에서 작성한 `play` 함수를 활용해도 좋다.
+
+```
+// 6/8 박자
+0.2::second => dur sn; // sixth note (1/6)
+sn * 2 => dur tn; // third note (1/3)
+sn * 3 => dur hn; // half note (1/2)
+sn * 6 => dur wn; // whole note (1)
+
+[
+60, 60, 60, 62, 64,
+64, 62, 64, 65, 67,
+72, 72, 72, 67, 67, 67, 64, 64, 64, 60, 60, 60,
+67, 65, 64, 62, 60
+]
+@=> int melody[];
+
+[
+hn, hn, tn, sn, hn, 
+tn, sn, tn, sn, wn,
+sn, sn, sn, sn, sn, sn, sn, sn, sn, sn, sn, sn,
+tn, sn, tn, sn, wn
+]
+@=> dur melodyDur[];
+
+```
+
+### 5. Bach의 Crab Canon
+
+[Bach’s Crab Canon](https://www.youtube.com/watch?v=xUHQ2ybTejU)
+
+바하의 The Musical Offering에 포함되어 있는 Crab Canon은 음악적 팰린드롬이다. 그냥 순서대로 또는 거꾸로 한방향으로 연주해도 되고, 순서대로와 거꾸로를 동시에 양방향으로 연주해도 된다.
+
+![CrabCanon](https://i.imgur.com/XBUxfWQ.png)
+
+이 곡을 두개의 다른 악기를 사용하여 정방향과 역방향으로 동시에 연주하는 프로그램을 아래 MIDI 악보 코드를 활용하여 만들어보자. 힌트: 악보를 거꾸로 연주하는 함수를 따로 작성하여 사용하면 편리하다.
+
+```
+0.2::second => dur en; // eighth note (1/8)
+en * 2 => dur qn; // quarter note (1/4)
+en * 4 => dur hn; // half note (1/2)
+
+// Bach Canon Score
+[
+60, 63, 67, 68, 59, -1, 
+67, 66, 65, 64, 63, 62, 61, 60,
+59, 55, 62, 65, 63, 62, 60, 63,
+67, 65, 67, 72, 67, 63, 62, 63, 65, 67, 69, 71, 
+72, 63, 65, 67, 68, 62, 63, 65, 67, 65, 63, 62,
+63, 65, 67, 68, 70, 68, 67, 65, 67, 68, 70, 72,
+73, 70, 68, 67, 69, 71, 72, 74, 75, 72, 71, 69, 
+71, 72, 74, 75, 77, 74, 67, 74, 72, 74, 75, 77,
+75, 74, 72, 71, 72, 67, 63, 60
+]
+@=> int notes[];
+
+[
+hn, hn, hn, hn, hn, qn, 
+hn, hn, hn, hn, hn, qn, qn, qn,
+qn, qn, qn, qn, hn, hn, hn, hn,
+en, en, en, en, en, en, en, en, en, en, en, en,
+en, en, en, en, en, en, en, en, en, en, en, en,
+en, en, en, en, en, en, en, en, en, en, en, en,
+en, en, en, en, en, en, en, en, en, en, en, en,
+en, en, en, en, en, en, en, en, en, en, en, en, 
+en, en, en, en, qn, qn, qn, qn
+]
+@=> dur durs[];
+
+```
+
+
+
+
+
 ## Lab#7
 
 ### 1
