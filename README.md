@@ -46,8 +46,8 @@
 | 8  | 10/22,26   |             소리 합성 툴 킷              |   \-   | [notes7](https://drive.google.com/file/d/1LcwfpxeWURsDoJZrHvHikv0urPiSwLXZ/view?usp=sharing) | 숙제#5 |
 | 9  | 10/29, 11/2   |          멀티 스레딩과 동시계산          |   \-   | [notes8](https://drive.google.com/file/d/1kUQzc5bcoedKQbsTcHngpoWfooOSvNFh/view?usp=sharing)  | 숙제#6 |
 | 10 | 11/5,9   |              객체와 클래스               |   \-   | [notes9](https://drive.google.com/file/d/1pUslWr-wbAvOPF52EJrsEet3Kchj2L_b/view?usp=sharing)  |  \-  |
-| 11 | 11/12,16   |     객체와 클래스, 이벤트를 활용한 인터쉬레드 통신      |   \-   | notes10 |      |
-| 12 | 11/19,23   |      MIDI, OSC 등의 외부기기와 통합      |   시험#2    | notes11 |      |
+| 11 | 11/12,16   |     객체와 클래스, 이벤트를 활용한 인터쉬레드 통신      |   \-   | [notes10](https://drive.google.com/file/d/1phK6l7DPtdfbvsz2XKcKG0_I5byCklMB/view?usp=sharing) |      |
+| 12 | 11/19,23   |      MIDI, OSC 등의 외부기기와 통합      |   시험#2    | [notes11](https://drive.google.com/file/d/1piYf90jLg-avU3UWtJMCtXDeL4Y5W-cp/view?usp=sharing) |      |
 | 13 | 11/26,30   |          프로젝트 기획 및 개발            | \-  |                                                                                               |      |
 | 14 | 12/3,7   |             프로젝트 발표 리허설            |   \-   |                                                                                               |      |
 | 15 | 12/10,14   |              프로젝트 발표            |   \-   |                                                                                               |      
