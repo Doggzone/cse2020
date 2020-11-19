@@ -8,6 +8,11 @@ title: 숙제
 
 - [How to export ChucK programs to M4A audio files](https://drive.google.com/file/d/10iSfsImAsepDx5R_78rQ4kKglKhZgYk8/view?usp=sharing)
 
+## Homework#8 (제출 마감 11월 26일 오전 11시)
+
+실습#10-2를 완성하여 제출한다.
+
+
 ## Homework#7 (제출 마감 11월 19일 오전 11시)
 
 이 과제는 클래스와 객체를 효과적으로 잘 활용하여 동시 프로그램을 작성하는 방법을 익히는 것을 목표로 수행한다.
