@@ -4,6 +4,13 @@ layout: page
 title: 작품
 ---
 
+
+2019년 수강생 팀프로젝트 작품 모음
+-----------------------
+
+[COMPUTSERICA Recital 2020 Video](https://youtu.be/Z_QCXaJ7Z0E)
+
+
 2019년 수강생 작품 모음
 -----------------------
 
