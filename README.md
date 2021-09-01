@@ -2,8 +2,6 @@
 
 ![COMPUTSERICA](https://i.imgur.com/3A8uLLH.png)
 
-[COMPUTSERICA Recital 2020 Video](https://youtu.be/Z_QCXaJ7Z0E)
-
 소리 합성과 음악 연주에 특화된 프로그래밍 언어인 ChucK을 사용하여, 음악을 연주하는 소프트웨어를 창작하는데 필요한 프로그램 논리와 기술을 배우고, 다양한 음악 창작 프로그래밍 실습과 작품발표 콘서트를 통하여 컴퓨터음악을 창작할 수 있는 기본기를 닦는다.
 
 ### 수업목표
@@ -26,6 +24,7 @@
 
 ### 참조
 
+-   [COMPUTSERICA Recital 2020 Video](https://youtu.be/Z_QCXaJ7Z0E)
 -	[Stanford Laptop Orchestra](http://slork.stanford.edu/)
 -	[Samsara: The KarmetiK Machine Orchestra](https://www.facebook.com/karmetik/videos/10153588268247091/)
 
