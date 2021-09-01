@@ -16,12 +16,12 @@
 ### 교재
 
 -	Ajay Kapur, Perry Cook, Spencer Salazar, and Ge Wang, [Programming for Musicians and Digital Artists - Creating Music with ChucK](https://www.manning.com/books/programming-for-musicians-and-digital-artists), Manning Publications Co., 2015.
--	[Lecture Videos](https://www.kadenze.com/courses/introduction-to-programming-for-musicians-and-digital-artists/info)
--	[ChucK : Strongly-timed, Concurrent, and On-the-fly Music Programming Language](https://chuck.cs.princeton.edu/)
+-	[저자 강의 비디오](https://www.kadenze.com/courses/introduction-to-programming-for-musicians-and-digital-artists/info)
 -	Michael Hewitt, Music Theory for Computer Musicians, Course Technology, 2008.
 
 ### 소프트웨어
 
+-	[ChucK : Strongly-timed, Concurrent, and On-the-fly Music Programming Language](https://chuck.cs.princeton.edu/)
 -	[VIRTUAL MIDI PIANO KEYBOARD](http://vmpk.sourceforge.net/) : VMPK is a MIDI-event generator and receiver
 
 ### 참조
@@ -32,7 +32,7 @@
 ### 수업 시간 및 장소
 
 -	강의 : 목 10:00-12:00, 실시간 온라인 
--	실습 : 화 09:00-11:00, 1공학관 304호, 305호, 개인 노트북 지참 필수
+-	실습 : 화 09:00-11:00, 실시간 온라인, 개인 노트북 지참 필수
 
 ### 수업 일정
 
@@ -59,11 +59,11 @@
 
 | 항목 | 비율 | 세부 내용 |
 |:---:|:---:|:---:|
-| 출석 | 12% | 무단 결석 -1%, 지각 -0.5% |
-| 실습 | 18% | 2% x 9 |
+| 강의 | 10% | 무단 결석 -1%, 지각 -0.5% |
+| 실습 | 10% | 무단 결석 -1%, 지각 -0.5% |
 | 숙제 | 20% | 2% x 10 |
 | 팀프로젝트 | 10% | 기획 3% + 리허설 2% + 발표 5% |
-| 시험 1 & 2 | 40% | 20% x 2 |
+| 시험 1 & 2 | 50% | 25% x 2 |
 | 합계 | 100% |  |
 
 
