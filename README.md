@@ -37,9 +37,9 @@
 
 | 주 | 강의 | 실습 | 내용 | 숙제 |
 |:--:|:--:|:--:|:--:|:--:|
-| 1  | 9/2 | 9/7 | [음악 프로그래밍 소개](https://drive.google.com/file/d/1R3ZGIujVyMUPqt5lx9IYUi2jnD5t6xKg/view?usp=sharing)  | \- |
-| 2  | 9/9 | 9/14 | [소리내기 프로그래밍 기본](https://drive.google.com/file/d/1RkKTlGf8CapyawQ0Z1Bg_0WJmja8SRhJ/view?usp=sharing) | 숙제#1 |
-| 3  | 9/16 | 9/23 | [함수 요약](https://drive.google.com/file/d/1WmnRtzXcJMFZ_plmqqc-2CS2M9M3jfOq/view?usp=sharing), [실습](https://drive.google.com/file/d/1kvHxNs10BX6PCpKgyrYIxgPiFr-s4KzK/view?usp=sharing) | \- |
+| 1  | 9/2 | 9/7 | 음악 프로그래밍 소개  | \- |
+| 2  | 9/9 | 9/14 | 소리내기 프로그래밍 기본 | 숙제#1 |
+| 3  | 9/16 | 9/23 | 함수 요약 | \- |
 | 4  | 9/28 | 9/30 | 배열 | 숙제#2 |
 | 5  | 10/5 | 10/7 | 소리 파일과 소리 조작 | 숙제#3 |
 | 6  | 10/12 | 10/14 |  | 숙제#4 |
