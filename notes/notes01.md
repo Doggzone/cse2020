@@ -32,19 +32,34 @@ ChucK은 실시간으로 소리를 합성하여 음악을 연주하는 프로그
 
 아래 절차를 순서대로 따라하며 ChucK 프로그램을 어떻게 실행하는지 스스로 경험해보자.
 
-1.	ChucK을 다운 받아 컴퓨터에 설치하고 miniAudicle을 열면, 다음과 같은 편집창(`Untitled`)과 가상머신창(`Vertial Machine`)이 나타난다.<img src="image01/editor0.png" width="400"><img src="image01/vm0.png" width="300">
+1.	ChucK을 다운 받아 컴퓨터에 설치하고 miniAudicle을 열면, 다음과 같은 편집창(`Untitled`)과 가상머신창(`Vertial Machine`)이 나타난다.
 
-2.	가상머신창에서 `Start Virtual Machine` 버튼을 늘러 가상머신을 켜면, 다음 그림과 같이 가상머신이 작동을 시작하며 시간이 흐르기 시작한다. 그림 맨 위의 `running time:` 옆에 흐르는 가상머신 시간의 절대 시각을 10만분의 1초 단위로 볼 수 있다. 그리고 오른쪽 그림과 같은 실행창(`Console Monitor`)이 새로 나타난다.<img src="image01/vm1.png" width="300"><img src="image01/console0.png" width="500">
+<img src="image01/editor0.png" width="400">
 
-3.	다음 프로그램을 아래 그림과 같이 편집창에 입력한다.<img src="image01/editor1.png" width="500">
+<img src="image01/vm0.png" width="300">
 
-4.	그리고 편집창의 좌상단에 있는 연록색의 `+` 모양의 버튼을 클릭하여 프로그램을 실행한다. 그러면 실행창에 다음 그림과 같이 Hello, World!를 프린트한다.<img src="image01/console1.png" width="500">
+2.	가상머신창에서 `Start Virtual Machine` 버튼을 늘러 가상머신을 켜면, 다음 그림과 같이 가상머신이 작동을 시작하며 시간이 흐르기 시작한다. 그림 맨 위의 `running time:` 옆에 흐르는 가상머신 시간의 절대 시각을 10만분의 1초 단위로 볼 수 있다. 그리고 오른쪽 그림과 같은 실행창(`Console Monitor`)이 새로 나타난다.
+
+<img src="image01/vm1.png" width="300">
+
+<img src="image01/console0.png" width="500">
+
+3.	다음 프로그램을 아래 그림과 같이 편집창에 입력한다.
+
+<img src="image01/editor1.png" width="500">
+
+4.	그리고 편집창의 좌상단에 있는 연록색의 `+` 모양의 버튼을 클릭하여 프로그램을 실행한다. 그러면 실행창에 다음 그림과 같이 Hello, World!를 프린트한다.
+
+<img src="image01/console1.png" width="500">
 
 #### 실행창에 프린트 하기
 
-`<<<`와 `>>>` 사이에 쉼표(`,`)로 구분하여 둘 이상의 식을 나열하면, 그 식을 계산한 결과를 실행창에 나란히 프린트 한다. 예를 들어 편집창에 다음 그림과 같이 프로그램을 작성하고 실행하면,<img src="image01/editor2.png" width="500">
+`<<<`와 `>>>` 사이에 쉼표(`,`)로 구분하여 둘 이상의 식을 나열하면, 그 식을 계산한 결과를 실행창에 나란히 프린트 한다. 예를 들어 편집창에 다음 그림과 같이 프로그램을 작성하고 실행하면,
+
+<img src="image01/editor2.png" width="500">
 
 실행창에 결과를 다음 그림과 같이 프린트하여 보여준다.  
+
 <img src="image01/console2.png" width="500">
 
 ### 1-3. 소리 내기
