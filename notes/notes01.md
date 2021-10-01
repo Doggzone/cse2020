@@ -40,7 +40,7 @@ ChucK은 실시간으로 소리를 합성하여 음악을 연주하는 프로그
 
 -	가상머신창에서 `Start Virtual Machine` 버튼을 늘러 가상머신을 켜면, 다음 그림과 같이 가상머신이 작동을 시작하며 시간이 흐르기 시작한다. 그림 맨 위의 `running time:` 옆에 흐르는 가상머신 시간의 절대 시각을 10만분의 1초 단위로 볼 수 있다. 그리고 오른쪽 그림과 같은 실행창(`Console Monitor`)이 새로 나타난다.
 
-<img src="image01/vm1.png" width="300"><img src="image01/console0.png" width="500">
+<img src="image01/vm1.png" width="300"><img src="image01/console0.png" width="400">
 
 -	다음 프로그램을 아래 그림과 같이 편집창에 입력한다.
 
