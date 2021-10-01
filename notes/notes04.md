@@ -379,6 +379,8 @@ MIDI 음 배열의 `-1`은 쉼표를 나타낸다.
 
 
 
+### 추가 연습 문제 : 햇볕은 쨍쨍
 
+<img src="image04/sunshine.png" width="500">
 
 
