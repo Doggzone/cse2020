@@ -197,6 +197,7 @@ stereo_sample.chan(0) => bal[0] => dac.left;
 stereo_sample.chan(1) => bal[1] => dac.right;
 stereo_sample.length() => now;
 
+0 => stereo_sample.pos; // set the playhead position to 0
 float balance, volume_right;
 -1.0 => balance;
 stereo_sample.length() / 21 => dur length;
@@ -215,7 +216,7 @@ me.dir() + "/audio/stereo_fx_03.wav" => stereo_sample.read;
 Gain bal[2];
 stereo_sample.chan(0) => bal[0] => dac.left;
 stereo_sample.chan(1) => bal[1] => dac.right;
-1 => stereo_sample.loop; // 자동 반복
+1 => stereo_sample.loop; // automatically set .pos to 0 after play 
 
 float balance, volume_right;
 while (true) {
@@ -258,10 +259,11 @@ SndBuf kick => master;
 SndBuf snare => master;
 me.dir() + "/audio/kick_01.wav" => kick.read;
 me.dir() + "/audio/snare_01.wav" => snare.read;
-kick.samples() => kick.pos;
-snare.samples() => snare.pos;
+kick.samples() => kick.pos; // move the head to the end
+snare.samples() => snare.pos;// move the head to the end
 
 0.5::second => dur TEMPO;
+second => now; // no sound for a second
 while (true) {
     0 => kick.pos;
     TEMPO => now;
