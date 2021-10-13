@@ -1,6 +1,9 @@
 ```
-(c)도경구 version 0.1 (2021/10/11)
+(c)도경구 version 0.11 (2021/10/13)
 ```
+
+`version 0.11 : 실습, 숙제 문제 추가`
+
 
 ## 6. 소리 합성 및 처리 - `UGen`의 활용
 
@@ -302,13 +305,7 @@ while (true) {
 
 ChucK가 제공하는 `FM`으로 만든 내장 STK 악기를 나열하면 다음과 같다.
 
-- 전기 피아노 : `Rhodey`, `Wurley`
-- 오르간 : `BeeThree`
-- 현악기 : `PercFlut`
-- 전기 기타 : `HevyMetl`
-- 타악기 : `TubeBell`
-- 사람 목소리 : `FMVoices`, `VoicForm`
-
+- `Rhodey`, `Wurley`, `BeeThree`, `PercFlut`, `TubeBell`, `HevyMetl`, `FMVoices`, `VoicForm`
 
 ### 6-5. 물리적 모델링으로 소리 합성
 
@@ -327,7 +324,6 @@ while (true) {
 ```
 
 펄스 소리가 0.1초 간격으로 난다. 
-
 
 | `Impulse` | 기본 설정 값 | 타입 | 설명 |
 |:----:|:----:|:----:|:----:|
@@ -565,9 +561,74 @@ while (true)
 
 이 외에도 `Chorus`, `PitShift` 같은 특수 효과를 낼 수 있는 `UGen`이 있으니 매뉴얼을 참고하여 필요한 대로 사용하면 된다.
 
-### 6-9. 사례 학습
 
-다음 프로그램을 실행하여 소리를 들어보고, 어떻게 그런 소리를 내는지 프로그램을 분석하여 이해해보자.
+### [실습] 학교종
+
+```
+// School Bells
+
+// note length
+0.5::second => dur BEAT;
+BEAT / 4 => dur REST;
+BEAT - REST => dur QN; // quarter note
+BEAT * 2 - REST => dur HN; // half note
+BEAT * 3 - REST => dur DHN; // dotted half note
+
+[ // melody
+67,67,69,69, 67,67,64,
+67,67,64,64, 62,-1,
+67,67,69,69, 67,67,64, 
+67,64,62,64, 60,-1
+] @=> int MELODY[];
+
+[ // bassline
+48,48,41,41, 48,48,48, 
+48,48,45,45, 43,-1,
+48,48,41,41, 48,48,48,  
+48,48,43,47, 48,-1 
+] @=> int BASSLINE[];
+
+[ // tempo
+QN,QN,QN,QN, QN,QN,HN, 
+QN,QN,QN,QN, DHN,QN,
+QN,QN,QN,QN, QN,QN,HN, 
+QN,QN,QN,QN, DHN,QN
+] @=> dur DURS[];
+
+// play
+SinOsc melody => dac;
+TriOsc bass => dac;
+for (0 => int n; n < 2; n++)
+    for (0 => int i; i < MELODY.size(); i++) {
+        if (MELODY[i] == -1) 
+            0.0 => melody.gain => bass.gain;
+        else 
+            0.5 => melody.gain => bass.gain;
+        Std.mtof(MELODY[i]) => melody.freq;
+        Std.mtof(BASSLINE[i]) => bass.freq;
+        if (n == 0)
+            <<< LYRICS1[i], "" >>>;
+        else
+            <<< LYRICS2[i], "" >>>;
+        DURS[i] => now;
+        0 => melody.gain => bass.gain;
+        REST => now;
+    }
+```
+
+- 이 프로그램은 학교종을 연주하는 프로그램이다. 음원는 모두 `SqrOsc`로 하고, `Envelope` UGen을 통과시키도록 프로그램을 재작성하자. `.gain` 대신 `Envelope`의 `.target`, `.keyOn`, `.keyOff`를 활용해야 한다. 
+
+- 이번에는 `ADSR` UGen을 사용하여 재작성하자. 음원은 모두 `SawOsc`로 바꾼다. 그리고 가장 마음에 드는 소리가 날때까지 파라미터를 조정해보자. 그리고 나서 추가로 멜로디에 비브라토를 넣어보자.
+
+- 이번에는 주파수 변조를 시도해보자. 두 음원 모두 `SinOsc` 2개를 각각 Carrier와 Modulator로 사용하여 주파수를 변조하고 `ADSR`를 활용하여 `학교종`을 연주하는 프로그램을 재작성하고, Modulator의 `.gain`과 Carrier와 Modulator의 주파수 비율에 따라서 소리가 어떻게 달라지는지 들어보고, 값을 조정하여 가장 마음에 드는 소리를 찾아보자.
+
+- 이번에는 `FM`으로 만든 ChucK 내장 STK 악기로 연주하도록 프로그램을 재작성하자. 다음의 다양한 악기 소리를 모두 들어보자.
+
+    - `Rhodey`, `Wurley`, `BeeThree`, `PercFlut`, `TubeBell`, `HevyMetl`, `FMVoices`, `VoicForm`
+
+- 이번에는 `Impulse`와 `Resonz` 필터를 사용하여 `학교종`을 연주하도록 프로그램을 재작성해보자.
+
+- 마지막으로 다음 프로그램의 소리 효과를 활용하여 `학교종`의 멜로디 파트만 연주하도록 프로그램을 재작성해보자.
 
 ```
 // Musical fun with a resonant filter and three delay lines
@@ -597,30 +658,71 @@ while (true) {
 ```
 
 
+### [숙제] 반달
 
+`Rhodey` 악기로 연주하는 반달을 다음 요구 사항에 맞추어 작성하자.
 
-### [실습 1] 학교종
+- 멜로디는 `MELODY` 배열의 음을, `DURS` 배열의 박자에 맞추어 연주한다.
+- 반주는 `MELODY` 배열에 정의된 4개의 화음을 동시에 한 마디당 두 번씩 박자에 맞추어 소리낸다.
+`SKIP` 배열은 반주 화음을 누르지 않음을 표시한다.
 
-- 4-2에서 작성한 학교종을 연주하는 프로그램을 `SqrOsc`와 `Envelope` UGen을 사용하여 재작성하자. 그리고 가장 마음에 드는 소리가 날때까지 파라미터를 조정해보자.
+```
+// tempo
+0.35::second => dur BEAT;
+BEAT / 20 => dur REST;
+BEAT - REST => dur TN; // third note
+BEAT * 1.5 - REST => dur TSN; // three-sixth note
+BEAT * 2.5 - REST => dur FSN; // five-sixth note
+BEAT / 2 - REST => dur SN; // sixth note
 
-- `학교종`을 연주하는 프로그램을 `SawOsc`와 `ADSR` UGen을 사용하여 재작성하자. 그리고 가장 마음에 드는 소리가 날때까지 파라미터를 조정해보자.
+// melody for half moon
+[
+67,69,    67,64,  67,64,60, 55, 
+57,60,    62,67,  64,       -1,
+67,69,    67,64,  67,64,60, 55, 
+57,60,    55,62,  60,       -1,
+64,64,    64,62,  64,69,    67,
+64,62,    64,69,  67,       -1,
+72,       67,67,  64,64,    69,69,
+67,64,60, 55,62,  60,       -1
+] @=> int MELODY[];
 
-- `SinOsc` 2개를 각각 Carrier와 Modulator로 사용하여 주파수를 변조하고 `ADSR`를 활용하여 `학교종`을 연주하는 프로그램을 재작성해보자.
+// codes for half moon
+[48,52,55,60] @=> int C[];
+[41,45,48,53] @=> int F[];
+[43,47,50,55] @=> int G[];
+[45,48,52,57] @=> int Am[];
+[0] @=> int SKIP[];
 
-- `Resonz` 필터를 사용하여 `학교종`을 연주하는 프로그램을 재작성해보자. 
+[
+C,SKIP,      C,SKIP,   C,SKIP,SKIP, C, 
+F,SKIP,      G,SKIP,   C,           SKIP,
+C,SKIP,      C,SKIP,   C,SKIP,SKIP, C, 
+F,SKIP,      G,SKIP,   C,           SKIP,
+C,SKIP,      C,SKIP,   Am,SKIP,     G,
+C,SKIP,      C,SKIP,   G,           SKIP,
+C,           C,SKIP,   C,SKIP,      F,SKIP,
+C,SKIP,SKIP, G,SKIP,   C,           SKIP
+] @=> int CODES[][];
 
-### [실습 2] For Elise
+// tempos for half moon
+[
+TN,SN,    TN,SN,  SN,SN,SN, TSN, 
+TN,SN,    TN,SN,  FSN,      SN,
+TN,SN,    TN,SN,  SN,SN,SN, TSN, 
+TN,SN,    TN,SN,  FSN,      SN,
+TN,SN,    TN,SN,  TN,SN,    TSN,
+TN,SN,    TN,SN,  FSN,      SN,
+TSN,      TN,SN,  TN,SN,    TN,SN,
+SN,SN,SN, TN,SN,  FSN,      SN
+] @=> dur DURS[];
+```
 
+완성한 코드를 실행하면 다음 <b>연주 샘플</b>과 비슷하게 연주해야 한다. 
 
+[<b>연주 샘플</b>](sound06/halfmoon.wav)
 
-
-### [실습 3] Theme from Beverly Hill Cops
-
-
-
-### [숙제] 반달 (제출 마감: 10월 19일 오전 8시 59분)
-
-
+곡의 빠르기는 굳이 같을 필요가 없지만 박자는 정의된 대로 맞아야 한다.
 
 
 
