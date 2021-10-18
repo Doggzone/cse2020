@@ -236,8 +236,8 @@ while (true) {
 | `int Std.ftoi(float value)` | 실수를 정수로 변환 (소수점 아래 버림) |
 | `int Std.atoi(string value)` | ASCII(`string`)를 정수로 변환 |
 | `float Std.atof(string value)` | SCII(`string`)를 실수로 변환 |
-| `string Std.itoa(string value)` | 정수를 ASCII(`string`)로 변환 |
-| `string Std.ftoa(string value)` | 실수를 ASCII(`string`)로 변환 |
+| `string Std.itoa(int value)` | 정수를 ASCII(`string`)로 변환 |
+| `string Std.ftoa(float value)` | 실수를 ASCII(`string`)로 변환 |
 
 
 ####  기타 `Std` 메소드
