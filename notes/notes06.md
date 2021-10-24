@@ -290,7 +290,19 @@ while (true) {
 
 주파수의 비율이 정수(1:2, 2:1, 2:3, 1:3, ...)인 경우에만 화음이 맞고, 그렇지 않으면 불협화음 소리가 난다.
 
-사인파형(`SinOsc`)만 가지고 주파수 변조를 활용하면 다양한 소리를 합성할 수 있다. ChucK에서는 주파수 변조로 만든 STK(Synthesis Tool Kit)라고 하는 다양한 악기 소리를 가진 내장 `UGen`를 갖추고 있다. 예를 들어 전기 피아노 소리는 `Rhodey`와 `Wurley` 두 가지가 있는데 테스트 삼아 다음 프로그램을 실행하여 소리를 들어보자. 
+사인파형(`SinOsc`)만 가지고 주파수 변조를 활용하면 다양한 소리를 합성할 수 있다. ChucK에서는 주파수 변조로 만든 STK(Synthesis Tool Kit)라고 하는 다양한 악기 소리를 가진 내장 `UGen`를 갖추고 있다. 
+
+모든 STK 악기에서 공통으로 사용할 수 있는 메소드는 다음과 같다.
+
+| `StkInstrument` | 설명 | 
+|:----:|:----:|
+| `.noteOn(float velocity)` | 1로 설정하여 악기를 켬  | 
+| `.noteOff(float velocity)` | 1로 설정하여 악기를 끔 | 
+| `.freq(float frequency)` | 주파수 설정 | 
+| `.controlChange(int number, float value)` | 소리 제어용 메소드로 악기에 따라 다름 |
+
+
+예를 들어 전기 피아노 소리는 `Rhodey`와 `Wurley` 두 가지가 있는데 테스트 삼아 다음 프로그램을 실행하여 소리를 들어보자. 
 
 ```
 Wurley epiano => dac;
