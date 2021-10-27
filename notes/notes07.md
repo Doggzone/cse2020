@@ -1,5 +1,5 @@
 ```
-(c)도경구 version 0.1 (2021/10/24)
+(c)도경구 version 0.2 (2021/10/27)
 ```
 
 ## 7. 멀티스레드와 동시 계산
@@ -107,6 +107,10 @@ WN * 2 => now;
 QN => now;
 spork ~ snare();
 WN * 4 => now;
+// then go on forever
+while (true) {
+    WN => now;    
+}
 ```
 
 
@@ -231,10 +235,12 @@ Machine.add(me.dir()+"/drummachine.ck") => int drum;
 Machine.add(me.dir()+"/modalbar.ck") => int modal;
 4.0 :: second => now;             
 Machine.remove(modal);
-2.0 :: second => now;
-Machine.replace(pingpong,me.dir()+"/modalbar.ck") => modal;
+4.0 :: second => now;
+Machine.replace(drum,me.dir()+"/modalbar.ck") => modal;
 4.0 :: second => now;
 Machine.remove(modal);
+4.0 :: second => now;
+Machine.remove(pingpong);
 ```
 
 ### 7-5. 사례 학습 : Jazz Quartet Band
@@ -344,37 +350,271 @@ while (true) {
 ```
 Machine.add(me.dir()+"/piano.ck") => int pianoID;
 4.8::second => now;
-
 me.dir()+"/drums.ck" => string drumsPath;
 Machine.add(drumsPath) => int drumsID;
 4.8::second => now;
-
 Machine.add(me.dir()+"/bass.ck") => int bassID;
 4.8::second => now;
-
 Machine.add(me.dir()+"/flute.ck") => int fluteID;
 4.8::second => now;
-
 Machine.remove(drumsID);
 4.8::second => now;
-
-Machine.add(drumsPath) => drumsID;
+Machine.remove(fluteID);
+4.8::second => now;
+Machine.remove(bassID);
+4.8::second => now;
+Machine.remove(pianoID);
 ```
 
 #### `initialize.ck`
 
 ```
 me.dir() + "/score.ck" => string scorePath;
-
 Machine.add(scorePath);
 ```
 
+### MIDI 챠트
 
-### [실습] Bach의 Canon
+```
+// MIDI
+36 => int C2;  48 => int C3;  60 => int C4;  72 => int C5;  84 => int C6;
+37 => int Cs2; 49 => int Cs3; 61 => int Cs4; 73 => int Cs5; 85 => int Cs6;
+37 => int Db2; 49 => int Db3; 61 => int Db4; 73 => int Db5; 85 => int Db6;
+38 => int D2;  50 => int D3;  62 => int D4;  74 => int D5;  86 => int D6;
+39 => int Ds2; 51 => int Ds3; 63 => int Ds4; 75 => int Ds5; 87 => int Ds6;
+39 => int Eb2; 51 => int Eb3; 63 => int Eb4; 75 => int Eb5; 87 => int Eb6;
+40 => int E2;  52 => int E3;  64 => int E4;  76 => int E5;  88 => int E6;
+41 => int F2;  53 => int F3;  65 => int F4;  77 => int F5;  89 => int F6;
+42 => int Fs2; 54 => int Fs3; 66 => int Fs4; 78 => int Fs5; 90 => int Fs6;
+42 => int Gb2; 54 => int Gb3; 66 => int Gb4; 78 => int Gb5; 90 => int Gb6;
+43 => int G2;  55 => int G3;  67 => int G4;  79 => int G5;  91 => int G6;
+44 => int Gs2; 56 => int Gs3; 68 => int Gs4; 80 => int Gs5; 92 => int Gs6;
+44 => int Ab2; 56 => int Ab3; 68 => int Ab4; 80 => int Ab5; 92 => int Ab6;
+45 => int A2;  57 => int A3;  69 => int A4;  81 => int A5;  93 => int A6;
+46 => int As2; 58 => int As3; 70 => int As4; 82 => int As5; 94 => int As6;
+46 => int Bb2; 58 => int Bb3; 70 => int Bb4; 82 => int Bb5; 94 => int Bb6;
+47 => int B2;  59 => int B3;  71 => int B4;  83 => int B5;  95 => int B6;
+-1 => int REST;
+```
+
+### 실습
+
+#### 1. `playNote`, `play` 함수 만들기
+
+
+<b>1-1.</b> 
+`StkInstrument` 악기 `instrument`, `int` 타입의 MIDI 음 `note`, `dur` 타입의 재생시간 `duration`을 인수로 받아서, `instrument`로 `note` 음을 `duration` 재생시간 동안 스피커로 출력하는 프로시저 함수 `playNote`를 작성하자.
+
+```
+fun void playNote(StkInstrument instrument, int note, dur duration) {
+
+}
+```
+
+
+<b>1-2.</b> 
+`StkInstrument` 악기 `instrument`, `int` 타입의 MIDI 음 배열 `notes[]`, `dur` 타입의 재생시간 `durs[]` 배열을 인수로 받아서, `instrument`로 `notes[]` 배열의 음을 `durs[]` 배열의 재생시간에 맞추어 순서대로 스피커로 출력하는 프로시저 함수 `play`를 `playNote` 함수를 활용하여 작성하자.
+
+```
+fun void play(StkInstrument instrument, int notes[], dur durs[]) {
+
+}
+```
+
+<b>1-3.</b> 
+다음 악보를 `play` 함수를 활용하여 자신이 선호하는 악기로 연주하는 프로그램을 작성하자.
+
+![WhereIsThumbkin](https://i.imgur.com/XkKuqjm.png)
+
+```
+0.4::second => dur BEAT;
+BEAT / 2 => dur EN; // eighth note (1/8)
+BEAT     => dur QN; // quarter note (1/4)
+BEAT * 2 => dur HN; // half note (1/2)
+
+[
+F4,G4,A4,F4, F4,G4,A4,F4, A4,Bb4,C5, A4,Bb4,C5,
+C5,D5,C5,Bb4,A4,F4, C5,D5,C5,Bb4,A4,F4, F4,C4,F4, F4,C4,F4
+] @=> int MELODY[];
+
+[
+QN,QN,QN,QN, QN,QN,QN,QN, QN,QN,HN, QN,QN,HN,
+EN,EN,EN,EN,QN,QN, EN,EN,EN,EN,QN,QN, QN,QN,HN, QN,QN,HN
+] @=> dur DURS[];
+```
+
+
+#### 2. 여러 음 동시에 내기
+
+다음 악보는 멜로디의 뒤 두 마디에 높은 음이 화음으로 추가되고, 아래에 베이스 음이 추가되어 있다. 
+
+![Where Is Thumbkin 2](https://i.imgur.com/ajiw85k.png)
+
+3개의 다른 음을 동시에 내어 화음을 이루어 연주하도록 프로그램을 작성하자. 
+
+```
+[
+F4,G4,A4,F4, F4,G4,A4,F4, A4,Bb4,C5, A4,Bb4,C5,
+C5,D5,C5,Bb4,A4,F4, C5,D5,C5,Bb4,A4,F4, F4,C4,F4, F4,C4,F4
+] @=> int MELODY[];
+
+[
+F4,G4,A4,F4, F4,G4,A4,F4, A4,Bb4,C5, A4,Bb4,C5,
+C5,D5,C5,Bb4,A4,F4, C5,D5,C5,Bb4,A4,F4, A4,E4,A4, A4,E4,A4
+] @=> int MELODY_HIGH[];
+
+[
+QN,QN,QN,QN, QN,QN,QN,QN, QN,QN,HN, QN,QN,HN,
+EN,EN,EN,EN,QN,QN, EN,EN,EN,EN,QN,QN, QN,QN,HN, QN,QN,HN
+] @=> dur DURS[];
+
+[
+F3,C4,F3, F3,C4,F3, F3,C4,F3, F3,C4,F3,
+F3,C4,F3, F3,C4,F3, F3,C4,F3, F3,C4,F3
+] @=> int BASS[];
+
+[
+QN,QN,HN, QN,QN,HN, QN,QN,HN, QN,QN,HN,
+QN,QN,HN, QN,QN,HN, QN,QN,HN, QN,QN,HN
+]
+@=> dur DURS_BASS[];
+```
+
+#### 3. 돌림노래
+
+이번엔 다음 곡을 돌림노래로 연주해보자. 
+
+![Row-Row-Row-Your-Boat](https://i.imgur.com/rvB5d4E.png)
+
+4개의 개별 개체를 만들어 차례로 2 마디씩 늦게 연주를 시작하도록 하면 돌림노래가 완성된다. 
+악기는 자유로이 선택한다.
+
+```
+0.2::second => dur BEAT;
+BEAT => dur SN; // sixth note (1/6)
+BEAT * 2 => dur TN; // third note (1/3)
+BEAT * 3 => dur HN; // half note (1/2)
+BEAT * 6 => dur WN; // whole note (1)
+
+[
+C4,C4, C4,D4,E4, E4,D4,E4,F4, G4,
+C5,C5,C5,G4,G4,G4, E4,E4,E4,C4,C4,C4, G4,F4,E4,D4, C4
+] @=> int MELODY[];
+
+[
+HN,HN, TN,SN,HN, TN,SN,TN,SN, WN,
+SN,SN,SN,SN,SN,SN, SN,SN,SN,SN,SN,SN, TN,SN,TN,SN, WN
+] @=> dur DURS[];
+```
+
+#### 4. Bach의 Crab Canon
+
+다음 악보는 바하의 The Musical Offering에 포함되어 있는 Crab Canon으로 음악적 팰린드롬이다. 
+
+<img src="image07/crabcanon.png" width="500">
+
+
+그냥 순서대로 또는 거꾸로 한방향으로 연주해도 되고, 순서대로와 거꾸로를 동시에 양방향으로 연주해도 된다. 들어보자.
+
+- [Bach’s Crab Canon](https://www.youtube.com/watch?v=36ykl2tJwZM)
+
+- [Bach’s Crab Canon 연주](https://www.youtube.com/watch?v=miGuET40U7I)
+
+이 곡을 두개의 악기를 사용하여 정방향과 역방향으로 동시에 연주하는 프로그램을 아래 MIDI 악보 코드를 활용하여 만들어보자. 힌트: 악보를 거꾸로 연주하는 함수 `retrograde`를 따로 작성하여 사용하자.
+
+
+```
+// Tempo
+0.4::second => dur BEAT;
+BEAT => dur QN;
+BEAT / 2 => dur EN;
+BEAT * 2 => dur HN;
+
+// Bach Canon Score
+[
+C4,Eb4,       G4,Ab4,  B3,REST,G4,                                           
+Fs4,F4,       E4,Eb4,  D4,Db4,C4,
+B3,G3,D4,F4,  E4,D4,   C4,Eb4,                      
+G4,F4,G4,C5,G4,Eb4,D4,Eb4,    F4,G4,A4,B4,C5,Eb4,F4,G4,    
+Ab4,D4,Eb4,F4,G4,F4,Eb4,D4,   Eb4,F4,G4,Ab4,Bb4,Ab4,G4,F4, 
+G4,Ab4,Bb4,C5,Db5,Bb4,Ab4,G4, A4,B4,C5,D5,Eb5,C5,B4,A4,    
+B4,C5,D5,Eb5,F5,D5,G4,D5,     C5,D5,Eb5,F5,Eb5,D5,C5,B4,   
+C5,G4,Eb4,C4
+] @=> int NOTES[];
+
+[
+HN,HN,        HN,HN,   HN,QN,HN, 
+HN,HN,        HN,HN,   QN,QN,QN,
+QN,QN,QN,QN,  HN,HN,   HN,HN,
+EN,EN,EN,EN,EN,EN,EN,EN,      EN,EN,EN,EN,EN,EN,EN,EN,
+EN,EN,EN,EN,EN,EN,EN,EN,      EN,EN,EN,EN,EN,EN,EN,EN,
+EN,EN,EN,EN,EN,EN,EN,EN,      EN,EN,EN,EN,EN,EN,EN,EN,
+EN,EN,EN,EN,EN,EN,EN,EN,      EN,EN,EN,EN,EN,EN,EN,EN,
+QN,QN,QN,QN
+] @=> dur DURS[];
+```
+
+#### 5. J.S. Bach, Canon a 2 perpetuus (BWV 1075)
+
+<img src="image07/1075theme.png" width="500">
+
+
+다음 프로그램은 위 악보를 연주한다. 실행하여 멜로디를 들어보자.
+
+```
+// Tempo
+0.4::second => dur BEAT;
+BEAT => dur QN;
+BEAT * 2 => dur HN;
+BEAT * 6 => dur WN;
+
+// Score
+[
+G4,C5,G4,A4,G4,F4,
+E4,   E5,F5,E5,D5,
+C5,G4,C5,B4,C5,D5,
+E5,   E4,D4,E4,F4
+] @=> int MELODY[];
+
+[
+QN,QN,QN,QN,QN,QN,
+HN,   QN,QN,QN,QN,
+QN,QN,QN,QN,QN,QN,
+HN,   QN,QN,QN,QN
+] @=> dur DURS[];
+
+// Set up instrument and play
+Rhodey hand => dac;
+play(hand, MELODY, DURS);
+```
+
+아래 악보는 위의 멜로디 주제를 시간 차를 두고 두 악기가 반복 연주하도록 만든 캐논이다.
+이 악보를 연주하는 프로그램을 작성하자. 
+악보의 끝 부분에서 같이 끝나도록 하기 위해서 멜로디 주제를 일부만 연주함에 유의하여 작성하자.
+
+
+<img src="image07/1075.png" width="500">
 
 
 
+### 숙제 : J.S. Bach, Trias Harmonica Canon (BWV 1072) [마감: 11월 2일 아침 9시]
 
+다음 악보는 바하의 캐논 BWV 1072의 기본 테마 멜로디 악보이다.
+
+<img src="image07/1072.png" width="400">
+
+장3화음인 도-미-솔과 단3화음인 레-파-라의 음을 하나씩 교대로 나열하여 만들 간단한 멜로디이다.
+계명으로 읽으면 도-레-미-파-솔-파-미-레 이다.
+장3화음 음의 길이는 한박자반으로 절대자 신을, 단3화음 음의 길이는 반박자로 인간을 나타낸다고 한다.  
+음의 길이가 3:1로 신과 인간의 삼위일체 관계를 의미한다고 한다.
+아마도 신과 인간과의 관계를 음악으로 표현하려 한 것으로 보인다.
+
+이 캐논은 이 테마 멜로디와 테마의 앞 뒤 마디를 뒤집은 멜로디를 교대로 4번씩 조금씩의 시차를 두고 돌림으로 연주한다.
+다음 영상의 구체적인 악보 패턴 진행을 참고하여, 이와 똑같이 연주하도록 프로그램을 작성하자.
+
+- [Trias Harmonica Canon의 작곡 원리](https://www.youtube.com/watch?v=AE3SW3wwP0s)
+
+- [연주](https://www.youtube.com/watch?v=sjfN4iV0cqA)
 
 
 
