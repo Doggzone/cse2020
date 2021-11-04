@@ -345,7 +345,7 @@ while (true) {
 
 
 
-### 실습 : 드럼 머신 - `BPM` 클래스로 합주 박자 시간 동기화하기
+### 사례 5 : 드럼 머신 - `BPM` 클래스로 합주 박자 시간 동기화하기
 
 
 #### `kick.ck`
@@ -572,7 +572,7 @@ for (0 => int i; i < 4; i++) {
 }
 ```
 
-### 8-4.  실습 : 스마트 `Mandolin` 만들기 
+### 8-4. 사례 6 :  스마트 `Mandolin` 만들기 
 
 
 
@@ -694,7 +694,73 @@ Machine.add(me.dir()+"/mandolin.ck");
 Machine.add(me.dir()+"/score.ck"); 
 ```
 
+### 실습
 
+지난 실습 시간에 만든 프로그램을 이번엔 음별로 파일을 따로 만든 다음 `Machine`을 활용하여 합주하는 방식으로 개선해보자.
+그리고 필요한 대로 클래스를 만들어서 활용하자.
+
+#### 1. 합창
+
+다음 악보는 멜로디의 뒤 두 마디에 높은 음이 화음으로 추가되고, 아래에 베이스 음이 추가되어 있다. 
+
+![Where Is Thumbkin 2](https://i.imgur.com/ajiw85k.png)
+
+멜로디 2중창을 파일 하나에, 베이스를 다른 파일에 따로 두고 합창하도록 작성하자.
+
+```
+[
+F4,G4,A4,F4, F4,G4,A4,F4, A4,Bb4,C5, A4,Bb4,C5,
+C5,D5,C5,Bb4,A4,F4, C5,D5,C5,Bb4,A4,F4, F4,C4,F4, F4,C4,F4
+] @=> int MELODY[];
+
+[
+F4,G4,A4,F4, F4,G4,A4,F4, A4,Bb4,C5, A4,Bb4,C5,
+C5,D5,C5,Bb4,A4,F4, C5,D5,C5,Bb4,A4,F4, A4,E4,A4, A4,E4,A4
+] @=> int MELODY_HIGH[];
+
+[
+QN,QN,QN,QN, QN,QN,QN,QN, QN,QN,HN, QN,QN,HN,
+EN,EN,EN,EN,QN,QN, EN,EN,EN,EN,QN,QN, QN,QN,HN, QN,QN,HN
+] @=> dur DURS[];
+
+[
+F3,C4,F3, F3,C4,F3, F3,C4,F3, F3,C4,F3,
+F3,C4,F3, F3,C4,F3, F3,C4,F3, F3,C4,F3
+] @=> int BASS[];
+
+[
+QN,QN,HN, QN,QN,HN, QN,QN,HN, QN,QN,HN,
+QN,QN,HN, QN,QN,HN, QN,QN,HN, QN,QN,HN
+]
+@=> dur DURS_BASS[];
+```
+
+#### 2. 돌림노래
+
+이번엔 다음 곡을 돌림노래로 연주해보자. 
+
+![Row-Row-Row-Your-Boat](https://i.imgur.com/rvB5d4E.png)
+
+4개의 개별 개체를 만들어 차례로 2 마디씩 늦게 연주를 시작하도록 하면 돌림노래가 완성된다. 
+악기는 자유로이 선택한다.
+
+```
+0.2::second => dur BEAT;
+BEAT => dur SN; // sixth note (1/6)
+BEAT * 2 => dur TN; // third note (1/3)
+BEAT * 3 => dur HN; // half note (1/2)
+BEAT * 6 => dur WN; // whole note (1)
+
+[
+C4,C4, C4,D4,E4, E4,D4,E4,F4, G4,
+C5,C5,C5,G4,G4,G4, E4,E4,E4,C4,C4,C4, G4,F4,E4,D4, C4
+] @=> int MELODY[];
+
+[
+HN,HN, TN,SN,HN, TN,SN,TN,SN, WN,
+SN,SN,SN,SN,SN,SN, SN,SN,SN,SN,SN,SN, TN,SN,TN,SN, WN
+] @=> dur DURS[];
+```
 
 ### 숙제 (마감 11월 9일 오전 9시)
 
