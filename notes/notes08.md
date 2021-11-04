@@ -141,7 +141,7 @@ public class ResonantPop {
         
     fun void freq(string name) {
         [21,23,12,14,16,17,19] @=> int notes[]; // A0,B0,C0,D0,E0,F0,G0
-        name.chatAt(0) - 65 => int base; // A=0,B=1,C=2,D=3,E=4,F=5,G=7
+        name.charAt(0) - 65 => int base; // A=0,B=1,C=2,D=3,E=4,F=5,G=7
         notes[base] => int note;
         if (0 <= base && base <= 6) {
             if (name.charAt(1) == '#' || name.charAt(1) == 's') // sharp
@@ -151,7 +151,7 @@ public class ResonantPop {
         }
         else
             <<< "Illegal Note Name!" >>>;
-        name.chatAt(name.length()-1) - 48 => int oct; // 0, 1, 2, ..., 9
+        name.charAt(name.length()-1) - 48 => int oct; // 0, 1, 2, ..., 9
         if (0 <= oct && oct <= 9) {
             12 * oct +=> note;
             this.freq(note);
@@ -306,9 +306,9 @@ while (freq >= 400) {
 ```
 Machine.add(me.dir()+"/BPM.ck");
 
-Machine.add(me.dir()+"/UseBPM1.ck");
+Machine.add(me.dir()+"/useBPM1.ck");
 2.0::second => now;
-Machine.add(me.dir()+"/UseBPM2.ck");
+Machine.add(me.dir()+"/useBPM2.ck");
 2.0::second => now;
 
 2.0::second => now;
@@ -320,8 +320,8 @@ Machine.add(me.dir()+"/score.ck");
 
 ```
 SinOsc s => dac;
-BPM t;
 0.3 => s.gain;
+BPM t;
 Math.random2f(200.0,1000.0) => t.tempo;
 
 1000 => int freq;
@@ -336,16 +336,16 @@ while (freq > 400) {
 
 ```
 while (true) {
-    Machine.add(me.dir()+"/UseBPM2.ck");
+    Machine.add(me.dir()+"/useBPM2.ck");
     1.0 :: second => now;
-    Machine.add(me.dir()+"/UseBPM3.ck");
+    Machine.add(me.dir()+"/useBPM3.ck");
     2.0 :: second => now;
 }
 ```
 
 
 
-### 사례 5 : 드럼 머신 - `BPM` 클래스로 합주 박자 시간 동기화하기
+### 실습 : 드럼 머신 - `BPM` 클래스로 합주 박자 시간 동기화하기
 
 
 #### `kick.ck`
@@ -572,7 +572,7 @@ for (0 => int i; i < 4; i++) {
 }
 ```
 
-### 8-4.  사례 8 : 스마트 `Mandolin` 만들기
+### 8-4.  실습 : 스마트 `Mandolin` 만들기 
 
 
 
@@ -695,7 +695,16 @@ Machine.add(me.dir()+"/score.ck");
 ```
 
 
-## 실습
+
+### 숙제 (마감 11월 9일 오전 9시)
+
+지난 숙제로 만든 드럼 머신 음악을 개선하는 과제이다. 소리 별로 파일을 별도로 작성하고 `score.ck` 파일에서 `Machine`을 활용하여 연주를 지휘하여 좀 더 역동적으로 음악을 연주할 수 있도록 프로그램을 개선하자. 그리고 `BPM.ck`를 포함하여 필요한만큼 클래스도 추가하여 작성해야 한다. 
+
+-   `initialize.ck`에서 연주가 시작할 수 있도록 해야한다. 
+-   지금까지 공부한 지식을 최대한 활용하여 코딩해야 한다.
+-   모든 프로그램 파일의 맨 상단에 본인의 학번과 이름을 영어로 기입한다.
+-   파일은 zip으로 압축하여 묶어서 파일명을 학번으로 하여 LMS에 제출한다.
+
 
 
 
