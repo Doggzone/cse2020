@@ -134,7 +134,7 @@ while (true) {
 
 <img src="image09/intershred1.png" width="300">
 
-`Event` 객체는 이벤트를 발생했음을 기다리던 오른쪽 쉬레드에 다음 그림과 같이 알려서 깨우는 식으로 작동한다.
+`Event` 객체는 이벤트를 발생하기를 기다리던 오른쪽 쉬레드에 다음 그림과 같이 알려서 깨우는 식으로 작동한다.
 
 <img src="image09/intershred2.png" width="300">
 
