@@ -358,37 +358,89 @@ while (true) {
 
 ### 실습 - Gamelan 악보 변경, 악기추가 및 드럼 추가
 
-위의 Gamelan 프로그램을 국악 음계를 연주하는 프로그램으로 수정하자.
-그리고 `SndBuf`를 활용하여 북 소리를 추가하자.
+아래에 첨부한 진도아리랑 악보에서 마음에 드는 마디 몇 개를 골라서 여러 악기로 무작위 순서로 연주하는 프로그램을 이벤트 구동 방식으로 작성하자.
+그리고 장단을 맞추는 북 소리를 `SndBuf`를 활용하여 추가하자.
+북 소리 샘플은 `audio.zip` 샘플을 활용한다.
 
-#### 평조
-
+진도아리랑과 장단을 맞출 타악기 박자를 9/8 박자 마디 기준으로 몇 개 사례를 들어보면 다음과 같다.
+ 
 ```
-[63,65,68,70,72] @=> int notes1[];
-```
-
-#### 계면조
-
-```
-[63,66,68,70,73] @=> int notes2[];
+[1.0,2.0,1.0,3.0,2.0]
+[3.0,2.0,1.0,1.0,2.0]
+[6.0,3.0]
 ```
 
-#### 평조, 계면조 들어보기
+#### 진도 아리랑 악보
+
+<img src="image09/jindoarirang.png" width="600">
 
 ```
-SinOsc s => dac;
+[
+"B3","E4","B3","E4","E4",       "B3","E4","B3","E4","E4",
+"E4","E4","E4","F#4","F#4",     "E4","E4","B4","G4","B4",
+"B3","B3","E4","E4",            "E4","E4","F#4",
+"E4","G4","B4","G4","F#4","B3", "E4","E4",
+"G4","G4",                      "G4","G4","B4","F#4",
+"E4","G4","B4","F#4",           "E4","B3",
+"E4","E4","E4","F#4",           "B4","G4","G4","F#4","E4",
+"E4","G4","F#4","E4","B3",      "E4","E4"
+] @=> string notes[];
 
-[63,65,68,70,72] @=> int notes1[]; // Eb4, F4, Ab4, Bb4, C5
-for (0 => int i; i < notes1.size(); i++) {
-    Std.mtof(notes1[i]) => s.freq;
-    second => now;
+[
+2.0,1.0,2.0,1.0,3.0,     2.0,1.0,2.0,1.0,3.0,
+1.0,2.0,1.0,2.0,3.0,     3.0,2.0,1.0,1.0,2.0,
+3.0,2.0,1.0,3.0,         3.0,3.0,3.0,
+2.0,1.0,2.0,0.5,0.5,3.0, 3.0,6.0,
+3.0,6.0,                 3.0,2.0,1.0,3.0,
+3.0,2.0,1.0,3.0,         3.0,6.0,
+1.0,2.0,3.0,3.0,         1.0,2.0,1.0,2.0,3.0,
+2.0,1.0,2.0,1.0,3.0,     3.0,6.0
+] @=> float durs[];
+
+StifKarp s => dac;
+for (0 => int i; i < notes.size(); i++) {
+    Std.mtof(midi(notes[i])) => s.freq;
+    0.5 => s.noteOn;
+    durs[i]::second / 5 => now;
 }
-[63,66,68,70,73] @=> int notes2[]; // Eb4, Gb4, Ab4, Bb4, Db5
-for (0 => int i; i < notes2.size(); i++) {
-    Std.mtof(notes2[i]) => s.freq;
-    second => now;
+```
+
+#### `midi` 함수
+
+- 다음 문자차례로 나열 조합하여 만든 MIDI음의 이름을 문자열로 받아서 MIDI음 번호를 리턴하는 함수
+  - `C`, `D`, `E`, `F`, `G`, `A`, `B`
+  - `#` 또는 `s`, `b` 또는 `f` (옵션)
+  - `0`, ..., `9`
+
+```
+fun int midi(string name) {
+    [21,23,12,14,16,17,19] @=> int notes[]; // A0,B0,C0,D0,E0,F0,G0
+    name.charAt(0) - 65 => int base; // A=0,B=1,C=2,D=3,E=4,F=5,G=7
+    notes[base] => int note;
+    if (0 <= base && base <= 6) {
+        if (name.charAt(1) == '#' || name.charAt(1) == 's') // sharp
+            notes[base] + 1 => note;
+        if (name.charAt(1) == 'b' || name.charAt(1) == 'f') // flat
+            notes[base] - 1 => note;
+    }
+    else {
+        <<< "Illegal Note Name!" >>>;
+        return 0;
+    }
+    name.charAt(name.length()-1) - 48 => int oct; // 0, 1, 2, ..., 9
+    if (0 <= oct && oct <= 9) {
+        12 * oct +=> note;
+        return note;
+    }
+    else {
+        <<< "Illegal Octave!" >>>;
+        return 0;
+    }
 }
 ```
+
+
+
 
 
 ### 숙제 - 키보드 드럼 (마감 11월 16일 오전 9시)
