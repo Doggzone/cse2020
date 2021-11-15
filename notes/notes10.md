@@ -5,20 +5,16 @@
 ## 10. MIDI, OSC 등의 외부기기와 통합
 
 
-참고 매뉴얼 - [클릭]()
-
 - 라이브 연주를 위한 도구
-- MIDI 컨트롤러로 외부 MIDI 기기 실시간 제어하기
-- OSC(Open Sound Control) 프로토콜로 프로그램끼리 네트워크로 소통하기
-- 시리얼 I/O 인터페이스
-
+- 프로그램으로 외부 MIDI 기기 실시간 제어하기
+- OSC 프로토콜로 프로그램끼리 우무선 네트워크로 소통하기
 
 ### 10-1. MIDI (Musical Instrument Digital Interface)
 
 - MIDI 표준 제정 (1980년 대)
 - 음악을 다루는 기기들끼리 소통 목적
 
-<img src="image10/midiconnection.png" width="800">
+<img src="image10/midiconnection.png" width="600">
 
 #### MIDI 메시지
 
@@ -45,7 +41,7 @@
 
 #### 10-1-1. 프로그램에서 MIDI 메시지 보내 외부 키보드를 연주하기 (`MidiOut`)
 
-- VMPK 메뉴에서 Edit>MIDI Connections 선택한다.
+- VMPK 메뉴에서 Edit > MIDI Connections 선택한다.
 - MIDI Setup에서 MIDI IN Driver를 CoreMIDI로 변경한다.
 - 다음 프로그램을 실행하여 무작위로 보내는 MIDI 메시지로 연주하여 소리나는지 확인한다.
 
@@ -138,20 +134,119 @@ while (true) {
 
 ### 10-2. OSC (Open Sound Control)
 
-- OSC는 컴퓨터 유무선 네트워크를 통해서 프로그램 또는 외부 기기 간 음악 정보를 주고 받을 수 있는 프로코콜이다. 
+- 지휘자(sender) => 연주자(receiver)
+
+- OSC는 컴퓨터 유무선 네트워크를 통해서 디지털 미디어 소프트웨어끼리 음악 정보를 주고 받을 수 있는 프로코콜이다. 
 - MIDI 보다 앞선 기술이라 할 수 있으며 1997년에 처음 소개되었다.
+- 지휘자(sender)가 연주자(receiver)에게 OSC 메시지를 보낸다.
 - 응용 사례 : 랩탑 오케스트라, 모바일 오케스트라, 인터랙티브 아트 등
 
-#### 사례 학습 - 지휘자(sender) <=> 연주자(receiver)
+#### 송수신 메시지의 구조
+  
+- 주소(address): `/bass/play`, `/piano/key/high`
+- 인수(argument): 세 종류 가능, 차례로 나열
+  - `int`
+  - `float`
+  - `string`
 
-    
+#### 포드 번호 (port number)
+
+- 1024\~65535 범위에서 임의로 선택
+- 송신자, 수신자 포트 번호가 동일해야 함
+
+#### 메시지 보내기
+
+- 예: `/bass/play 60 0.9 "C4"`
+
+```
+OscOut oout;
+1979 => int port;
+oout.dest("localhost", port);
+oout.start("/bass/play").add(60).add(0.9).add("C4").send();
+```
+
+다음과 같이 써도 마찬가지이다.
+
+```
+OscOut oout;
+2021 => int port;
+oout.dest("localhost", port);
+oout.start("/bass/play");
+oout.add(60)
+oout.add(0.9)
+oout.add("C4")
+oout.send();
+```
+
+#### 메시지 받기
+
+```
+OscIn oin;
+2021 => oin.port;
+"/bass/play" => oin.addAddress;
+OscMsg msg;
+while (true) {
+    oin => now;
+    while (oin.recv(msg)) {
+        <<< msg.address, msg.typetag >>>;
+        <<< msg.getInt(0), msg.getFloat(1), msg.getString(2) >>>;
+    }
+}
+```
+
+#### 사례 학습
+
+- 지휘자(sender)
+
+```
+OscOut oout;
+1979 => oin.port;
+oout.dest("localhost", port);
+
+while (true) {
+    oout.start("/chuckie/osctest");    
+    Math.random2(48,80) => int note; 
+    Math.random2f(0.1,1.0) => float velocity;
+    "Oh, Happy day!" => string message;
+    note => oout.add; 
+    velocity => oout.add;
+    message => oout.add;
+    oout.send(); 
+    second => now;
+}
+```
 
 
+- 연주자(receiver)
+
+```
+OscIn oin;
+1979 => oin.port;
+oin.addAddress("/chuckie/osctest");
+OscMsg msg;
+
+Rhodey piano => dac;
+
+while (true) {
+    oin => now;
+    while (oin.recv(msg) != 0) {
+        msg.getInt(0) => int note;
+        msg.getFloat(1) => float velocity;
+        msg.getString(2) => string message;
+        Std.mtof(note) => piano.freq;
+        velocity => piano.gain;
+        velocity => piano.noteOn;
+        <<< message, note, velocity >>>;
+    }
+}
+```
 
 
 
 
 ## 실습 
+
+### 0. VMPK 설치
 
 ### 1. 다음 프로그램 실행해보기
 
