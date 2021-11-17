@@ -4,10 +4,27 @@
 
 ## 10. MIDI, OSC
 
-
 - 라이브 연주를 위한 도구
 - 프로그램으로 외부 MIDI 기기 실시간 제어하기
 - OSC 프로토콜로 프로그램끼리 우무선 네트워크로 소통하기
+
+#### 가상 MIDI 포트 만들기
+
+- 가상 MIDI 포트 만들기
+  - Mac OS
+    - `Applications/Utilities`(응용 프로그램/유틸리티)에서 `Audio Midi Setup`실행 
+    - 메뉴바에서 `Window` > `Show MIDI Studio`
+    - `IAC 드라이버` 아이콘 클릭
+    - `Device is online` 체크박스 선택
+  - Windows
+    - [loopMIDI(virtualMIDI)](https://www.tobias-erichsen.de/software/loopmidi.html) 다운 받아 설치
+    - 좌하단 `+` 버튼 클릭
+  - 주의: miniAudicle이 한글을 처리하지 못하므로 이름은 모두 영어로 붙일 것
+
+- miniAudicle에서 가상 MIDI 포트 번호 확인
+  - miniAudicle의  `Windows` 메뉴에서 `Device Browser`을 찾아 창을 띄운다.
+  - `Device Browser`의 `Source` 메뉴에서 `MIDI`를 선택한다.
+  - 버스 별 연결 포트(port) 번호를 확인한다.
 
 ### 10-1. MIDI (Musical Instrument Digital Interface)
 
@@ -32,65 +49,74 @@
 - Velocity : `msg.data3` = `0xxxxxxx` (0\~127)
 
 
-#### Virtual MIDI Piano Keyboard
+#### Virtual MIDI Piano Keyboard 설치
 
 - [VMPK](https://vmpk.sourceforge.io/) 내려 받아 컴퓨터에 설치한다.
-- Audicle을 켜고  Windows 메뉴에서 Device Browser을 찾아 창을 띄운다.
-- Device Browser의 Source 메뉴에서 MIDI를 선택하여 VMPK와 연결된 Input/Output 연결(port) 번호를 확인한다.
-- 16개 까지 동시 연결 가능하다.
+
 
 #### 10-1-1. 프로그램에서 MIDI 메시지 보내 외부 키보드를 연주하기 (`MidiOut`)
 
-- VMPK 메뉴에서 Edit > MIDI Connections 선택한다.
-- MIDI Setup에서 MIDI IN Driver를 CoreMIDI로 변경한다.
-- 다음 프로그램을 실행하여 무작위로 보내는 MIDI 메시지로 연주하여 소리나는지 확인한다.
+- 키보드 건반을 마우스로 눌러서 소리가 나는지 확인한다.
+- VMPK 메뉴에서 `Edit` > `MIDI Connections` 선택한다.
+- `MIDI Setup`에서 
+  - 맨 아래 `Show Advanced Connections`를 선택
+  - `MIDI IN Driver`를 `CoreMIDI`로 선택
+  - `Input MIDI Connection`에서 Input 연결 버스 선택
 
-```
-MidiOut mout;
-MidiMsg msg;
-0 => int port;
-if (!mout.open(port)) {
-    <<< "Error: MIDI port did not open on port: ", port >>>;
-    me.exit();
-}
+- `miniAudicle`의 `Device Browser`를 열어 VMPK에서 설정한 버스의 포트 번호 확인한다. 
 
-fun void sendOutMIDInote(int on, int note, int velocity) {
-    if (on == 0) 128 => msg.data1; // 10000000 NoteOff
-    else 144 => msg.data1; // 10010000 NoteOn
-    note => msg.data2;
-    velocity => msg.data3;
-    mout.send(msg);
-}
-
-int note, velocity;
-while (true) {
-    Math.random2(60,100) => note;
-    Math.random2(30,127) => velocity;
-    sendOutMIDInote(1, note, velocity);
-    .1::second => now;
-    sendOutMIDInote(0, note, velocity);
-    .1::second => now;
-}
-```
-
-#### 10-1-2. 외부 키보드에서 MIDI 메시지를 프로그램으로 보내 연주하기 (`MidiIn`)
-
-
-- VMPK 메뉴바에서 Edit > MIDI Connections 선택한다.
-- MIDI Setup에서 MIDI OUT Driver를 CoreMIDI로 변경한다.
-
-- 다음 프로그램을 실행하여 VMPK의 건반을 눌러 ChucK의 `StkInstrument` 악기 소리가 나는지  확인한다.
+다음 프로그램을 실행하여 무작위로 보내는 MIDI 메시지로 연주하여 키보드에서 소리가 나는지 확인한다.
 
 ```
 MidiIn min;
 MidiMsg msg;     
-0 => int port;
+0 => int port; // if port number is 0
 if (!min.open(port)) {
     <<< "Error: MIDI port did not open on port: ", port >>>;
     me.exit();
 }
 
-Rhodey piano => dac; 
+Rhodey instr => dac; 
+
+while (true) {
+    min => now; 
+    if (min.recv(msg)) {
+        <<< msg.data1, msg.data2, msg.data3 >>>;
+        if (msg.data1 == 144) { // noteOn (144)
+            Std.mtof(msg.data2) => instr.freq;
+            msg.data3 / 127.0 => instr.gain;
+            1 => instr.noteOn;
+        }
+        else { // noteOff (128)
+            1 => instr.noteOff;
+        }
+    }
+}
+```
+
+#### 10-1-2. 외부 키보드에서 MIDI 메시지를 프로그램으로 보내 연주하기 (`MidiIn`)
+
+- VMPK 메뉴바에서 `Edit` > `MIDI Connections` 선택한다.
+- `MIDI Setup`에서 
+  - 맨 아래 `Show Advanced Connections`를 선택
+  - `MIDI OUT Driver`를 `CoreMIDI`로 변경
+  - `Output MIDI Connection`에서 Output 연결 버스 선택 (Input 포트와 다른 버스 선택)
+- 이제 건반을 누르면 키보드에서 소리가 나는 대신, 해당 MIDI 메시지를 밖으로 내보낸다.
+
+- `miniAudicle`의 `Device Browser`를 열어 VMPK에서 설정한 버스의 포트 번호 확인한다. 
+
+다음 프로그램을 실행하여 VMPK의 건반을 눌러 ChucK의 `StkInstrument` 악기 소리가 나는지  확인한다.
+
+```
+MidiIn min;
+MidiMsg msg;     
+1 => int port; // if port number is 1
+if (!min.open(port)) {
+    <<< "Error: MIDI port did not open on port: ", port >>>;
+    me.exit();
+}
+
+Mandolin piano => dac; 
 
 while (true) {
     min => now; 
@@ -108,20 +134,12 @@ while (true) {
 }
 ```
 
-#### 10-1-3. 가상 MIDI 포트 만들어 쉬레드 끼리 MIDI 메시지를 주고 받기
+#### 10-1-3. 쉬레드 끼리 MIDI 메시지를 주고 받기
 
-- 가상 MIDI 포트 만들기
-  - Mac OS
-    - Audio Midi Setup at `Applications/Utilities`
-    - 메뉴바에서 Window > Show MIDI Studio
-    - `IAC 드라이버` 아이콘 클릭
-    - `Device is online` 체크박스 선택
-  - Windows
-    - [loopMIDI(virtualMIDI)](https://www.tobias-erichsen.de/software/loopmidi.html) 다운 받아 설치
-    - 좌하단 `+` 버튼 클릭
-
-- 이제 miniAudicle의 MIDI Devices를 열면 가상 MIDI 포트가 보인다.
-- 10-1-1 프로그램을 실행해보자.
+- 프로그램의 한 쉬레드에서 다른 쉬레드에 MIDI 메시지를 전달할 수 있다.
+- 메시지 보내는 프로그램과 메시지 받는 프로그램의 포트 번호를 일치시킨다.
+- 메시지 받는 쉬레드를 먼저 실행시키고, 보내는 쉬레드를 실행시킨다.
+- 위 프로그램을 실행하여 결과를 확인하자.
 
 #### 10-1-4. MIDI 메시지로 로봇 악기 제어하기
 
@@ -200,7 +218,7 @@ while (true) {
 
 ```
 OscOut oout;
-1979 => oin.port;
+1979 => int port;
 oout.dest("localhost", port);
 
 while (true) {
@@ -243,83 +261,12 @@ while (true) {
 
 
 
+## 숙제 (마감: 11월 23일 (화) 오전 9시)
 
-## 실습 
+지난 주 실습 시간에 작성한 `진도 아리랑 변주곡`을 다음 둘 중 하나의 소통 방식으로 재작성해보자.
 
-### 0. VMPK 설치
+- 한 파일에서 하나의 쉬레드를 만들도록 프로그램을 여러 파일로 분리하고, `MidiOut`과 `MidiIn`을 활용하여 쉬레드 간에 MIDI 메시지를 보내서 연주하게 한다.
 
-### 1. 다음 프로그램 실행해보기
-
-```
-MidiOut mout;
-0 => int port;
-if (!mout.open(port)) {
-    <<< "Error: MIDI port did not open on port: ", port >>>;
-    me.exit();
-}
-MidiMsg msg;
-
-fun void sendOutMIDInote(int on, int note, int velocity) {
-    if (on == 0) 128 => msg.data1; // 10000000 NoteOff
-    else 144 => msg.data1; // 10010000 NoteOn
-    note => msg.data2;
-    velocity => msg.data3;
-    mout.send(msg);
-}
-
-[57,57,64,64,66,66,64,62,62,61,61,59,59,57] @=> int notes[];
-0.3::second => dur q;
-0.8::second => dur h;
-[ q, q, q, q, q, q, h, q, q, q, q, q, q, h] @=> dur durs[];
-
-while (true) 
-    for (0 => int i; i < notes.cap(); i++) {
-        sendOutMIDInote(1, notes[i], 100); 
-        durs[i] => now;
-        sendOutMIDInote(0, notes[i], 100); 
-        0.2::second => now;
-    }
-```
-
-### 2. 다음 프로그램 실행해보기
-
-```
-MidiIn min;
-MidiMsg msg;
-0 => int port;
-if (!min.open(port)) {
-    <<< "Error: MIDI port did not open on port: ", port >>>;
-    me.exit();
-}
-
-Rhodey piano => dac;
-
-int note, velocity;
-Event press;
-
-fun void playPiano() {
-    while (true) {
-        press => now;
-        Std.mtof(note) => piano.freq;
-        velocity / 127.0 => piano.noteOn;
-    }
-}
-
-spork ~ playPiano();
-
-while (true) {
-    min => now;
-    while (min.recv(msg)) {
-        <<< msg.data1, msg.data2, msg.data3 >>>;
-        if (msg.data1 == 144) { // noteOn
-            msg.data2 => note;
-            msg.data3 => velocity;
-        }
-        else if (msg.data1 == 128) //noteOff
-            0 => velocity;
-        press.signal();
-    }
-}
-```
+- 한 파일에서 하나의 쉬레드를 만들도록 프로그램을 여러 파일로 분리하고, `OscOut`과 `OscIn`을 활용하여 쉬레드 간에 메시지를 보내서 연주하게 한다.
 
 
