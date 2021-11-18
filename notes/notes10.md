@@ -68,29 +68,31 @@
 다음 프로그램을 실행하여 무작위로 보내는 MIDI 메시지로 연주하여 키보드에서 소리가 나는지 확인한다.
 
 ```
-MidiIn min;
-MidiMsg msg;     
-0 => int port; // if port number is 0
-if (!min.open(port)) {
+MidiOut mout;
+MidiMsg msg;
+0 => int port;
+if (!mout.open(port)) {
     <<< "Error: MIDI port did not open on port: ", port >>>;
     me.exit();
 }
 
-Rhodey instr => dac; 
+fun void sendOutMIDInote(int on, int note, int velocity) {
+    if (on == 0) 128 => msg.data1; // 10000000 NoteOff
+    else 144 => msg.data1; // 10010000 NoteOn
+    note => msg.data2;
+    velocity => msg.data3;
+    <<< msg.data1, msg.data2, msg.data3 >>>;
+    mout.send(msg);
+}
 
+int note, velocity;
 while (true) {
-    min => now; 
-    if (min.recv(msg)) {
-        <<< msg.data1, msg.data2, msg.data3 >>>;
-        if (msg.data1 == 144) { // noteOn (144)
-            Std.mtof(msg.data2) => instr.freq;
-            msg.data3 / 127.0 => instr.gain;
-            1 => instr.noteOn;
-        }
-        else { // noteOff (128)
-            1 => instr.noteOff;
-        }
-    }
+    Math.random2(60,100) => note;
+    Math.random2(30,127) => velocity;
+    sendOutMIDInote(1, note, velocity);
+    .5::second => now;
+    sendOutMIDInote(0, note, velocity);
+    .5::second => now;
 }
 ```
 
