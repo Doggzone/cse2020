@@ -21,6 +21,7 @@
 
 -	[ChucK : Strongly-timed, Concurrent, and On-the-fly Music Programming Language](https://chuck.cs.princeton.edu/)
 -	[VIRTUAL MIDI PIANO KEYBOARD](http://vmpk.sourceforge.net/) : VMPK is a MIDI-event generator and receiver
+- [가상 포트 설치하기](https://hushed-slouch-a9e.notion.site/CSE2020-bfe154f28ebf484b85b728881645e98e)
 
 ### 참조
 
