@@ -225,7 +225,7 @@ fun void detune() {
 
 ### 7-4. ChucK 프로그램 파일을 쉬레드로 추가 - `Machine`
 
-<img src="image07/machinecommand.png" width="500">
+<img src="image07/machinecommand.png" width="800">
 
 ```
 Machine.add(me.dir()+"/pingpong.ck") => int pingpong;
