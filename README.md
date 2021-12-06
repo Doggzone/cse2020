@@ -25,7 +25,7 @@
 
 ### 참조
 
--   [COMPUTSERICA Recital 2020 Video](https://youtu.be/Z_QCXaJ7Z0E)
+- [COMPUTSERICA Recital 2020 Video](https://youtu.be/Z_QCXaJ7Z0E)
 -	[Stanford Laptop Orchestra](http://slork.stanford.edu/)
 -	[Samsara: The KarmetiK Machine Orchestra](https://www.facebook.com/karmetik/videos/10153588268247091/)
 
@@ -53,7 +53,7 @@
 | 12 | 11/23 | - | 리뷰 | \- |
 | 12 | - | 11/25 | 시험#2(제1학술관 101,102) | \- |
 | 13 | 11/30 | 12/2 | 프로젝트 기획 및 개발 | [안내](notes/project.md) |
-| 14 | 12/7 | 12/9 | 프로젝트 발표 리허설 | [토픽](notes/roster.md)] |
+| 14 | 12/7 | 12/9 | 프로젝트 발표 리허설 | [토픽](notes/roster.md) |
 | 15 | 12/14 | 12/16 | 프로젝트 발표 | \- |
 
 
