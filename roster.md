@@ -1,18 +1,47 @@
 ## 음악프로그래밍 프로젝트
 
-| 팀 | 주제 |
-|:--:|:--:|
-| 김지우, 박민선, 황다빈 (a1spa 근데 b를 곁들인) | 광야메들리 |
-| 김혜림, 박찬혁 (딩동과 파라솔) | 연말을 위한 크리스마스 캐롤 sample break |
-|  |  |
-|  |  |
-|  |  |
-|  |  |
-|  |  |
-|  |  |
-|  |  |
-|  |  |
-|  |  |
-|  |  |
-|  |  |
-|  |  |
+- 김지우, 박민선, 황다빈 (a2spa 근데 b를 곁들인) - 광야메들리
+- 김혜림, 박찬혁 (딩동과 파라솔) - 연말을 위한 크리스마스 캐롤 sample break
+- 김만기 (세기말의 마술사) - 명탐정코난 극장판 세기ㅁㄹ의 마술사 메인테마
+
+- ADC : analog-digital converter
+- amplitude : 진폭 (sine wave상에서 세로축으로 올라가고 내려가는 것)
+- beat : (악보에서) 박자
+- compression : 압축 <-> rarefaction(희박)의 반대
+- DAC : digital-analog converter
+- damping : 소리 줄이기, 진동의 진폭을 감소시키기
+- detune : 음정을 미세하게 다르게하다
+- duration : 시간 상의 구간(기간)
+- filter : 필터
+  - high-pass filter (HPF) : 지정한 주파수보다 높은 주파수만 통과시키고, 낮은 주파수는 약화시키는 필터
+  - low-pass filter (LPF) : 지정한 주파수보다 낮은 주파수만 통과시키고, 높은 주파수는 약화시키는 필터
+  - band-pass filter (BPF) : 지정한 구간의 주파수만 통과시키고, 이외 구간은 약화시키는 필터
+  - band-reject filter (BRF) : BPF와 반대
+- formant : 공명
+- frequency : 주파수, 진동수
+- frequency modulation (FM) : 주파수 변조
+- harmonic : 음이 조화하는
+- harmonics : 화성학
+- intensity : 세기 (amplitude와 상응하고, amplitude가 높으면 intensity도 높습니다. 단위dB)
+- loudness : 소리크기
+- measure : (악보에서) 마디
+- noise : 잡음
+- oscillate : 진동하다. 흔들다.
+- oscillation : 진동
+- oscillator : 발진기
+- phase : 위상
+- phoneme : 음소 (개개의 언어에 있어서 의미를 구별하는 작용을 하는 음성상의 최소 단위)
+- pitch : 고저(높낮이)
+- pluck : (현을) 퉁기다, 뜯다
+- rarefaction : 희박  <-> compression(압축)의 반대
+- resonance : 공명
+- reverberation : 반향, 잔향, 메아리
+- signal : 시그널
+  - dry signal : 아무 영향을 받지 않아 변경되지 않은 시그널
+  - wet signal : 외부 영향을 받아 변경된 시그널
+- spectrogram - 음향분석을 할 때 사용하는 그래프로써 가로축을 시간, 세로축을 주파수, 색의 농도를 강도(intensity)로 하여 보여주는 그래프
+- spectrum : spectrogram에서 시간축으로 한 지점 혹은 구간에서의 복합파가 가지는 각각의 sinewave의 amplitude를 보여주는 그래프(구간이 선택 될 경우에는 구간의 평균)
+- strum : (현악기를) 손끝으로 타다, 켜다, 퉁기다, 치다
+- synthesis : 합성
+- transposition : 이조(조바꾸기)
+- waveform : 파형
