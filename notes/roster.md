@@ -11,7 +11,8 @@
 | 이영민  | 메인댄서  | Astronomia(coffin dance BGM) | |
 | 문수인 | - | Affections Touching Across Time-Animation Inuyasha OST | |
 | 주재민 | - | 게임 속 마을 BGM | |
-| 조재훈, 박미현 | -  | 키보드 런치패드 만들기 | |
+| 조재훈 | 국악러버  | 범 내려온다 + 국악기 로 구현 | |
+| 박미현 | -  | 키보드 런치패드 만들기 | |
 | 김규민  | JAZZZ  | Misty 나 Autumn leaves | 리얼북에 있는 재즈 음악 메들리 구현 |
 | 김용민 | - | 헤이즈, 기리보이 - 교통정리 | |
 | 김영근 | 플랜-R |  | |
