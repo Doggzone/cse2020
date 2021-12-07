@@ -11,8 +11,7 @@
 | 이영민  | 메인댄서  | Astronomia(coffin dance BGM) | |
 | 문수인 | - | Affections Touching Across Time-Animation Inuyasha OST | |
 | 주재민 | - |  | |
-| 조재훈 | 국악러버  | 키보드 런치패드 만들기 | |
-| 박미현 | - |  | |
+| 조재훈, 박미현 | 국악러버  | 키보드 런치패드 만들기 | |
 | 김규민  | JAZZZ  | Misty 나 Autumn leaves | |
 | 김용민 | - | 헤이즈, 기리보이 - 교통정리 | |
 | 김영근 | 플랜-R |  | |
