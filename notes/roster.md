@@ -40,22 +40,22 @@
 | 손찬혁, 이동준 | 두번접기 | 루프 스테이션 | |
 | 이유호 | - |  | |
 | 백채현 | - |  | |
-| 박준엽 | 공부할 때 듣기 좋은 | A Whole New World (영화 알라딘), Beauty and the Beast(미녀와 야수) | |
-| 안성진 | - |  | |
+| 박준엽 | 공부할 때 듣기 좋은 | A Whole New World (영화 알라딘) | |
+| 안성진 | 슈퍼스타 |  | |
 | 임흥욱 | - |  | |
 | 최은철 | - |  | |
 | 채지명 | - |  | |
-| 김승연 | - |  | |
-| 조의연 | - |  | |
-| 장원익 | Giovanni | Daft Punk - Giorgio by Moroder | |
-| 김정연 | - |  | |
-| 김경민 | - | Love Step (OST) | |
-| 장혜연 | - |  | |
-| 손열혼 | - |  | |
-| 이승빈 | - |  | |
-| 뇌아정, 왕지성, 이원범, 사우항 | team Fantasia |  | |
-| 정종문 | - | Nell의 기억을 걷는 시간 | |
-| 손임춘 | - |  | |
+| 김승연 | 야간작업실 | Fly me to the moon | 즉흥연주를 컨셉으로 악기소리를 하나씩 쌓은 후 합주﻿ |
+| 조의연 | - | hisaishi joe - summer | |
+| 장원익 | Giovanni | Lecture medlay | |
+| 김정연 | - | Jamiroquai -Virtual insanity  ﻿의 배경 비트 | |
+| 김경민 | - | Love Step - 오준성 (사랑의 온도 OST) | 드럼 소리를 더 추가하여 원곡보다 신나고 웅장하게﻿|
+| 장혜연 | Dream | White Moonlight and Cinnabar Nevus | |
+| 손열혼 | one day | 기존 전자 버전에 드럼을 넣은 음악 | |
+| 이승빈 | - | 비오 - 리무진 | |
+| 뇌아정, 왕지성, 이원범, 사우항 | team Fantasia | Shadow Silme((A wild abstract song created by a Chinese artist) | |
+| 정종문 | - | 넬 - 기억을 걷는 시간 | |
+| 손임춘 | - | 기존 곡의 편곡 (구체적인 곡 미정) | |
 | 엥흐어치르 | - |  | |
-| 홍윤기 | - |  | |
+| 홍윤기 | - | 오케스트라 | |
 | 배수빈 | - | 코코 OST - Remember Me | |
