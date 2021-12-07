@@ -6,11 +6,11 @@
 | 김혜림, 박찬혁  | 딩동과 파라솔 | 연말을 위한 크리스마스 캐롤 sample break | |
 | 김만기  | 세기말의 마술사 | 명탐정코난 극장판 세기말의 마술사 메인테마 | | 
 | 이용철  | begin again | Maroon5 - Lost Stars | |
-| 김가연, 김경한  | 척척학부생 |  | | 
+| 김가연, 김경한  | 척척학부생 | iffy iffy yeah | | 
 | 김현진  | RHCP |  | | 
 | 이영민  | 메인댄서  | Astronomia(coffin dance BGM) | |
 | 문수인 | - | Affections Touching Across Time-Animation Inuyasha OST | |
-| 주재민 | - |  | |
+| 주재민 | - | 게임 속 마을 BGM | |
 | 조재훈, 박미현 | 국악러버  | 키보드 런치패드 만들기 | |
 | 김규민  | JAZZZ  | Misty 나 Autumn leaves | |
 | 김용민 | - | 헤이즈, 기리보이 - 교통정리 | |
@@ -34,7 +34,7 @@
 | 김태형 | - |  | |
 | 김상준 | 검정치마 | Everything | |
 | 김승규 | - |  | |
-| 안성재 | - |  | |
+| 안성재 | - | 에드워드 엘가 - 사랑의 인사 | |
 | 임예서 | - |  | |
 | 이수아 | - |  | |
 | 손찬혁, 이동준 | 두번접기 | 루프 스테이션 | |
@@ -49,7 +49,7 @@
 | 조의연 | - |  | |
 | 장원익 | Giovanni | Daft Punk - Giorgio by Moroder | |
 | 김정연 | - |  | |
-| 김경민 | - | Love Step (OST) 연주 | |
+| 김경민 | - | Love Step (OST) | |
 | 장혜연 | - |  | |
 | 손열혼 | - |  | |
 | 이승빈 | - |  | |
