@@ -30,7 +30,7 @@
 | 송현수 | 1/2  |  | |
 | 김채연, 유아영, 정유민, 정유진 | 난쏘공 | 죠지 - 바라봐줘요 (가요, 밴드) | |
 | 신해소진 | - | Queen - Don't Stop Me Now | |
-| 최연호 | MO | 노래 하나를 오케스트라로 재현하여 자신이 피아노를 맡는 무대를 구현 | |
+| 최연호 | MO | 편리한 피아노로 노래 연주하기 | |
 | 남예준 | 마운틴듀 | Scaredy cat - DPR IAN | |
 | 김태형 | - | Reminiscence Orchestra ver. (TalesWeaver Ost) | |
 | 김상준 | 검정치마 | Everything | |
