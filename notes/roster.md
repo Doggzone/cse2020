@@ -8,7 +8,7 @@
 | 이용철  | begin again | Maroon5 - Lost Stars | |
 | 김가연, 김경한  | 척척학부생 | iffy iffy yeah | | 
 | 김현진  | RHCP |  | | 
-| 이영민  | 메인댄서  | Astronomia(coffin dance BGM) | |
+| 이영민  | 메인댄서  | Astronomia(coffin dance BGM) Classic ver. & lym Remix | |
 | 문수인 | - | Affections Touching Across Time-Animation Inuyasha OST | |
 | 주재민 | - | 게임 속 마을 BGM | |
 | 조재훈 | 국악러버  | 범 내려온다 + 국악기 로 구현 | |
@@ -27,7 +27,7 @@
 | 우경완 | - | Super Mario Bros (1985) OST - Overworld | |
 | 전승환, 최재민, 한경수 | Team Doh | Project 말하는대로 : 네이버 클로바를 이용한 강의 내용 총 정리 remix | |
 | 김연서, 배가연 | 민서 음프하러 가연 | 자작곡 | |
-| 송현수 | 1/2  |  | |
+| 송현수 | 1/2 | Starcraft - Terran Theme 1 | |
 | 김채연, 유아영, 정유민, 정유진 | 난쏘공 | 죠지 - 바라봐줘요 (가요, 밴드) | |
 | 신해소진 | - | Queen - Don't Stop Me Now | |
 | 최연호 | MO | 편리한 피아노로 노래 연주하기 | |
@@ -36,16 +36,16 @@
 | 김상준 | 검정치마 | Everything | |
 | 김승규 | - | Portal OST - Still Alive | |
 | 안성재 | - | 에드워드 엘가 - 사랑의 인사 | |
-| 임예서 | - |  | |
-| 이수아 | - |  | |
+| 임예서 | - | 브이로그 BGM | |
+| 이수아 | - | (미정) | |
 | 손찬혁, 이동준 | 두번접기 | 루프 스테이션 | |
 | 이유호 | - |  | |
 | 백채현 | Mapleband | The raindrop flower | |
 | 박준엽 | 공부할 때 듣기 좋은 | A Whole New World (영화 알라딘) | |
-| 안성진 | 슈퍼스타 |  | |
+| 안성진 | - | 미도와파라솔 <슈퍼스타> | |
 | 임흥욱 | - |  | |
 | 최은철 | - |  | |
-| 채지명 | - |  | |
+| 채지명 | - | (미정) | |
 | 김승연 | 야간작업실 | Fly me to the moon | 즉흥연주를 컨셉으로 악기소리를 하나씩 쌓은 후 합주﻿ |
 | 조의연 | - | hisaishi joe - summer | |
 | 장원익 | Giovanni | Lecture medlay | |
