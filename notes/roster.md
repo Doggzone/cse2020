@@ -26,7 +26,7 @@
 | 김상훈 | 음치팍치 | leave before you love me - Jonas Brothers | |
 | 우경완 | - | Super Mario Bros (1985) OST - Overworld | |
 | 전승환, 최재민, 한경수 | Team Doh | Project 말하는대로 : 네이버 클로바를 이용한 강의 내용 총 정리 remix | |
-| 김연서, 배가연 | 민서 음프하러 가연 | 자작곡 | |
+| 김민서, 배가연 | 민서 음프하러 가연 | 자작곡 | |
 | 송현수 | 1/2 | Starcraft - Terran Theme 1 | |
 | 김채연, 유아영, 정유민, 정유진 | 난쏘공 | 죠지 - 바라봐줘요 (가요, 밴드) | |
 | 신해소진 | - | Queen - Don't Stop Me Now | |
