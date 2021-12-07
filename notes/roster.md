@@ -15,7 +15,7 @@
 | 박미현 | -  | 키보드 런치패드 만들기 | |
 | 김규민  | JAZZZ  | Misty 나 Autumn leaves | 리얼북에 있는 재즈 음악 메들리 구현 |
 | 김용민 | - | 헤이즈, 기리보이 - 교통정리 | |
-| 김영근 | 플랜-R |  | |
+| 김영근 | 플랜-R | 기존의 곡을 크리스마스 캐롤 버전으로 편곡 | |
 | 최성환 | AOC | 기존 전자 음악을 피아노로 어레인지한 버전의 음악 제작 | |
 | 임재완 | Big Sleep | 신세계 OST - Big Sleep | 피아노, 클라리넷, 바이올릿 합주|
 | 한정민 | - |  | |
@@ -50,7 +50,7 @@
 | 조의연 | - | hisaishi joe - summer | |
 | 장원익 | Giovanni | Lecture medlay | |
 | 김정연 | - | Jamiroquai -Virtual insanity 의 배경 비트 | |
-| 김경민 | - | Love Step - 오준성 (사랑의 온도 OST) | 드럼 소리를 더 추가하여 원곡보다 신나고 웅장하게﻿|
+| 김경민 | - | Love Step - 오준성 (사랑의 온도 OST) | 드럼 소리를 더 추가하여 원곡보다 신나고 웅장하게 |
 | 장혜연 | Dream | White Moonlight and Cinnabar Nevus | |
 | 손열혼 | one day | 기존 전자 버전에 드럼을 넣은 음악 | |
 | 이승빈 | - | 비오 - 리무진 | |
