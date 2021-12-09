@@ -49,7 +49,7 @@
 | 안성진 | - | 미도와파라솔 <슈퍼스타> | |
 | 임흥욱 | - |  | |
 | 최은철 | - |  | |
-| 채지명 | - | (미정) | |
+| 채지명 | 카우보이 | Titoli | |
 | 김승연 | 야간작업실 | Fly me to the moon | 즉흥연주를 컨셉으로 악기소리를 하나씩 쌓은 후 합주﻿ |
 | 조의연 | - | hisaishi joe - summer | |
 | 장원익 | Giovanni | Lecture medlay | |
