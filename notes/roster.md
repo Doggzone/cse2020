@@ -22,7 +22,7 @@
 | 김영근 | 플랜-R | 기존의 곡을 크리스마스 캐롤 버전으로 편곡 | |
 | 최성환 | AOC | 기존 전자 음악을 피아노로 어레인지한 버전의 음악 제작 | |
 | 임재완 | Big Sleep | 신세계 OST - Big Sleep | 피아노, 클라리넷, 바이올릿 합주|
-| 한정민 | - |  | |
+| 한정민 | - | 로스트아크 OST : 별빛 등대의 섬 테마곡 | |
 | 진명인 | - | 대표적인 결혼행진곡 R.Wagner - Wedding March에 경쾌한 화음을 입혀 결혼식의 설렘을 보다 나타낼 수 있는 노래 만들어 보기 | |
 | 최희정 | - | 키보드 입력시 연주 악기가 바뀌는 오르골(곡 미정) | |
 | 손하영 | AtoZ | Queen 메들리 | |
@@ -41,16 +41,16 @@
 | 김승규 | - | Portal OST - Still Alive | |
 | 안성재 | - | 에드워드 엘가 - 사랑의 인사 | |
 | 임예서 | - | 루돌프사슴코 | |
-| 이수아 | - | (미정) | |
+| 이수아 | - | Enemy - Imagine Dragons (Arcane OST) | |
 | 손찬혁, 이동준 | 두번접기 | 루프 스테이션 | |
-| 이유호 | - |  | |
+| 이유호 | - | lemon tree 편곡 | |
 | 백채현 | Mapleband | The raindrop flower | |
 | 박준엽 | 공부할 때 듣기 좋은 | A Whole New World (영화 알라딘) | |
 | 안성진 | - | 미도와파라솔 <슈퍼스타> | |
 | 임흥욱 | - |  | |
 | 최은철 | - |  | |
 | 채지명 | 카우보이 | Titoli | |
-| 김승연 | 야간작업실 | Fly me to the moon | 즉흥연주를 컨셉으로 악기소리를 하나씩 쌓은 후 합주﻿ |
+| 김승연 | 야간작업실 | Fly me to the moon | 즉흥연주를 컨셉으로 악기소리를 하나씩 쌓은 후 합주 |
 | 조의연 | - | hisaishi joe - summer | |
 | 장원익 | Giovanni | Lecture medlay | |
 | 김정연 | - | Jamiroquai -Virtual insanity 의 배경 비트 | |
