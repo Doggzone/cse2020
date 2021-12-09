@@ -11,7 +11,7 @@
 | 김만기  | 세기말의 마술사 | 명탐정코난 극장판 세기말의 마술사 메인테마 | | 
 | 이용철  | begin again | Maroon5 - Lost Stars | |
 | 김가연, 김경한  | 척척학부생 | iffy iffy yeah | | 
-| 김현진  | RHCP |  | | 
+| 김현진  | RHCP | Dua Lipa의 Don't Start Now | | 
 | 이영민  | 메인댄서  | Astronomia(coffin dance BGM) Classic ver. & lym Remix | |
 | 문수인 | - | Affections Touching Across Time-Animation Inuyasha OST | |
 | 주재민 | - | 게임 속 마을 BGM | |
