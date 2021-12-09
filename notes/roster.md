@@ -61,7 +61,7 @@
 | 뇌아정, 왕지성, 이원범, 사우항 | team Fantasia | Shadow Silme((A wild abstract song created by a Chinese artist) | |
 | 정종문 | - | 넬 - 기억을 걷는 시간 | |
 | 손임춘 | - | 기존 곡의 편곡 (구체적인 곡 미정) | |
-| 엥흐어치르 | - |  | |
+| 엥흐어치르 | - | 몽골 전통 음악 | |
 | 홍윤기 | - | 오케스트라 | |
 | 배수빈 | - | 코코 OST - Remember Me | |
 | 김민준 | - | koko - Ryuichi Sakamoto | |
