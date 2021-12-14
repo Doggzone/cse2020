@@ -47,7 +47,6 @@
 | 백채현 | Mapleband | The raindrop flower | |
 | 박준엽 | 공부할 때 듣기 좋은 | A Whole New World (영화 알라딘) | |
 | 안성진 | - | 미도와파라솔 <슈퍼스타> | |
-| 임흥욱 | - |  | |
 | 최은철 | - |  | |
 | 채지명 | 카우보이 | Titoli | |
 | 김승연 | 야간작업실 | Fly me to the moon | 즉흥연주를 컨셉으로 악기소리를 하나씩 쌓은 후 합주 |
@@ -55,7 +54,7 @@
 | 장원익 | Giovanni | Lecture medlay | |
 | 김정연 | - | Jamiroquai -Virtual insanity 의 배경 비트 | |
 | 김경민 | - | Love Step - 오준성 (사랑의 온도 OST) | 드럼 소리를 더 추가하여 원곡보다 신나고 웅장하게 |
-| 장혜연 | Dream | White Moonlight and Cinnabar Nevus | |
+| 장혜연, 임흥욱 | Dream | White Moonlight and Cinnabar Nevus | |
 | 손열혼 | one day | 기존 전자 버전에 드럼을 넣은 음악 | |
 | 이승빈 | - | 비오 - 리무진 | |
 | 뇌아정, 왕지성, 이원범, 사우항 | team Fantasia | Shadow Silme((A wild abstract song created by a Chinese artist) | |
