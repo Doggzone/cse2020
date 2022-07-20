@@ -1,4 +1,4 @@
-한양대학교 ERICA 소프트웨어학부 2021년 2학기
+한양대학교 ERICA 소프트웨어학부 2022년 2학기
 
 ![COMPUTSERICA](https://i.imgur.com/3A8uLLH.png)
 
@@ -13,8 +13,10 @@
 
 ### 교재
 
--	Ajay Kapur, Perry Cook, Spencer Salazar, and Ge Wang, [Programming for Musicians and Digital Artists - Creating Music with ChucK](https://www.manning.com/books/programming-for-musicians-and-digital-artists), Manning Publications Co., 2015.
--	[저자 강의 비디오](https://www.kadenze.com/courses/introduction-to-programming-for-musicians-and-digital-artists/info)
+- 도경구, 강의 노트
+
+### 참고 문헌
+-	Ajay Kapur, Perry Cook, Spencer Salazar, and Ge Wang, [Programming for Musicians and Digital Artists - Creating Music with ChucK](https://www.manning.com/books/programming-for-musicians-and-digital-artists), Manning Publications Co., 2015. [저자 강의 비디오](https://www.kadenze.com/courses/introduction-to-programming-for-musicians-and-digital-artists/info)
 -	Michael Hewitt, Music Theory for Computer Musicians, Course Technology, 2008.
 
 ### 소프트웨어
@@ -23,39 +25,39 @@
 -	[VIRTUAL MIDI PIANO KEYBOARD](http://vmpk.sourceforge.net/) : VMPK is a MIDI-event generator and receiver
 - [가상 포트 설치하기](https://hushed-slouch-a9e.notion.site/CSE2020-bfe154f28ebf484b85b728881645e98e)
 
-### 참조
+### 참고
 
+- [COMPUTSERICA 2020 작품 모음 Video]
 - [COMPUTSERICA Recital 2020 Video](https://youtu.be/Z_QCXaJ7Z0E)
--	[Stanford Laptop Orchestra](http://slork.stanford.edu/)
--	[Samsara: The KarmetiK Machine Orchestra](https://www.facebook.com/karmetik/videos/10153588268247091/)
 
 ### 수업 시간 및 장소
 
--	강의 : 화 10:00-12:00, 실시간 온라인 
--	실습 : 목 09:00-11:00, 실시간 온라인, 개인 노트북 지참 필수
+-	강의 : 수 오후 3-5, 개인 노트북 지참 필수
+-	실습 : 목 오전 9-11, 개인 노트북 지참 필수
+
 
 ### 수업 일정
 
 | 주 | 강의 | 실습 | 내용 | 숙제 |
 |:--:|:--:|:--:|:--:|:--:|
-| 1  | 9/2 | 9/7 | [음악 프로그래밍 소개](notes/notes01.md)  | \- |
-| 2  | 9/9 | 9/14 | [소리내기 프로그래밍 기본](notes/notes02.md) | 숙제#1 |
-| 3  | 9/16 | 9/23 | [함수 요약](notes/notes03.md) | \- |
-| 4  | 9/28 | 9/30 | [배열](notes/notes04.md) | 숙제#2 |
-| 5  | 10/5 | 10/7 | [소리 파일과 소리 조작(다듬기)](notes/notes05.md) | 숙제#3 |
-| 6  | 10/12 | 10/14 | [소리 합성 및 처리 - `UGen`의 활용](notes/notes06.md) | 숙제#4 |
-| 7  | 10/19 | - | 리뷰 | \- |
-| 7  | - | 10/21 | 시험#1(학연산 304,305호), [문제 및 답안](notes/CSE2020-2021exam1sol.pdf) | \- |
-| 8  | 10/26 | 10/28 | [멀티 쓰레딩과 동시계산](notes/notes07.md) | 숙제#5 |
-| 9  | 11/2 | 11/4 | [객체와 클래스](notes/notes08.md) | 숙제#6 |
-| 10 | 11/9 | 11/11 | [이벤트 구동 프로그래밍](notes/notes09.md) | 숙제#7 |
-| 11 | 11/16 | 11/18 | [MIDI, OSC](notes/notes10.md) | 숙제#8 |
-| 12 | 11/23 | - | 리뷰 | \- |
-| 12 | - | 11/25 | 시험#2(제1학술관 101,102) | \- |
-| 13 | 11/30 | 12/2 | 프로젝트 기획 및 개발 | [안내](notes/project.md) |
-| 14 | 12/7 | 12/9 | 프로젝트 발표 리허설 | [토픽](notes/roster.md) |
-| 15 | 12/14 | 12/16 | 프로젝트 발표 | \- |
-
+| 1  | 9/1 | - | [음악 프로그래밍 소개](notes/notes01.md)  | \- |
+| 2  | 9/7 | 9/8 | [소리내기 프로그래밍 기본](notes/notes02.md) | 숙제#1 |
+| 3  | 9/14 | 9/15 | [함수 요약](notes/notes03.md) | \- |
+| 4  | 9/21 | 9/22 | [배열](notes/notes04.md) | 숙제#2 |
+| 5  | 9/28 | 9/29 | [소리 파일과 소리 조작(다듬기)](notes/notes05.md) | 숙제#3 |
+| 6  | 10/5 | 10/6 | [소리 합성 및 처리 - `UGen`의 활용](notes/notes06.md) | 숙제#4 |
+| 7  | 10/12 | - | 리뷰 | [기출 문제 및 답안](notes/CSE2020-2021exam1sol.pdf) |
+| 7  | - | 10/13 | 시험#1 | \- |
+| 8  | 10/19 | 10/20 | [멀티 쓰레딩과 동시계산](notes/notes07.md) | 숙제#5 |
+| 9  | 10/26 | 10/27 | [객체와 클래스](notes/notes08.md) | 숙제#6 |
+| 10 | 11/2 | 11/3 | [이벤트 구동 프로그래밍](notes/notes09.md) | 숙제#7 |
+| 11 | 11/9 | 11/10 | [MIDI, OSC](notes/notes10.md) | 숙제#8 |
+| 12 | 11/16 | - | 리뷰 | [기출 문제 및 답안](notes/CSE2020-2021exam2sol.pdf) |
+| 12 | - | 11/17 | 시험#2 | \- |
+| 13 | 11/23 | 11/24 | 프로젝트 기획 | [안내](notes/project.md) |
+| 14 | 11/30 | 12/1 | 프로젝트 개발 | [토픽](notes/roster.md) |
+| 15 | 12/7 | 12/8 | 프로젝트 발표 리허설 | \- |
+| 16 | 12/14 | 12/15 | 프로젝트 발표 | \- |
 
 ### 평가
 
@@ -79,4 +81,4 @@
 ### 교수진
 
 - 교수: [도경구](http://doggzone.github.io/home)(doh@hanyang.ac.kr), 제4공학관 3층 320호
-- 조교: 양준혁(jun97y@gmail.com), 모지환(gugusny5758@gmail.com), 제4공학관 3층 319호 프로그래밍언어연구실
+- 조교: 모지환(gugusny5758@gmail.com), 제4공학관 3층 319호 프로그래밍언어연구실
