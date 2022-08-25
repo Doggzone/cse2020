@@ -68,7 +68,7 @@ ChucK은 실시간으로 소리를 합성하고 음악을 연주하는 프로그
 
 <img src="image01/console2.png" width="500">
 
-### 1-3. 소리내는 프로그램 
+### 1-3. 소리내는 프로그램 : Hello, Sine Wave!
 
 #### 소리의 특성
 
