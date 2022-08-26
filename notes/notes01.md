@@ -45,7 +45,6 @@ ChucK은 실시간으로 소리를 합성하고 음악을 연주하는 프로그
 
 <img src="image01/vm1.png" width="300"><img src="image01/console0.png" width="400">
 
-- `sample.zip`을 다운받아 `hanoi1.ck` 프로그램을 실행하여 이 세 창의 역할을 관찰해보자.
 
 ### 1-2. 첫 ChucK 프로그램 : Hello, World!
 
