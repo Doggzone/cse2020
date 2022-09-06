@@ -27,7 +27,6 @@
 
 ### 참고
 
-- [COMPUTSERICA 2020 작품 모음 Video]
 - [COMPUTSERICA Recital 2020 Video](https://youtu.be/Z_QCXaJ7Z0E)
 
 ### 수업 시간 및 장소
