@@ -8,7 +8,7 @@ version 1.02 (2022/09/06) 사소한 수정, 설명 보완
 
 ### 1-1. ChucK 프로그래밍 언어
 
-<img src="image01/miniAudicle.png" width="100">
+<img src="https://i.imgur.com/37stof0.png" width="100">
 
 ChucK은 실시간으로 소리를 합성하고 음악을 연주하는 프로그램을 작성할 수 있는 범용 프로그래밍 언어이다.
 
@@ -30,11 +30,11 @@ ChucK은 실시간으로 소리를 합성하고 음악을 연주하는 프로그
 
 -	설치가 끝나면 `miniAudicle` 이란 이름의 통합개발환경(IDE, Integrated Development Environment)이 생긴다.
 
-<img src="image01/about.png" width="400">
+<img src="https://i.imgur.com/mBaywSU.png" width="400">
 
 -	`miniAudicle`을 열면, 다음과 같은 편집창(`Untitled`)과 가상머신창(`Virtual Machine`)이 나타난다.
 
-<img src="image01/editor0.png" width="400"><img src="image01/vm0.png" width="300">
+<img src="https://i.imgur.com/Ygr0uf8.png.png" width="400"><img src="https://i.imgur.com/hkff9tl.png" width="300">
 
 - 편집창에서는 프로그램을 작성하고, 수정하고, 저장하고, 실행하는 작업을 할 수 있다.
 - 가상머신창은 프로그램의 실행 상황을 보여주는 역할을 한다. 
@@ -45,7 +45,7 @@ ChucK은 실시간으로 소리를 합성하고 음악을 연주하는 프로그
     - 상단 우측에 있는 두개의 버튼은 쉬레드를 지우는 역할을 한다. `Remove Last`는 가장 최근에 생긴 쉬레드 하나를 지우고, `Clear VM`은 실행 중인 쉬레드를 모두 지우면서 가상머신의 실행 환경을 초기 상태로 되돌린다.
 - 아래 오른쪽 그림과 같은 콘솔모니터(`Console Monitor`)는 가상머신을 켬과 동시에 새로 나타난다. 콘솔모니터는 표준출력창의 역할을 한다.
 
-<img src="image01/vm1.png" width="300"><img src="image01/console0.png" width="400">
+<img src="https://i.imgur.com/uiqvVRS.png" width="300"><img src="https://i.imgur.com/xY6byZa.png" width="400">
 
 
 ### 1-2. 첫 ChucK 프로그램 : Hello, World!
@@ -54,11 +54,11 @@ ChucK은 실시간으로 소리를 합성하고 음악을 연주하는 프로그
 
 - 편집창에 아래 그림과 같이 `<<<`와 `>>>` 사이에 문자열을 넣고 `;`를 이어붙인 프로그램을 입력한다.
 
-<img src="image01/editor1.png" width="400">
+<img src="https://i.imgur.com/ftlxdIS.png" width="400">
 
 - 가상머신을 켜고 편집창의 좌상단에 있는 연록색의 `+` 모양의 버튼을 클릭하면 프로그램이 실행된다. 그러면 실행창에 다음 그림과 같이 `Hello, World!` 식을 계산한 결과를 타입과 함께 보여준다.
 
-<img src="image01/console1.png" width="500">
+<img src="https://i.imgur.com/aAmfr0S.png" width="500">
 
 
 ### 1-3. 소리내는 프로그램 : Hello, Sine Wave!
@@ -67,7 +67,7 @@ ChucK은 실시간으로 소리를 합성하고 음악을 연주하는 프로그
 
 물체가 진동(Oscillation)하여 생기는 소리(sound)는 공기에 파형(wave)을 만들어 내는데, 이를 **음파(sound wave)**라고 한다. 음파는 공기를 통하여 사방으로 퍼져나가는데, 도중에 벽과 다른 물체의 표면에 닿으면 반사를 하면서 여러 방향으로 퍼져나가다가, 궁극적으로 사람의 귀 또는 마이크(microphone)에 도달하여 소리로 감지하게 된다.
 
-<img src="image01/sound1.png" width="400">
+<img src="https://i.imgur.com/VPMinXL.png" width="400">
 
 음파가 가지고 있는 속성은 **진폭(amplitude, gain)**과 **주파수(frequency)** 이다.
 
@@ -75,15 +75,15 @@ ChucK은 실시간으로 소리를 합성하고 음악을 연주하는 프로그
 
 <U>주파수는 소리의 높낮이(고음/저음,pitch)를 나타낸다</U>. 음파의 주파수는 1초 동안 같은 패턴을 반복하는 주기의 횟수이다. 아래 그림에서와 같이 음파 패턴 한 주기의 진행 시간을 `T`(초)라고 하면 주파수는 `1/T`(Hz)이다. 주파수의 단위 `Hz`는 Hertz의 약자로 주파수를 발견한 사람의 이름에서 따왔다. 예를 들어 `T`가 0.00454545(초) 이면, 주파수는 1/0.00454545 = 220.0(Hz)이다. 1초에 같은 주기가 200번 반복된다는 뜻이다. 주파수가 클수록 (음파 주기의 폭이 좁을수록) 사람은 고음(높은소리)으로, 작을수록 (음파 주기의 폭이 넓을수록) 저음(낮은소리)으로 인지한다. 예를 들어 피아노 건반은 왼쪽으로 갈수록 주파수가 작아지면서 소리가 낮아지고, 오른쪽으로 갈수록 주파수가 커지면서 소리가 높아진다.
 
-<img src="image01/sound2.png" width="220">
+<img src="https://i.imgur.com/Bg3Ttxy.png" width="220">
 
 다음 그림과 같이 sin 함수 그래프 모양을 그리는 파형을 <U>사인파(sine wave)</U>라고 하며, 컴퓨터로 합성하는 모든 소리의 기본이 된다.
 
-<img src="image01/sound3.png" width="500">
+<img src="https://i.imgur.com/UrWVVDX.png" width="500">
 
 진폭과 크기가 일정 비율로 다른 몇 개의 사인파을 합성(synthesis)하여 다른 모양의 음파를 만들어낼 수 있다. 합성에 사용하는 사인파의 진폭과 크기의 비율에 따라서 <U>사각파(square wave)</U>, <U>삼각파(triangle wave)</U>, <U>톱니파(sawtooth wave)</U>와 같은 다양한 모양의 음파를 합성해낼 수 있다. 음파의 모양에 따라서 음색이 달라진다. 이 4가지 음파를 만들어 소리를 내주는 **진동기(oscillator)**는 ChucK에 내장되어 있다. 각각 `SinOsc`, `SqrOsc`, `TriOsc`, `SawOsc`라고 부른다. 이 중에서 `SqrOsc`는 클라리넷과 비슷한 목관악기 소리가 나고, `SawOsc`는 바이올린과 비슷한 현악기 소리가 난다.
 
-<img src="image01/sound4.png" width="400">
+<img src="https://i.imgur.com/vQOcXap.png" width="400">
 
 #### 소리 내기
 
@@ -144,7 +144,7 @@ SinOsc s => dac;
 
 #### 프로그램 실행하기
 
-이 프로그램을 실행하려면 편집창 상단의 아래 그림과 같은 모양의 버튼 3개 중에서 `+` 모양의 버튼을 클릭한다.<img src="image01/shredbuttons.png" width="300">
+이 프로그램을 실행하려면 편집창 상단의 아래 그림과 같은 모양의 버튼 3개 중에서 `+` 모양의 버튼을 클릭한다.<img src="https://i.imgur.com/jyTpJdY.png" width="300">
 
 바로 Virtual Machine 창에서 프로그램이 실행을 시작되었음을 볼 수 있다. 프로그램의 실행이 진행되는 시간이 오른쪽에 표시된다.
 
