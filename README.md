@@ -21,8 +21,8 @@
 
 ### 소프트웨어
 
--	[ChucK : Strongly-timed, Concurrent, and On-the-fly Music Programming Language](https://chuck.cs.princeton.edu/)
--	[VIRTUAL MIDI PIANO KEYBOARD](http://vmpk.sourceforge.net/) : VMPK is a MIDI-event generator and receiver
+- [ChucK : Strongly-timed, Concurrent, and On-the-fly Music Programming Language](https://chuck.cs.princeton.edu/)
+- [VIRTUAL MIDI PIANO KEYBOARD](http://vmpk.sourceforge.net/) : VMPK is a MIDI-event generator and receiver
 - [가상 포트 설치하기](https://hushed-slouch-a9e.notion.site/CSE2020-bfe154f28ebf484b85b728881645e98e)
 
 ### 참고
@@ -41,7 +41,7 @@
 |:--:|:--:|:--:|:--:|:--:|
 | 1  | 9/1 | - | [음악 프로그래밍 소개](notes/notes01.md)  | [샘플 프로그램](code/sample.zip) |
 | 2  | 9/7 | 9/8 | [소리내기 프로그래밍 기본](notes/notes02.md) | #1 마감 9/19(월) 자정 |
-| 3  | 9/14 | 9/15 | 함수 요약 | 숙제#2 |
+| 3  | 9/14 | 9/15 | [함수 요약](notes/notes02.md) | #2 마감 9/21(수) 오후3시 |
 | 4  | 9/21 | 9/22 | 배열 | 숙제#3 |
 | 5  | 9/28 | 9/29 | 소리 파일과 소리 조작(다듬기) | 숙제#4 |
 | 6  | 10/5 | 10/6 | 소리 합성 및 처리 - `UGen`의 활용 | 숙제#5 |
