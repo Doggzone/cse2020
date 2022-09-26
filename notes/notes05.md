@@ -1,41 +1,45 @@
 ```
-(c)도경구 version 0.12 (2021/10/08)
+(c)도경구 version 1.0 (2022/09/24)
 ```
 
-## 5. 소리 파일과 소리 조작
+## 5. 소리 파일과 소리 다듬기
 
-- 채집/합성한 아날로그 소리를 컴퓨터 프로그램으로 처리하려면 디지털 데이터로 변환해야 한다.
-- 소리의 디지털 데이터는 다양한 형식의 소리 파일에 기록할 수 있는데, 이를 소리 샘플(sound samples) 또는 줄여서 샘플(samples)이라고 한다.
-- 이 장에서는 파일로 저장되어 있는 샘플을 ChucK 프로그램에서 소리 데이터로 활용하는 방법을 공부한다.
+채집한 아날로그 소리를 컴퓨터 프로그램으로 처리하려면 디지털 데이터로 변환해야 한다. 소리 데이터는 다양한 형식의 파일에 기록할 수 있는데, 이 장에서는 파일로 저장되어 있는 소리 데이터를 ChucK 프로그램에서 활용하는 방법을 공부한다.
 
-### 5-1. 샘플링
+### 5-1. 샘플
 
-<img src="image05/sampling1.png" width="800">
+컴퓨터 프로그램에서 소리(음파, sound waveform)를 처리하려면, 아날로그 소리를 이진수로 표현한 디지털 데이터로 변환해야 한다. 이 변환 장치를 <b>ADC(Analog-to-Digital Converter, 아날로그/디지털 변환기)</b>라고 하고, 변환한 디지털 데이터를 <b>샘플(sample)</b>이라고 한다.
 
-컴퓨터 프로그램에서 소리(음파,sound waveform)를 처리하기 위헤서, 소리를 디지털 데이터인 수로 표현한 디지털 시그널(digital signal)로 변환해야 하는데 이 변환 장치를 <b>ADC(Analog-to-Digital Converter, 아날로그/디지털 변환기)</b>라고 한다.
-ADC의 변환 작업을 <b>샘플링(sampling)</b>이라고 하고, 변환한 디지털 데이터를 <b>샘플(sample)</b>이라고 한다.
-<b>샘플링 기간(sampling period)</b>를 정하고 이 기간 동안의 소리 정보를 수로 변환하여 하나의 샘플로 저장한다. 샘플 하나를 저장하는 공간의 크기는 8비트(일반), 16비트(음악), 24비트(고음질 음악) 중 하나를 선택한다. 저장 공간이 클수록 원음과 가까운 소리를 표현할 수 있다. 샘플링 기간은 얼마나 빈번하게 소리를 샘플링하는지에 따라서 결정되는데, 보통 초당 44,100개의 샘플을 채취한다. 이를 샘플링 비율이라고 하는데, 높을수록 (초당 더 샘플을 더 많이 채취할수록) 원음과 가까운 소리를 표현할 수 있다. 그런데 사람의 귀가 소리를 구별하는데 한계가 있기 때문에, 무조건 저장 공간을 많이 확보하고 샘플링 비율을 높이는게 능사는 아니다. CD 음반의 경우 16비트, 44,100 샘플링 비율을 표준으로 채택하고 있다. 
+<img src="https://i.imgur.com/fBmg7y1.png" width="800">
 
+#### 샘플 비율, 샘플 크기
 
-### 5-2. 샘플을 담는 장치 `SndBuf` 
-
-<img src="image05/sampling2.png" width="600">
-
-- `SndBuf`(sound buffer)는 소리 샘플을 담을 수 있는 붙박이 ChucK `UGen` 이다.
-- 소리 파일의 종류
-  - `.wav` (from wave or waveform)
-  - `.aif` (from audio interchange file or format)
+샘플 비율(sampling rate)은 얼마나 빈번하게 소리 데이터를 채취하는지에 따라 결정되는데, 보통 초당 44,100개의 샘플을 채취한다. 샘플 비율이 높아져서 초당 샘플을 더 많이 채취할수록, 음질은 좋아지고 저장공간의 부담은 증가한다. 샘플 하나를 저장하는 공간의 크기는 보통 8비트(일반), 16비트(음악), 24비트(고음질 음악) 중 하나를 선택한다. 저장 공간이 클수록 음질이 좋아진다. 그런데 사람의 귀가 음질을 구별하는데 한계가 있는데다가 음질을 높일수록 공간비용이 증가하기 때문에, 무조건 샘플 비율을 높이고 샘플 크기를 늘리는게 능사는 아니다. CD 음반의 경우 16비트, 44,100 샘플 비율을 표준으로 채택하고 있다.
 
 
-| 메소드 | 값의 범위 | 설명 |
+### 5-2. 샘플을 담는 장치 [SndBuf](https://chuck.cs.princeton.edu/doc/program/ugen_full.html#sndbuf)
+
+<b>단위생성기(unit generator)</b>는 음파를 생성하는 장치인데, ChucK에서 제공하는 모든 단위생성기를 통칭하여 `UGen` 라고 한다. 앞서 공부한 `SinOsc`, `SqrOsc`, `TriOsc`, `SawOsc`는 모두 `UGen`의 일종이다. 소리 샘플을 담을 수 있는 `UGen`은 `SndBuf`(sound buffer) 이다.
+
+`SndBuf`가 제공하는 제어 파라미터는 다음과 같다.
+
+| 제어 파라미터 | 값의 범위 | 설명 |
 |:----:|:----:|:----:|
 | `.read` | | 소리 파일을 `SndBuf`에 올림(로딩) |
-| `.samples` | | 샘플의 개수 |
-| `.length` | | 샘플의 연주 시간 |
+| `.samples` | `int` | 샘플의 개수 |
+| `.length` | `dur` | 샘플의 연주 시간 |
 | `.pos` | `0` \~ `.samples()` | 플레이 헤드의 위치|
 | `.gain` | `0.0` \~ `1.0` | 소리 크기 |
 | `.rate` | `float` | 1.0이 정상 진행 속도, 음수는 거꾸로 진행 |
 
+<img src="https://i.imgur.com/QfT6Bov.png" width="600">
+
+`SndBuf`에 담을 수 있는 소리 파일의 형식은 다양한데, 대표적인 두 가지만 살펴보면 다음과 같다.
+- `.wav` (wave or waveform)
+- `.aif` (audio interchange file or format)
+
+
+#### 모노
 
 ```
 SndBuf sample => dac;
@@ -58,9 +62,11 @@ me.dir() + "/audio/hihat_01.wav" => sample2.read;
 second => now;
 ```
 
-#### 패닝
+#### 패닝 [Pan2](https://chuck.cs.princeton.edu/doc/program/ugen_full.html#pan2)
 
-<img src="image05/panning.png" width="300">
+`Pan2`는 모노를 스테레오로 펴주는 작업을 하는 단위생성기이다.
+
+<img src="https://i.imgur.com/aKLrtbW.png" width="300">
 
 
 ```
@@ -86,7 +92,7 @@ while (position < 1.0) {
     <<< position >>>;
     0.02 +=> position;
     100::ms => now;
-} 
+}
 ```
 
 #### 재생 속도 변화
@@ -101,12 +107,10 @@ while (true) {
     Math.random2f(0.2,1.8) => sample.rate; // speed
     0 => sample.pos;
     500::ms => now;
-} 
+}
 ```
 
 #### 거꾸로 재생
-
-<img src="image05/sampling3.png" width="600">
 
 
 ```
@@ -216,12 +220,12 @@ me.dir() + "/audio/stereo_fx_03.wav" => stereo_sample.read;
 Gain bal[2];
 stereo_sample.chan(0) => bal[0] => dac.left;
 stereo_sample.chan(1) => bal[1] => dac.right;
-1 => stereo_sample.loop; // automatically set .pos to 0 after play 
+1 => stereo_sample.loop; // automatically set .pos to 0 after play
 
 float balance, volume_right;
 while (true) {
-    Math.random2f(0.2, 1.8) => stereo_sample.rate; 
-    Math.random2f(-1.0, 1.0) => balance; 
+    Math.random2f(0.2, 1.8) => stereo_sample.rate;
+    Math.random2f(-1.0, 1.0) => balance;
     (balance + 1) / 2.0 => volume_right;
     volume_right => bal[0].gain;
     1 - volume_right => bal[1].gain;
@@ -287,11 +291,11 @@ snare.samples() => snare.pos;
 while (true) {
     for (0 => int beat; beat < 16; beat++) {
         <<< beat >>>;
-        if (beat == 0 || beat == 4 || beat == 8 || beat == 12) 
+        if (beat == 0 || beat == 4 || beat == 8 || beat == 12)
             0 => kick.pos;
-        if (beat == 2 || beat == 5 || beat == 7 || 
+        if (beat == 2 || beat == 5 || beat == 7 ||
             beat == 9 || beat == 10 || beat == 11 ||
-            beat == 13 || beat == 14) 
+            beat == 13 || beat == 14)
             0 => snare.pos;
         TEMPO => now;
     }
@@ -316,9 +320,9 @@ snare.samples() => snare.pos;
 while (true) {
     for (0 => int beat; beat < kick_hits.size(); beat++) {
         <<< beat >>>;
-        if (kick_hits[beat]) 
+        if (kick_hits[beat])
             0 => kick.pos;
-        if (snare_hits[beat]) 
+        if (snare_hits[beat])
             0 => snare.pos;
         TEMPO => now;
     }
@@ -349,11 +353,11 @@ hihat.samples() => hihat.pos;
 while (true) {
     for (0 => int beat; beat < kick_hits.size(); beat++) {
         <<< beat >>>;
-        if (kick_hits[beat]) 
+        if (kick_hits[beat])
             0 => kick.pos;
-        if (snare_hits[beat]) 
+        if (snare_hits[beat])
             0 => snare.pos;
-        if (hihat_hits[beat]) 
+        if (hihat_hits[beat])
             0 => hihat.pos;
         TEMPO => now;
     }
@@ -375,7 +379,7 @@ me.dir() + "/audio/click_01.wav" => clicklo.read;
 for (0 => int beat; beat < 24; beat++) {
     <<< beat, beat % MOD >>>;
     0 => clickhi.pos;
-    if (beat % MOD == 0) 
+    if (beat % MOD == 0)
         0 => clicklo.pos;
     TEMPO => now;
 }
@@ -412,7 +416,7 @@ cow_hits.size() => int MAX_BEAT;
 0 => int beat;
 0 => int measure;
 while (true) {
-    if (beat % 4 == 0) 
+    if (beat % 4 == 0)
         0 => kick.pos;
     if (beat % 4 == 2 && measure % 2 == 1)
         0 => snare.pos;
@@ -435,33 +439,32 @@ while (true) {
 }
 ```
 
+### 실습 5.1 소리 샘플 파일 들어보기
 
-### [실습 1] 소리 샘플 파일 들어보기
-
-다운 받은 `audio` 폴더에는 소리 파일 샘플이 들어있다. 각 샘플의 소리를 차례로 모두 들어볼 수 있도록 프로그램을 만들어보자. 각 샘플이 내는 소리의 길이는 다양하다. 샘플의 길이는 `samples()`(샘플의 개수를 `int` 값으로 리턴) 또는 `length()`(샘플의 길이를 `dur` 값으로 리턴) 메소드를 호출하여 알아낼 수 있다. 샘플의 끝까지 소리내야 하고 (방법은 아래 예 참조), 각 샘플 사이에 1초의 간격을 둔다. 
+다운 받은 `audio` 폴더에는 소리 파일 샘플이 들어있다. 각 샘플의 소리를 차례로 모두 들어볼 수 있도록 프로그램을 만들어보자. 각 샘플이 내는 소리의 길이는 다양하다. 샘플의 길이는 `samples()`(샘플의 개수를 `int` 값으로 리턴) 또는 `length()`(샘플의 길이를 `dur` 값으로 리턴) 메소드를 호출하여 알아낼 수 있다. 샘플의 끝까지 소리내야 하고 (방법은 아래 예 참조), 각 샘플 사이에 1초의 간격을 둔다.
 
 ```
 SndBuf sample => dac;
-... 
+...
 sample.samples() :: samp => now;
 ```
 
-또는 
+또는
 
 ```
 SndBuf sample => dac;
-... 
+...
 sample.length() => now;
 ```
 
 아울러 각 소리 샘플의 파일 명과 소리 샘플의 길이를 초 단위로 콘솔 모니터에 프린트한다.
 
-### [실습 2] 
+### 실습 5.2
 
 아래 프로그램을 다음 요구 사항에 맞추어 수정해보자.
 
 - `hihat_01.wav` 소리 샘플을 2, 5, 6 박자에 소리나도록 추가한다.
-- `Gain` `UGen`으로 세 개의 소리를 믹스하는 대신, 스테레오 스피커에서 하나는 중앙, 다른 하나는 오른쪽, 또 다른 하나는 왼쪽에서 소리나도록 분리한다. 
+- `Gain` `UGen`으로 세 개의 소리를 믹스하는 대신, 스테레오 스피커에서 하나는 중앙, 다른 하나는 오른쪽, 또 다른 하나는 왼쪽에서 소리나도록 분리한다.
 
 ```
 Gain master => dac;
@@ -476,9 +479,9 @@ snare.samples() => snare.pos;
 while (true) {
     for (0 => int beat; beat < 16; beat++) {
         <<< beat >>>;
-        if (beat == 0 || beat == 4 || beat == 8 || beat == 12) 
+        if (beat == 0 || beat == 4 || beat == 8 || beat == 12)
             0 => kick.pos;
-        if (beat == 4 || beat == 10 || beat == 13 || beat == 14) 
+        if (beat == 4 || beat == 10 || beat == 13 || beat == 14)
             0 => snare.pos;
         TEMPO => now;
     }
@@ -486,13 +489,13 @@ while (true) {
 ```
 
 
-### [실습 3] 
+### 실습 5.3
 
 아래 프로그램에 다음 기능을 추가해보자.
 
 - `hihat`를 `beat` 마다 항상 치지 않고, 1/2 확률로 랜덤하게 치도록 한다.
 - 비트 박자와 같이 맞추어 `SawOsc` 소리를 1/3 확률로 랜덤하게 낸다.
-- 계명은 MIDI 60~72 범위에서 무작위로 낸다. 
+- 계명은 MIDI 60~72 범위에서 무작위로 낸다.
 - 소리의 볼륨은 0.5로 한다.
 
 ```
@@ -515,9 +518,9 @@ hihat.samples() => hihat.pos;
 while (true) {
     for (0 => int beat; beat < kick_hits.size(); beat++) {
         <<< beat >>>;
-        if (kick_hits[beat]) 
+        if (kick_hits[beat])
             0 => kick.pos;
-        if (snare_hits[beat]) 
+        if (snare_hits[beat])
             0 => snare.pos;
         0 => hihat.pos;
         TEMPO => now;
@@ -526,21 +529,14 @@ while (true) {
 ```
 
 
-### [실습 4] 드럼 머신 4호 수정
+### 실습 5.4 드럼 머신 4호 수정
 
 수업 시간에 공부한 드럼 머신 4호 프로그램에 다음을 추가해보자.
 - 8째 마디에서 시작하여 비트 박자와 같이 맞추어 `SqrOsc` 소리를 1/3 확률로 랜덤하게 낸다.
-- 계명은 MIDI 60\~72 범위에서 무작위로 낸다. 
-- 소리의 볼륨은 0.5로 한다. 
+- 계명은 MIDI 60\~72 범위에서 무작위로 낸다.
+- 소리의 볼륨은 0.5로 한다.
 
 
-### [숙제] 나의 드럼 머신 (제출 마감: 10월 12일 오전 8시 59분)
+### 숙제. 나의 드럼 머신 (제출 마감: 10월 5일 오후 3시)
 
-지금까지 배운 지식을 총 동원하여 드럼 머신을 하나 만들어 소스 파일을 제출한다. 연주 시간은 1분을 넘을 수 없다. 
-
-
-
-
-
-
-
+지금까지 배운 지식을 총 동원하여 드럼 머신을 하나 만들어 소스 파일을 제출한다. 연주 시간은 1분을 넘을 수 없다.
