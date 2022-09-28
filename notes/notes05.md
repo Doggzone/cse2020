@@ -85,7 +85,7 @@ while (true) {
 SndBuf sample => Pan2 p => dac;
 0.5 => sample.gain;
 me.dir() + "/audio/snare_01.wav" => sample.read;
--0.1 => float position;
+-1.0 => float position;
 while (position < 1.0) {
     0 => sample.pos;
     position => p.pan;
@@ -103,7 +103,7 @@ SndBuf sample => Pan2 p => dac;
 me.dir() + "/audio/cowbell_01.wav" => sample.read;
 while (true) {
     Math.random2f(0.1,1.0) => sample.gain; // volume
-    Math.random2f(-0.1,1.0) => p.pan; // panning
+    Math.random2f(-1.0,1.0) => p.pan; // panning
     Math.random2f(0.2,1.8) => sample.rate; // speed
     0 => sample.pos;
     500::ms => now;
