@@ -2,6 +2,7 @@
 (c)도경구 
 version 1.0 (2022/09/24)
 version 1.1 (2022/09/28) 코드 및 설명 개선
+version 1.11 (2022/09/28) me.dir() 설명 추가
 ```
 
 ## 5. 소리 파일과 소리 다듬기
@@ -40,13 +41,19 @@ version 1.1 (2022/09/28) 코드 및 설명 개선
 - `.wav` (wave or waveform)
 - `.aif` (audio interchange file or format)
 
+#### `me.dir()`
+
+프로그램 파일이 위치한 절대 경로를 문자열로 만들어 준다. 예를 들어 프로그램과 같은 폴더에 `audio`라는 폴더가 있고, 그 안에  `snare_01.wav` 라는 소리 파일이 있다고 가정하며, 이 파일의 절대 경로는 다음과 같이 문자열로 조합할 수 있다.
+
+```
+me.dir() + "audio/snare_01.wav"
+```
 
 #### 모노
 
 ```
 SndBuf sample => dac;
-me.dir() + "/audio/snare_01.wav" => string filename;
-filename => sample.read;
+me.dir() + "audio/snare_01.wav" => sample.read;
 0.5 => sample.gain;
 0 => sample.pos;
 second => now;
@@ -57,8 +64,8 @@ second => now;
 ```
 SndBuf sample1 => dac.left;
 SndBuf sample2 => dac.right;
-me.dir() + "/audio/snare_01.wav" => sample1.read;
-me.dir() + "/audio/hihat_01.wav" => sample2.read;
+me.dir() + "audio/snare_01.wav" => sample1.read;
+me.dir() + "audio/hihat_01.wav" => sample2.read;
 0.5 => sample1.gain => sample2.gain;
 0 => sample1.pos => sample2.pos;
 second => now;
@@ -86,7 +93,7 @@ while (true) {
 ```
 SndBuf sample => Pan2 p => dac;
 0.5 => sample.gain;
-me.dir() + "/audio/snare_01.wav" => sample.read;
+me.dir() + "audio/snare_01.wav" => sample.read;
 -1.0 => float position;
 while (position < 1.0) {
     position => p.pan;
@@ -102,7 +109,7 @@ while (position < 1.0) {
 ```
 SndBuf sample => Pan2 p => dac;
 0.5 => sample.gain;
-me.dir() + "/audio/cowbell_01.wav" => sample.read;
+me.dir() + "audio/cowbell_01.wav" => sample.read;
 while (true) {
     Math.random2f(0.1,1.0) => sample.gain; // volume
     Math.random2f(-1.0,1.0) => p.pan; // panning
@@ -118,7 +125,7 @@ while (true) {
 ```
 SndBuf sample => dac;
 0.5 => sample.gain;
-me.dir() + "/audio/hihat_04.wav" => sample.read;
+me.dir() + "audio/hihat_04.wav" => sample.read;
 
 for (0 => int i; i < 3; i++) {
     <<< sample.rate() >>>;
@@ -141,9 +148,9 @@ for (0 => int i; i < 3; i++) {
 ```
 SndBuf sample => dac;
 string snare_samples[3];
-me.dir() + "/audio/snare_01.wav" => snare_samples[0];
-me.dir() + "/audio/snare_02.wav" => snare_samples[1];
-me.dir() + "/audio/snare_03.wav" => snare_samples[2];
+me.dir() + "audio/snare_01.wav" => snare_samples[0];
+me.dir() + "audio/snare_02.wav" => snare_samples[1];
+me.dir() + "audio/snare_03.wav" => snare_samples[2];
 
 while (true)
     for (0 => int i; i < snare_samples.size(); i++) {
@@ -160,9 +167,9 @@ SndBuf sample[3];
 sample[0] => dac.left;
 sample[1] => dac;
 sample[2] => dac.right;
-me.dir() + "/audio/snare_01.wav" => sample[0].read;
-me.dir() + "/audio/snare_02.wav" => sample[1].read;
-me.dir() + "/audio/snare_03.wav" => sample[2].read;
+me.dir() + "audio/snare_01.wav" => sample[0].read;
+me.dir() + "audio/snare_02.wav" => sample[1].read;
+me.dir() + "audio/snare_03.wav" => sample[2].read;
 
 while (true)
     for (0 => int i; i < sample.size(); i++) {
@@ -180,9 +187,9 @@ SndBuf sample[3];
 sample[0] => dac.left;
 sample[1] => dac;
 sample[2] => dac.right;
-me.dir() + "/audio/snare_01.wav" => sample[0].read;
-me.dir() + "/audio/snare_02.wav" => sample[1].read;
-me.dir() + "/audio/snare_03.wav" => sample[2].read;
+me.dir() + "audio/snare_01.wav" => sample[0].read;
+me.dir() + "audio/snare_02.wav" => sample[1].read;
+me.dir() + "audio/snare_03.wav" => sample[2].read;
 
 while (true) {
     Math.random2(0, sample.size()-1) => int which;
@@ -197,7 +204,7 @@ while (true) {
 
 ```
 SndBuf2 stereo_sample => dac;
-me.dir() + "/audio/stereo_fx_01.wav" => stereo_sample.read;
+me.dir() + "audio/stereo_fx_01.wav" => stereo_sample.read;
 stereo_sample.length() => now;
 ```
 
@@ -207,7 +214,7 @@ stereo_sample.length() => now;
 
 ```
 SndBuf2 stereo_sample;
-me.dir() + "/audio/stereo_fx_01.wav" => stereo_sample.read;
+me.dir() + "audio/stereo_fx_01.wav" => stereo_sample.read;
 Gain bal[2];
 stereo_sample.chan(0) => bal[0] => dac.left;
 stereo_sample.chan(1) => bal[1] => dac.right;
@@ -218,7 +225,7 @@ stereo_sample.length() => now;
 
 ```
 SndBuf2 stereo_sample;
-me.dir() + "/audio/stereo_fx_01.wav" => stereo_sample.read;
+me.dir() + "audio/stereo_fx_01.wav" => stereo_sample.read;
 Gain bal[2];
 stereo_sample.chan(0) => bal[0] => dac.left;
 stereo_sample.chan(1) => bal[1] => dac.right;
@@ -239,7 +246,7 @@ while (balance <= 1.0 ) {
 
 ```
 SndBuf2 stereo_sample;
-me.dir() + "/audio/stereo_fx_03.wav" => stereo_sample.read;
+me.dir() + "audio/stereo_fx_03.wav" => stereo_sample.read;
 Gain bal[2];
 stereo_sample.chan(0) => bal[0] => dac.left;
 stereo_sample.chan(1) => bal[1] => dac.right;
@@ -284,8 +291,8 @@ while (true) {
 Gain master => dac;
 SndBuf kick => master;
 SndBuf snare => master;
-me.dir() + "/audio/kick_01.wav" => kick.read;
-me.dir() + "/audio/snare_01.wav" => snare.read;
+me.dir() + "audio/kick_01.wav" => kick.read;
+me.dir() + "audio/snare_01.wav" => snare.read;
 kick.samples() => kick.pos; // move the head to the end
 snare.samples() => snare.pos;// move the head to the end
 
@@ -305,8 +312,8 @@ while (true) {
 Gain master => dac;
 SndBuf kick => master;
 SndBuf snare => master;
-me.dir() + "/audio/kick_01.wav" => kick.read;
-me.dir() + "/audio/snare_01.wav" => snare.read;
+me.dir() + "audio/kick_01.wav" => kick.read;
+me.dir() + "audio/snare_01.wav" => snare.read;
 kick.samples() => kick.pos;
 snare.samples() => snare.pos;
 
@@ -331,8 +338,8 @@ while (true) {
 Gain master => dac;
 SndBuf kick => master;
 SndBuf snare => master;
-me.dir() + "/audio/kick_01.wav" => kick.read;
-me.dir() + "/audio/snare_01.wav" => snare.read;
+me.dir() + "audio/kick_01.wav" => kick.read;
+me.dir() + "audio/snare_01.wav" => snare.read;
 kick.samples() => kick.pos;
 snare.samples() => snare.pos;
 
@@ -360,9 +367,9 @@ Gain master => dac;
 SndBuf kick => master;
 SndBuf snare => master;
 SndBuf hihat => master;
-me.dir() + "/audio/kick_01.wav" => kick.read;
-me.dir() + "/audio/snare_01.wav" => snare.read;
-me.dir() + "/audio/hihat_01.wav" => hihat.read;
+me.dir() + "audio/kick_01.wav" => kick.read;
+me.dir() + "audio/snare_01.wav" => snare.read;
+me.dir() + "audio/hihat_01.wav" => hihat.read;
 kick.samples() => kick.pos;
 snare.samples() => snare.pos;
 hihat.samples() => hihat.pos;
@@ -394,8 +401,8 @@ while (true) {
 Gain master => dac;
 SndBuf clickhi => master;
 SndBuf clicklo => master;
-me.dir() + "/audio/click_02.wav" => clickhi.read;
-me.dir() + "/audio/click_01.wav" => clicklo.read;
+me.dir() + "audio/click_02.wav" => clickhi.read;
+me.dir() + "audio/click_01.wav" => clicklo.read;
 
 0.5::second => dur tempo;
 4 => int mod;
@@ -439,8 +446,8 @@ sample.length() => now;
 Gain master => dac;
 SndBuf kick => master;
 SndBuf snare => master;
-me.dir() + "/audio/kick_01.wav" => kick.read;
-me.dir() + "/audio/snare_01.wav" => snare.read;
+me.dir() + "audio/kick_01.wav" => kick.read;
+me.dir() + "audio/snare_01.wav" => snare.read;
 kick.samples() => kick.pos;
 snare.samples() => snare.pos;
 
@@ -472,9 +479,9 @@ Gain master => dac;
 SndBuf kick => master;
 SndBuf snare => master;
 SndBuf hihat => master;
-me.dir() + "/audio/kick_01.wav" => kick.read;
-me.dir() + "/audio/snare_01.wav" => snare.read;
-me.dir() + "/audio/hihat_01.wav" => hihat.read;
+me.dir() + "audio/kick_01.wav" => kick.read;
+me.dir() + "audio/snare_01.wav" => snare.read;
+me.dir() + "audio/hihat_01.wav" => hihat.read;
 kick.samples() => kick.pos;
 snare.samples() => snare.pos;
 hihat.samples() => hihat.pos;
@@ -522,11 +529,11 @@ SndBuf claps => Pan2 p;
 p.chan(0) => master[0];
 p.chan(1) => master[1];
 
-me.dir() + "/audio/kick_01.wav" => kick.read;
-me.dir() + "/audio/snare_01.wav" => snare.read;
-me.dir() + "/audio/hihat_01.wav" => hihat.read;
-me.dir() + "/audio/cowbell_01.wav" => cowbell.read;
-me.dir() + "/audio/clap_01.wav" => claps.read;
+me.dir() + "audio/kick_01.wav" => kick.read;
+me.dir() + "audio/snare_01.wav" => snare.read;
+me.dir() + "audio/hihat_01.wav" => hihat.read;
+me.dir() + "audio/cowbell_01.wav" => cowbell.read;
+me.dir() + "audio/clap_01.wav" => claps.read;
 
 [1,0,1,0, 1,0,0,1, 0,1,0,1, 0,1,1,1] @=> int cow_hits[];
 cow_hits.size() => int max_beat;
