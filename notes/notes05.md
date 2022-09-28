@@ -134,6 +134,8 @@ for (0 => int i; i < 3; i++) {
 
 #### 배열 활용
 
+소리샘플의 배열
+
 ```
 SndBuf sample => dac;
 string snare_samples[3];
@@ -144,10 +146,12 @@ me.dir() + "/audio/snare_03.wav" => snare_samples[2];
 while (true)
     for (0 => int i; i < snare_samples.size(); i++) {
         snare_samples[i] => sample.read;
+        <<< sample.pos() >>>;
         0.5::second => now;
     }
-
 ```
+
+`SndBuf`의 배열 (차례로 연주)
 
 ```
 SndBuf sample[3];
@@ -160,11 +164,14 @@ me.dir() + "/audio/snare_03.wav" => sample[2].read;
 
 while (true)
     for (0 => int i; i < sample.size(); i++) {
+        <<< sample[i].pos() >>>;
         0 => sample[i].pos;
+        <<< sample[i].pos() >>>;
         0.5::second => now;
     }
-
 ```
+
+`SndBuf`의 배열 (무작위 연주)
 
 ```
 SndBuf sample[3];
