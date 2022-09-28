@@ -1,5 +1,7 @@
 ```
-(c)도경구 version 1.0 (2022/09/24)
+(c)도경구 
+version 1.0 (2022/09/24)
+version 1.1 (2022/09/28) 코드 및 설명 개선
 ```
 
 ## 5. 소리 파일과 소리 다듬기
@@ -287,13 +289,13 @@ me.dir() + "/audio/snare_01.wav" => snare.read;
 kick.samples() => kick.pos; // move the head to the end
 snare.samples() => snare.pos;// move the head to the end
 
-0.5::second => dur TEMPO;
+0.5::second => dur tempo;
 second => now; // no sound for a second
 while (true) {
     0 => kick.pos;
-    TEMPO => now;
+    tempo => now;
     0 => snare.pos;
-    TEMPO => now;
+    tempo => now;
 }
 ```
 
@@ -308,7 +310,7 @@ me.dir() + "/audio/snare_01.wav" => snare.read;
 kick.samples() => kick.pos;
 snare.samples() => snare.pos;
 
-0.2::second => dur TEMPO;
+0.2::second => dur tempo;
 while (true) {
     for (0 => int beat; beat < 16; beat++) {
         <<< beat >>>;
@@ -318,7 +320,7 @@ while (true) {
             beat == 9 || beat == 10 || beat == 11 ||
             beat == 13 || beat == 14)
             0 => snare.pos;
-        TEMPO => now;
+        tempo => now;
     }
 }
 ```
@@ -334,7 +336,7 @@ me.dir() + "/audio/snare_01.wav" => snare.read;
 kick.samples() => kick.pos;
 snare.samples() => snare.pos;
 
-0.2::second => dur TEMPO;
+0.2::second => dur tempo;
 [1,0,0,0, 1,0,0,0, 1,0,0,0, 1,0,0,0] @=> int kick_hits[];
 [0,0,1,0, 0,1,0,1, 0,1,1,1, 0,1,1,0] @=> int snare_hits[];
 
@@ -345,7 +347,7 @@ while (true) {
             0 => kick.pos;
         if (snare_hits[beat])
             0 => snare.pos;
-        TEMPO => now;
+        tempo => now;
     }
 }
 ```
@@ -366,7 +368,7 @@ snare.samples() => snare.pos;
 hihat.samples() => hihat.pos;
 0.3 => hihat.gain;
 
-0.2::second => dur TEMPO;
+0.2::second => dur tempo;
 [1,0,0,0, 1,0,0,0, 1,0,0,0, 1,0,0,0] @=> int kick_hits[];
 [0,0,1,0, 0,1,0,1, 0,1,1,1, 0,1,1,0] @=> int snare_hits[];
 [0,1,0,1, 0,0,1,1, 0,0,1,1, 0,1,1,1] @=> int hihat_hits[];
@@ -380,7 +382,7 @@ while (true) {
             0 => snare.pos;
         if (hihat_hits[beat])
             0 => hihat.pos;
-        TEMPO => now;
+        tempo => now;
     }
 }
 ```
@@ -395,68 +397,14 @@ SndBuf clicklo => master;
 me.dir() + "/audio/click_02.wav" => clickhi.read;
 me.dir() + "/audio/click_01.wav" => clicklo.read;
 
-0.5::second => dur TEMPO;
-4 => int MOD;
+0.5::second => dur tempo;
+4 => int mod;
 for (0 => int beat; beat < 24; beat++) {
-    <<< beat, beat % MOD >>>;
+    <<< beat, beat % mod >>>;
     0 => clickhi.pos;
-    if (beat % MOD == 0)
+    if (beat % mod == 0)
         0 => clicklo.pos;
-    TEMPO => now;
-}
-```
-
-#### 드럼 머신 4호
-
-```
-Gain master[3];
-master[0] => dac.left;
-master[1] => dac;
-master[2] => dac.right;
-
-SndBuf kick => master[1];
-SndBuf snare => master[1];
-SndBuf cowbell => master[0];
-SndBuf hihat => master[2];
-
-SndBuf claps => Pan2 p;
-p.chan(0) => master[0];
-p.chan(1) => master[1];
-
-me.dir() + "/audio/kick_01.wav" => kick.read;
-me.dir() + "/audio/snare_01.wav" => snare.read;
-me.dir() + "/audio/hihat_01.wav" => hihat.read;
-me.dir() + "/audio/cowbell_01.wav" => cowbell.read;
-me.dir() + "/audio/clap_01.wav" => claps.read;
-
-[1,0,1,0, 1,0,0,1, 0,1,0,1, 0,1,1,1] @=> int cow_hits[];
-cow_hits.size() => int MAX_BEAT;
-4 => int MOD;
-0.2::second => dur TEMPO;
-
-0 => int beat;
-0 => int measure;
-while (true) {
-    if (beat % 4 == 0)
-        0 => kick.pos;
-    if (beat % 4 == 2 && measure % 2 == 1)
-        0 => snare.pos;
-    if (measure > 1) {
-        if (cow_hits[beat])
-            0 => cowbell.pos;
-        else {
-            Math.random2f(0.0,1.0) => hihat.gain;
-            0 => hihat.pos;
-        }
-    }
-    if (beat > 11 && measure > 3) {
-        Math.random2f(-1.0,1.0) => p.pan;
-        0 => claps.pos;
-    }
-    TEMPO => now;
-    (beat + 1) % MAX_BEAT => beat;
-    if (beat == 0)
-        measure++;
+    tempo => now;
 }
 ```
 
@@ -552,11 +500,63 @@ while (true) {
 
 ### 실습 5.4 드럼 머신 4호 수정
 
-수업 시간에 공부한 드럼 머신 4호 프로그램에 다음을 추가해보자.
+아래 드럼 머신 4호 프로그램에 다음의 요구사항을 추가해보자.
 - 8째 마디에서 시작하여 비트 박자와 같이 맞추어 `SqrOsc` 소리를 1/3 확률로 랜덤하게 낸다.
 - 계명은 MIDI 60\~72 범위에서 무작위로 낸다.
 - 소리의 볼륨은 0.5로 한다.
 
+#### 드럼 머신 4호
+
+```
+Gain master[3];
+master[0] => dac.left;
+master[1] => dac;
+master[2] => dac.right;
+
+SndBuf kick => master[1];
+SndBuf snare => master[1];
+SndBuf cowbell => master[0];
+SndBuf hihat => master[2];
+
+SndBuf claps => Pan2 p;
+p.chan(0) => master[0];
+p.chan(1) => master[1];
+
+me.dir() + "/audio/kick_01.wav" => kick.read;
+me.dir() + "/audio/snare_01.wav" => snare.read;
+me.dir() + "/audio/hihat_01.wav" => hihat.read;
+me.dir() + "/audio/cowbell_01.wav" => cowbell.read;
+me.dir() + "/audio/clap_01.wav" => claps.read;
+
+[1,0,1,0, 1,0,0,1, 0,1,0,1, 0,1,1,1] @=> int cow_hits[];
+cow_hits.size() => int max_beat;
+0.2::second => dur tempo;
+
+0 => int beat;
+0 => int measure;
+while (true) {
+    if (beat % 4 == 0)
+        0 => kick.pos;
+    if (beat % 4 == 2 && measure % 2 == 1)
+        0 => snare.pos;
+    if (measure > 1) {
+        if (cow_hits[beat])
+            0 => cowbell.pos;
+        else {
+            Math.random2f(0.0,1.0) => hihat.gain;
+            0 => hihat.pos;
+        }
+    }
+    if (beat > 11 && measure > 3) {
+        Math.random2f(-1.0,1.0) => p.pan;
+        0 => claps.pos;
+    }
+    tempo => now;
+    (beat + 1) % max_beat => beat;
+    if (beat == 0)
+        measure++;
+}
+```
 
 ### 숙제. 나의 드럼 머신 (제출 마감: 10월 5일 오후 3시)
 
