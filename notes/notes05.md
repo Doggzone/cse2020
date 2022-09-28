@@ -191,12 +191,16 @@ while (true) {
 
 #### 스테레오 소리 파일 재생 - `SndBuf2`
 
+스테레오 소리 파일을 모노 스피커에 연결
+
 ```
 SndBuf2 stereo_sample => dac;
 me.dir() + "/audio/stereo_fx_01.wav" => stereo_sample.read;
 stereo_sample.length() => now;
 ```
 
+스테레오 소리 파일을 스테레오 스피커에 연결
+
 ```
 SndBuf2 stereo_sample;
 me.dir() + "/audio/stereo_fx_01.wav" => stereo_sample.read;
@@ -206,14 +210,14 @@ stereo_sample.chan(1) => bal[1] => dac.right;
 stereo_sample.length() => now;
 ```
 
+스테레오 소리 파일을 스테레오 스피커에 연결하고, 좌우 채널의 소리크기 밴런스 체험
+
 ```
 SndBuf2 stereo_sample;
 me.dir() + "/audio/stereo_fx_01.wav" => stereo_sample.read;
 Gain bal[2];
 stereo_sample.chan(0) => bal[0] => dac.left;
 stereo_sample.chan(1) => bal[1] => dac.right;
-stereo_sample.length() => now;
-
 0 => stereo_sample.pos; // set the playhead position to 0
 float balance, volume_right;
 -1.0 => balance;
@@ -226,6 +230,8 @@ while (balance <= 1.0 ) {
     0.1 +=> balance;
 }
 ```
+
+스테레오 소리 파일을 스테레오 스피커에 연결하고, 좌우 채널의 소리크기 밴런스 및 소리 속도 무작위 조정
 
 ```
 SndBuf2 stereo_sample;
