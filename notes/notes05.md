@@ -201,6 +201,8 @@ stereo_sample.length() => now;
 
 스테레오 소리 파일을 스테레오 스피커에 연결
 
+- `Gain`은 소리 조절 기능을 갖춘 `UGen`으로 연결하면 소리 조절 기능이 추가됨
+
 ```
 SndBuf2 stereo_sample;
 me.dir() + "/audio/stereo_fx_01.wav" => stereo_sample.read;
@@ -258,7 +260,7 @@ while (true) {
 |:----:|:----:|
 | `int Std.ftoi(float value)` | 실수를 정수로 변환 (소수점 아래 버림) |
 | `int Std.atoi(string value)` | ASCII(`string`)를 정수로 변환 |
-| `float Std.atof(string value)` | SCII(`string`)를 실수로 변환 |
+| `float Std.atof(string value)` | ASCII(`string`)를 실수로 변환 |
 | `string Std.itoa(string value)` | 정수를 ASCII(`string`)로 변환 |
 | `string Std.ftoa(string value)` | 실수를 ASCII(`string`)로 변환 |
 
