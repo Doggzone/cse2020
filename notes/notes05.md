@@ -87,11 +87,11 @@ SndBuf sample => Pan2 p => dac;
 me.dir() + "/audio/snare_01.wav" => sample.read;
 -1.0 => float position;
 while (position < 1.0) {
-    0 => sample.pos;
     position => p.pan;
     <<< position >>>;
-    0.02 +=> position;
+    0 => sample.pos;
     100::ms => now;
+    0.02 +=> position;
 }
 ```
 
@@ -118,12 +118,18 @@ SndBuf sample => dac;
 0.5 => sample.gain;
 me.dir() + "/audio/hihat_04.wav" => sample.read;
 
-0 => sample.pos;  // move the play head to the front
-sample.length() => now; // play
+for (0 => int i; i < 3; i++) {
+    <<< sample.rate() >>>;
+    0 => sample.pos; // move the play head to the front
+    sample.length() => now; // play
+}
 
-sample.samples() => sample.pos; // move the play head to the end
--1.0 => sample.rate; // set the play direction backward
-sample.length() => now; // play
+for (0 => int i; i < 3; i++) {
+    -1.0 => sample.rate; // set the play direction backward
+    <<< sample.rate() >>>;
+    sample.samples() => sample.pos; // move the play head to the end
+    sample.length() => now; // play
+}
 ```
 
 #### 배열 활용
