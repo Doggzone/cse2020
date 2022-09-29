@@ -487,7 +487,7 @@ snare.samples() => snare.pos;
 hihat.samples() => hihat.pos;
 0.3 => hihat.gain;
 
-0.2::second => dur TEMPO;
+0.2::second => dur tempo;
 [1,0,0,0, 1,0,0,0, 1,0,0,0, 1,0,0,0] @=> int kick_hits[];
 [0,0,1,0, 0,0,1,0, 0,0,0,0, 1,1,1,1] @=> int snare_hits[];
 
@@ -499,7 +499,7 @@ while (true) {
         if (snare_hits[beat])
             0 => snare.pos;
         0 => hihat.pos;
-        TEMPO => now;
+        tempo => now;
     }
 }
 ```
