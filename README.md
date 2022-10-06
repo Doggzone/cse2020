@@ -44,7 +44,7 @@
 | 3  | 9/14 | 9/15 | [함수 요약](notes/notes03.md) | #2 마감 9/21(수) 오후3시 |
 | 4  | [9/21](https://youtu.be/o330sPWhLOA) | [9/22](https://youtu.be/HPKKIAmTlCs) | [배열](notes/notes04.md) | #3 마감 9/28(수) 오후3시 |
 | 5  | [9/28](https://youtu.be/VcJLnrlCzg4) | [9/29](https://youtu.be/thtWJbKJblg) | [소리 파일 다루기](notes/notes05.md), [audio.zip](code/audio.zip) | #4 마감 10/5(수) 오후3시 |
-| 6  | [10/5](https://youtu.be/5yFuBfmh-_E) | 10/6 | [소리 합성 및 다듬기 - `UGen`의 활용](notes/notes06.md) | #5 마감 10/12(수) 오후3시 |
+| 6  | [10/5](https://youtu.be/5yFuBfmh-_E) | [10/6](https://youtu.be/4P4AvuCmldA) | [소리 합성 및 다듬기 - `UGen`의 활용](notes/notes06.md) | #5 마감 10/12(수) 오후3시 |
 | 7  | 10/12 | - | 리뷰 | [기출문제 및  모범답안](notes/CSE2020-2021exam1sol.pdf) |
 | 7  | - | 10/13 | 시험#1 | - |
 | 8  | 10/19 | 10/20 | 멀티 쓰레딩과 동시계산 | 숙제#6 |
