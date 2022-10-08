@@ -39,8 +39,8 @@
 
 | 주 | 강의 | 실습 | 내용 | 숙제 |
 |:--:|:--:|:--:|:--:|:--:|
-| 1  | 9/1 | - | [음악 프로그래밍 소개](notes/notes01.md)  | [샘플 프로그램](code/sample.zip) |
-| 2  | 9/7 | 9/8 | [소리내기 프로그래밍 기본](notes/notes02.md) | #1 마감 9/19(월) 자정 |
+| 1  | 9/1 | - | [음악 프로그래밍 소개](notes/notes01.md), [2021.09.02](https://youtu.be/N5kVgNkZjoU) | [샘플 프로그램](code/sample.zip) |
+| 2  | 9/7 | 9/8 | [소리내기 프로그래밍 기본](notes/notes02.md), [2021.09.09](https://youtu.be/yqndPm9CIg4) | #1 마감 9/19(월) 자정 |
 | 3  | 9/14 | 9/15 | [함수 요약](notes/notes03.md) | #2 마감 9/21(수) 오후3시 |
 | 4  | [9/21](https://youtu.be/o330sPWhLOA) | [9/22](https://youtu.be/HPKKIAmTlCs) | [배열](notes/notes04.md) | #3 마감 9/28(수) 오후3시 |
 | 5  | [9/28](https://youtu.be/VcJLnrlCzg4) | [9/29](https://youtu.be/thtWJbKJblg) | [소리 파일 다루기](notes/notes05.md), [audio.zip](code/audio.zip) | #4 마감 10/5(수) 오후3시 |
