@@ -47,7 +47,7 @@
 | 6  | [10/5](https://youtu.be/5yFuBfmh-_E) | [10/6](https://youtu.be/4P4AvuCmldA) | [소리 합성 및 다듬기 - `UGen`의 활용](notes/notes06.md) | #5 마감 10/12(수) 오후3시 |
 | 7  | [10/12](https://youtu.be/3OW8s-AFYnQ) | - | 리뷰 | [기출문제 및  모범답안](notes/CSE2020-2021exam1sol.pdf) |
 | 7  | - | 10/13 | 시험#1 | [문제 및 답안](notes/CSE2020-2022exam1sol.pdf) |
-| 8  | 10/19 | 10/20 | [멀티스레드와 동시 계산](notes/notes07.md) | 숙제#6 마감 10/26(수) 오후3시 |
+| 8  | [10/19](https://youtu.be/wpN016mUNHo) | 10/20 | [멀티스레드와 동시 계산](notes/notes07.md) | #6 마감 10/26(수) 오후3시 |
 | 9  | 10/26 | 10/27 | 객체와 클래스 | 숙제#7 |
 | 10 | 11/2 | 11/3 | 이벤트 구동 프로그래밍 | 숙제#8 |
 | 11 | 11/9 | 11/10 | MIDI, OSC | - |
