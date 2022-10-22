@@ -1,25 +1,22 @@
 ```
-(c)도경구 version 0.1 (2021/11/1)
+(c)도경구 version 1.0 (2022/10/21)
 ```
 
 ## 8. 객체와 클래스
 
 ### 8-1. 모두가 객체
 
-ChucK 프로그래밍언어는 객체지향 프로그래밍 언어(object-oriented programming language)이다. 
-계산의 대상이 되는 주요 데이터는 모두 객체(object)이며, 프로그램은 실행하면서 필요한 대로 객체를 만들어 메모리에 등장시킨다. 메모리에 거주하는 객체는 각자 고유의 특징과 상태를 필드변수(field)에 기억하고 있으며, 고유의 기능을 메소드(method)라는 함수로 갖추고 있어서 객체들끼리 메소드 호출 메시지를 주고 받으며 상태를 참고하거나 변경하면서 계산을 수행한다. 
-클래스(class)는 객체를 만드는 일종의 형틀(template) 프로그램 이다.
+ChucK 프로그래밍언어는 객체지향 프로그래밍 언어(object-oriented programming language)이다. 계산의 대상이 되는 데이터를 객체(object)로 보고, 객체를 필요한 대로 실행 중에 만들어 계산을 수행한다. 메모리에 거주하는 객체는 각자 고유의 특징과 상태를 필드변수(field)에 기억하고 있으며, 고유의 기능을 메소드(method)라는 함수로 갖추고 있어서 객체들끼리 메소드 호출 메시지를 주고 받으며 상태를 참고하거나 변경하면서 계산을 수행한다.
 
-우리가 알고있는 진동기도 객체이다.
-예를 들어 다음과 같이 `SinOsc` 진동기를 하나 설치하고 이름을 붙이면, 
+우리가 쓰고 있는 진동기도 객체이다. 예를 들어 다음과 같이 `SinOsc` 진동기를 하나 설치하고 이름을 붙이면,
 
 ```
 SinOsc s1;
 ```
 
-메모리에 객체가 다음 그림과 같은 모양으로 생긴다고 상상할 수 있다. 
+메모리에 객체가 다음 그림과 같은 모양으로 생긴다고 상상할 수 있다.
 
-<img src="image08/sinosc1.png" width="300">
+<img src="https://i.imgur.com/z6wXk3g.png" width="300">
 
 `s1` 이름으로 언제든지 이 `SinOsc` 진동기 객체에 접근할 수 있다.
 다음과 같은 형식으로 메소드 호출 메시지를 보내서 주파수 정보를 알아볼 수도 있다.
@@ -37,9 +34,9 @@ s1.freq(440.0);
 
 변경 후 `SinOsc` 진동기 객체는 다음과 같다.
 
-<img src="image08/sinosc2.png" width="300">
+<img src="https://i.imgur.com/HyffFfY.png" width="300">
 
-`SinOsc` 진동기를 필요한 대로 몇개든 설치할 수 있다. 
+`SinOsc` 진동기를 필요한 대로 몇개든 설치할 수 있다.
 각 진동기는 이름을 다르게 붙여서 구별한다.
 
 ```
@@ -48,7 +45,7 @@ SinOsc s2;
 
 그러면 메모리에 똑 같은 `SinOsc` 객체가 새로 또 하나 생긴다.
 
-<img src="image08/sinosc3.png" width="300">
+<img src="https://i.imgur.com/JeEnQhh.png" width="300">
 
 사실 `UGen`은 모두 객체이다. 심지어는 버철머신 `Machine`도 객체이다.
 
@@ -56,22 +53,27 @@ SinOsc s2;
 다음과 같이 배열을 만들어 선언하면,
 ```
 [0,0,1,1,0,1,0,1] @=> int nums[];
-``` 
+```
 
-메모리에 배열 객체가 다음 그림과 같은 모양으로 생긴다고 상상할 수 있다. 
+메모리에 배열 객체가 다음 그림과 같은 모양으로 생긴다고 상상할 수 있다.
 
-<img src="image08/array.png" width="450">
+<img src="https://i.imgur.com/zucmZmc.png" width="450">
 
 
 ### 8-2. 클래스 만들기
 
-### 사례 1 : 클래스 정의 및 객체 생성
+클래스(class)는 객체를 만드는 일종의 형틀(template) 프로그램 이다.
+
+#### 8-2-1. 클래스 정의와 객체 생성
+
+#### 사례 1
 
 ```
-public class PianoKey {
+// 클래스 정의
+class PianoKey {
     60 => int note;
     1.0 => float gain;
-    
+
     fun int changeOctave() {
         return note + 12;
     }
@@ -81,7 +83,9 @@ public class PianoKey {
     }
 }
 
+// 객체 생성
 PianoKey key;
+
 <<< key.note, key.gain, key.changeOctave() >>>;
 
 2 +=> key.note;
@@ -89,10 +93,10 @@ PianoKey key;
 <<< key.note, key.gain, key.changeOctave(-1) >>>;
 ```
 
-### 사례 2 : 클래스 정의 및 객체 생성
+#### 사례 2
 
 ```
-public class ResonantPop {
+class ResonantPop {
     Impulse imp => ResonZ filt => dac;
     100.0 => filt.Q => filt.gain;
     1000.0 => filt.freq;
@@ -123,10 +127,14 @@ while (true) {
 }
 ```
 
-### 사례 3 : 메소드 중복
+#### 8-2-2. 중복
+
+#### 메소드의 중복 정의
+
+클래스 내부에 파라미터의 타입 또는 개수를 차별화하여 같은 이름의 메소드를 몇 개라도 중복(overload)하여 정의할 수 있다. 아래 사례에서는 주파수를 설정하는 `freq` 메소드를 중복하여 정의하고 있다. 인수가 `float` 타입이면 받은대로 주파수를 설정하고, `int` 타입이면 MIDI 번호로 간주하여 해당 주파수로 변환하여 설정하고, `string` 타입이면 계명으로 간주하여 해당 주파수로 변환하여 설정한다.
 
 ```
-public class ResonantPop {
+class ResonantPop {
     Impulse imp => ResonZ filt => dac;
     100.0 => filt.Q => filt.gain;
     1000.0 => filt.freq;
@@ -134,11 +142,11 @@ public class ResonantPop {
     fun void freq(float freq) {
         freq => filt.freq;
     }
-    
+
     fun void freq(int note) {
         Std.mtof(note) => filt.freq;
     }
-        
+
     fun void freq(string name) {
         [21,23,12,14,16,17,19] @=> int notes[]; // A0,B0,C0,D0,E0,F0,G0
         name.charAt(0) - 65 => int base; // A=0,B=1,C=2,D=3,E=4,F=5,G=7
@@ -174,342 +182,350 @@ public class ResonantPop {
 }
 ```
 
-<img src="image08/midi.png" width="450">
+<img src="https://i.imgur.com/c5RGAX9.png" width="450">
 
 
-### ChucK 중복 연산자 
+#### 연산자의 중복
 
-<img src="image08/overloaded.png" width="500">
-
-
-### `public`과 `private` 클래스 비교
-
-클래스를 위와 같이 `public` 키워드를 앞에 붙여서 선언하고 실행하면, 선언한 클래스가 버철 머신에 등록되면서 이후에 어떤 프로그램에서든지 접근하여 사용할 수 있게 된다. 클래스에 수정이 필요하여, 수정 후 재실행하면 이미 해당 클래스가 존재하므로 버철머신이 실행을 허용하지 않는다. `Clear VM` 버튼을 눌러 버철머신을 초기화 시키는 수밖에 없다. 
-
-`public` 대신 `private`을 붙여두면, 이러한 문제가 발생하지 않는다. 따라서 프로그램 개발 중에는 `public`을 붙이지 않고, `private`을 붙여서 작업하는게 좋다. 일단 프로그램이 완성되어 게시할 때에 `public`으로 고쳐주면 된다. 
-
-<img src="image08/class.png" width="500">
+<img src="https://i.imgur.com/8tJkDKm.png" width="500">
 
 
+#### 8-2-3. `public` 클래스
 
-### 사례 4 : `public` 클래스
+정의한 클래스를 다른 파일에서 사용할 수 있도록 하려면, `class` 키워드 앞에 `public`을 명시하여 공개 의사를 밝혀야 한다. `public` 키워드를 붙이고 실행하면, 선언한 클래스가 버철 머신에 공개 등록되면서 다른 프로그램 파일에서 접근하여 사용할 수 있게 된다. 버철 머신에 공개용으로 일단 등록이 되면, 동일 이름의 `public` 클래스의 재실행은 불가능하다. 클래스의 수정이 필요하다면, `clearVM` 단추를 눌러 버철머신을 청소하여 초기 상태로 되돌려 놓은 다음 재실행하는 수밖에 없다.
 
-#### `BPM.ck`
+<img src="https://i.imgur.com/hphd7Se.png" width="500">
+
+#### 사례
+
+아래 `BPM` 클래스는 템포 설정을 편리하게 할 용도로 제작하였다. 이 클래스의 `tempo` 메소드는 기준 박자를 받아서 1박자, 반박자, 1/4박자, 1/8박자를 한꺼번에 설정해준다.
+
+##### `BPM.ck`
 
 ```
 public class BPM { // Beats Per Minute
-    // globally accessible variables 
-    dur quarterNote, eighthNote, sixteenthNote, thirtysecondNote;
-    
+    dur quarter; // 1/4
+    dur one_eighth; // 1/8
+    dur one_sixteenth; // 1/16
+    dur one_thirtysecond; // 1/32
+
     fun void tempo(float beat) { // beat in BPM
-        60.0 / beat => float SPB; // Seconds Per Beat  
-        SPB::second => quarterNote;
-        quarterNote / 2.0 => eighthNote;
-        quarterNote / 4.0 => sixteenthNote;
-        quarterNote / 8.0 => thirtysecondNote;
+        60.0 / beat => float spb; // seconds per beat  
+        spb::second => quarter;
+        quarter / 2.0 => one_eighth;
+        quarter / 4.0 => one_sixteenth;
+        quarter / 8.0 => one_thirtysecond;
     }
 }
 ```
 
-#### `useBPM1.ck`
+위의 `BPM` 클래스는 `public`으로 정의되었으니, 실행하면 버철머신에 공개 등록된다. 따라서 아래와 같이 다른 파일에서 자유로이 `BPM` 객체를 생성하여 활용할 수 있다.
+
+##### `useBPM1.ck`
 
 ```
 SinOsc s => dac;
 0.3 => s.gain;
-BPM t;
-t.tempo(300);
+BPM bpm;
+bpm.tempo(300);
 
-400 => int freq;
-while (freq < 800) {
+for (400 => int freq; freq < 900; 50 +=> freq) {
     freq => s.freq;
-    t.quarterNote => now;
-    50 +=> freq;
+    bpm.quarter => now;
 }
-``` 
+```
 
-#### `useBPM2.ck`
+##### `useBPM2.ck`
 
 ```
 SinOsc s => dac;
 0.3 => s.gain;
-BPM t;
-t.tempo(200);
+BPM bpm;
+bpm.tempo(200);
 
-800 => int freq;
-while (freq >= 400) {
+for (900 => int freq; freq > 400; 50 -=> freq) {
     freq => s.freq;
-    t.quarterNote => now;
-    50 -=> freq;
+    bpm.quarter => now;
 }
-``` 
+```
 
 
 
-### `static` 변수
+#### 8-2-4. `static` 변수
 
-#### `BPM.ck`
+필드 변수를 아래와 같이 `static` 으로 선언하면 어떤 차이점이 있나?
+- `static`이 아닌 필드 변수는 객체 소속으로, 설정한 값은 생성한 객체가 살아있는 동안만 유효하고 실행이 끝나면 객체와 함께 사라진다.
+- `static` 필드 변수는 클래스 소속으로, 객체의 생사 여부와 상관없이 영구히 존재한다. 따라서 필드 변수 값은 버철 머신 전체에서 공유된다.
 
-필드 변수를 `static` 으로 선언하면 어떤 차이점이 있나?
+##### `BPM.ck`
 
 ```
 public class BPM { // Beats Per Minute
-    // globally accessible variables 
-    static dur quarterNote, eighthNote, sixteenthNote, thirtysecondNote;
-    
+    static dur quarter; // 1/4
+    static dur one_eighth; // 1/8
+    static dur one_sixteenth; // 1/16
+    static dur one_thirtysecond; // 1/32
+
     fun void tempo(float beat) { // beat in BPM
-        60.0 / beat => float SPB; // Seconds Per Beat  
-        SPB::second => quarterNote;
-        quarterNote / 2.0 => eighthNote;
-        quarterNote / 4.0 => sixteenthNote;
-        quarterNote / 8.0 => thirtysecondNote;
+        60.0 / beat => float spb; // seconds per beat  
+        spb::second => quarter;
+        quarter / 2.0 => one_eighth;
+        quarter / 4.0 => one_sixteenth;
+        quarter / 8.0 => one_thirtysecond;
     }
 }
 ```
 
-#### `useBPM1.ck`
+아래 `useBPM1.ck`를 실행하면 `bpm.tempo(300)` 메소드 호출로 `BPM` 클래스 소속 4개의 `static` 필드 변수 값이 각각 설정된다. 이후 이 파일의 실행이 끝난 이후에도 이 필드 변수 값은 그대로 살아있어서, 아래 `useBPM2.ck`를 실행하면 별도로 다른 템포를 설정하지 않으면 기존에 설정된 값으로 프로그램을 실행한다. 직접 실행하여 확인해보자.
+
+##### `useBPM1.ck`
 
 ```
 SinOsc s => dac;
 0.3 => s.gain;
-BPM t;
-t.tempo(300);
+BPM bpm;
+bpm.tempo(300);
 
-400 => int freq;
-while (freq < 800) {
+for (400 => int freq; freq < 900; 50 +=> freq) {
     freq => s.freq;
-    t.quarterNote => now;
-    50 +=> freq;
+    bpm.quarter => now;
 }
-``` 
+```
 
-#### `useBPM2.ck`
+##### `useBPM2.ck`
 
 ```
 SinOsc s => dac;
 0.3 => s.gain;
-BPM t;
-// t.tempo(200);
+BPM bpm;
+// bpm.tempo(200);
 
-800 => int freq;
-while (freq >= 400) {
+for (900 => int freq; freq > 400; 50 -=> freq) {
     freq => s.freq;
-    t.quarterNote => now;
-    50 -=> freq;
+    bpm.quarter => now;
 }
-``` 
-
-### 지휘 프로그램 파일 `initialize.ck`
-
-
-#### `initialize.ck`
-
-```
-Machine.add(me.dir()+"/BPM.ck");
-
-Machine.add(me.dir()+"/useBPM1.ck");
-2.0::second => now;
-Machine.add(me.dir()+"/useBPM2.ck");
-2.0::second => now;
-
-2.0::second => now;
-Machine.add(me.dir()+"/score.ck"); 
 ```
 
-#### `UseBPM3.ck`
+####  8-2-5. 합주 활용 사례 1
 
+위의 3 파일과 아래 3 파일을 같은 폴더에 넣고 `starter.ck` 파일을 실행시키면 다음과 같은 순서로 `score.ck`의 쉬레줄에 따라 시간에 맞추어 다음과 같은 순서로 쉬레드가 생긴다. 실행하여 버철머신 모니터를 관찰해보자.
+
+- shred 1 - `starter.ck` at 0:00
+- shred 2 - `BPM.ck`  at 0:00
+- shred 3 - `score.ck` at 0:00
+- shred 4 - `useBPM1.ck` at 0:00
+- shred 5 - `useBPM2.ck` at 2:00
+- shred 6 - `useBPM2.ck` at 7:00
+- shred 7 - `useBPM3.ck` at 8:00
+- shred 8 - `useBPM2.ck` at 10:00
+- shred 9 - `useBPM3.ck` at 11:00
+- shred 10 - `useBPM2.ck` at 13:00
+- shred 11 - `useBPM3.ck` at 14:00
+- ...
+
+##### `starter.ck`
+
+```
+Machine.add(me.dir()+"BPM.ck");
+Machine.add(me.dir()+"score.ck");
+```
+
+##### `UseBPM3.ck`
 
 ```
 SinOsc s => dac;
 0.3 => s.gain;
-BPM t;
-Math.random2f(200.0,1000.0) => t.tempo;
+BPM bpm;
+Math.random2f(300.0,1000.0) => bpm.tempo;
 
-1000 => int freq;
-while (freq > 400) {
+for (900 => int freq; freq > 400; 50 -=> freq) {
     freq => s.freq;
-    t.quarterNote => now;
-    50 -=> freq;
+    bpm.quarter => now;
 }
 ```
 
-#### `score.ck`
+##### `score.ck`
 
 ```
+Machine.add(me.dir()+"useBPM1.ck");
+2.0::second => now;
+Machine.add(me.dir()+"useBPM2.ck");
+3.0::second => now;
+// rest
+2.0::second => now;
 while (true) {
-    Machine.add(me.dir()+"/useBPM2.ck");
+    Machine.add(me.dir()+"useBPM2.ck");
     1.0 :: second => now;
-    Machine.add(me.dir()+"/useBPM3.ck");
+    Machine.add(me.dir()+"useBPM3.ck");
     2.0 :: second => now;
 }
 ```
 
 
+#### 8-2-6. 합주 활용 사례 2 : 드럼 머신
 
-### 사례 5 : 드럼 머신 - `BPM` 클래스로 합주 박자 시간 동기화하기
+#### `BPM` 클래스로 합주 박자 동기화하기
 
 
-#### `kick.ck`
+##### `kick.ck`
 
 ```
 SndBuf kick => dac;
 1 => kick.gain;
-me.dir(-1) + "/audio/kick_04.wav" => kick.read;  
+me.dir() + "audio/kick_01.wav" => kick.read;  
 
-BPM tempo;
-while (true) { 
+BPM bpm;
+while (true) {
     // Oxxx|Oxxx|Oxxx|Oxxx
-    tempo.quarterNote => dur quarter;
-    for (0 => int beat; beat < 4; beat++) { 
-        0 => kick.pos; 
-        quarter => now;
+    for (0 => int beat; beat < 4; beat++) {
+        0 => kick.pos;
+        bpm.quarter => now;
     }
 }
 ```
 
-#### `snare.ck`
+##### `snare.ck`
 
 ```
 SndBuf snare => dac;
 0.5 => snare.gain;
-me.dir(-1) + "/audio/snare_01.wav" => snare.read;
+me.dir() + "audio/snare_01.wav" => snare.read;
 snare.samples() => snare.pos;
 
-BPM tempo;
+BPM bpm;
 while (true) {
-    tempo.quarterNote => dur quarter;
     // xxxxOxxxxxxxOOxx
-    quarter => now;
+    bpm.quarter => now;
     0 => snare.pos;
-    2.0 * quarter => now;
+    2.0 * bpm.quarter => now;
     0 => snare.pos;
-    quarter / 4.0 => now;
+    bpm.quarter / 4.0 => now;
     0 => snare.pos;
-    3.0 * quarter / 4.0 => now;
+    3.0 * bpm.quarter / 4.0 => now;
 }
 ```
 
-#### `cowbell.ck`
+##### `cowbell.ck`
 
 ```
 SndBuf cow => dac;
 0.3 => cow.gain;
-me.dir(-1) + "/audio/cowbell_01.wav" => cow.read;
+me.dir() + "audio/cowbell_01.wav" => cow.read;
 
-BPM tempo;
+BPM bpm;
 while (true) {
-    tempo.eighthNote => dur eighth;
     // xxxx|xxxx|xxxx|xxOx
     for (0 => int beat; beat < 8; beat++) {
-        if (beat == 7) 
+        if (beat == 7)
             0 => cow.pos;
-        eighth => now;
+        bpm.one_eighth => now;
     }
 }
 ```
 
-#### `hihat.ck`
+##### `hihat.ck`
 
 ```
 SndBuf hat => dac;
 0.3 => hat.gain;
-me.dir(-1) + "/audio/hihat_02.wav" => hat.read;
+me.dir() + "audio/hihat_02.wav" => hat.read;
 
-BPM tempo;
+BPM bpm;
 while (true) {
-    tempo.eighthNote => dur eighth;
     // OxOx|OxOx|OxOx|Oxxx
     for (0 => int beat; beat < 8; beat++) {
         if (beat != 7)
             0 => hat.pos;
-        eighth => now;
+        bpm.one_eighth => now;
     }
 }
 ```
 
-#### `clap.ck`
+##### `clap.ck`
 
 ```
 SndBuf clap => dac;
 0.3 => clap.gain;
-me.dir(-1) + "/audio/clap_01.wav" => clap.read;
+me.dir() + "audio/clap_01.wav" => clap.read;
 
-BPM tempo;
+BPM bpm;
 while (true) {
-    tempo.sixteenthNote => dur sixteenth;
     // ????|????|????|???? (3/8 probability random)
     for (0 => int beat; beat < 16; beat++) {
         if (Math.random2(0,7) < 3) {
             0 => clap.pos;
         }
-        sixteenth => now;
+        bpm.one_sixteenth => now;
     }
 }
 ```
 
-#### `score.ck`
+##### `score.ck`
 
 ```
-BPM tempo; 
-tempo.tempo(120.0);
+BPM bpm;
+bpm.tempo(120.0);
 
-Machine.add(me.dir()+"/kick.ck") => int kickID;
-8.0 * tempo.quarterNote => now;
-
-Machine.add(me.dir()+"/snare.ck") => int snareID;
-8.0 * tempo.quarterNote => now;
-
-Machine.add(me.dir()+"/hihat.ck") => int hatID;
-Machine.add(me.dir()+"/cowbell.ck") => int cowID;
-8.0 * tempo.quarterNote => now;
-
-Machine.add(me.dir()+"/clap.ck") => int clapID;
-8.0 * tempo.quarterNote => now;
+Machine.add(me.dir()+"kick.ck") => int kickID;
+8.0 * bpm.quarter => now;
+Machine.add(me.dir()+"snare.ck") => int snareID;
+8.0 * bpm.quarter => now;
+Machine.add(me.dir()+"hihat.ck") => int hatID;
+Machine.add(me.dir()+"cowbell.ck") => int cowID;
+8.0 * bpm.quarter => now;
+Machine.add(me.dir()+"clap.ck") => int clapID;
+8.0 * bpm.quarter => now;
 
 <<< "Play with tempo" >>>;
 80.0 => float new_tempo;
-tempo.tempo(new_tempo);
-8.0 * tempo.quarterNote => now;
-
+bpm.tempo(new_tempo);
+8.0 * bpm.quarter => now;
 2 *=> new_tempo;
-tempo.tempo(new_tempo);
-8.0 * tempo.quarterNote => now;
+bpm.tempo(new_tempo);
+8.0 * bpm.quarter => now;
 
 <<< "Gradually decrease tempo" >>>;
 while (new_tempo > 60.0) {
     20 -=> new_tempo;
-    tempo.tempo(new_tempo);
+    bpm.tempo(new_tempo);
     <<< "tempo = ", new_tempo >>>;
-    4.0 * tempo.quarterNote => now;
+    4.0 * bpm.quarter => now;
 }
 
 // pulls out instruments, one at a time
 Machine.remove(kickID);
-
-8.0 * tempo.quarterNote => now;
+8.0 * bpm.quarter => now;
 Machine.remove(snareID);
 Machine.remove(hatID);
-
-8.0 * tempo.quarterNote => now;
+8.0 * bpm.quarter => now;
 Machine.remove(cowID);
-
-8.0 * tempo.quarterNote => now;
+8.0 * bpm.quarter => now;
 Machine.remove(clapID);
 ```
 
-#### `initialize.ck`
+##### `starter.ck`
 
 ```
-Machine.add(me.dir()+"/BPM.ck");
-Machine.add(me.dir()+"/score.ck");
+Machine.add(me.dir()+"BPM.ck");
+Machine.add(me.dir()+"score.ck");
 ```
 
 
+### 8-3.  상속
 
-### 8-3.  기존 클래스를 활용하여 새로운 클래스 만들기
+기존 클래스의 속성과 기능을 그대로 상속(inheritance)받아 재사용하면서 새로운 클래스를 손쉽게 만들 수 있다.
 
-### 사례 6 : 상속 Inheritance
+```
+class Child extends Parent
+```
 
-<img src="image08/inheritance.png" width="200">
+위와 같이 `extends` 키워드를 사용하여 상속관계를 언급하면, `Parent` 클래스의 모든 것을 물려받아 `Child` 클래스를 작성한다는 뜻이 된다. 다시 말해, `Parent` 클래스에 작성되어 있는 코드는 `Child` 클래스에서 언급하지 않아도 모두 있는 것으로 간주한다는 말이다. `Child` 클래스에는 새로운 코드를 추가하거나, 중복시키거나(overload), 물려받은 코드를 무효화하고 새로 만들 수 있다(override).
+
+#### 8-3-1. 상속 사례 1 : 악기 개인화
+
+<img src="https://i.imgur.com/Z7lJSFT.png" width="200">
+
+##### `MyClarinet.ck`
 
 ```
 public class MyClarinet extends Clarinet {
@@ -519,42 +535,58 @@ public class MyClarinet extends Clarinet {
         volume => this.noteOn;
     }
 }
+```
 
+##### `play.ck`
 
+```
 MyClarinet clarinet => dac;
 
-clarinet.noteOn(72, 0.2);
-second => now;
-1 => clarinet.noteOff;
-second => now;
+[60,62,64,65,67,69,71,72] @=> int scale[];
 
-clarinet.noteOn(1.0); 
-second => now;
+for (0 => int i; i < scale.size(); i++) {
+    clarinet.noteOn(scale[i], 0.2);
+    0.5::second => now;
+    1 => clarinet.noteOff;
+}
 ```
 
-### 사례 7 : 다형 Polymorphism
-
-
+##### `starter.ck`
 
 ```
-fun void swell(UGen osc, float begin, float end, float step) {
-    float val;
+Machine.add(me.dir()+"myclarinet.ck");
+Machine.add(me.dir()+"play.ck");
+```
+
+#### 상속 사례 2 : 다형 (Polymorphism)
+
+Parent 클래스의 변수에는 Child 객체를 담을 수 있다.
+예를 들어 `Osc`은 `SinOsc`, `TriOsc`, `SqrOsc`, `SawOsc`의 Parent 클래스이다. 따라서 다음 사례와 같이 `Osc` 타입의 파라미터 변수 `osc`는 이 네 종류의 진동기를 모두 수용할 수 있다.
+
+####
+
+```
+TriOsc s => dac;
+swell(s, 0.0, 1.0, 0.01);
+
+fun void swell(Osc osc, float begin, float end, float step) {
 
     // swell up volume
-    for (begin => val; val < end; step +=> val) {
-        val => osc.gain;
-        0.01 :: second => now;
+    for (begin => float v; v < end; step +=> v) {
+        v => osc.gain;
+        0.02 :: second => now;
     }
     // swell down volume
-    while (val > begin) {
-        val => osc.gain;
-        step -=> val;
-        0.01:: second => now;
+    for (end => float v; v >= begin; step -=> v) {
+        v => osc.gain;
+        0.02:: second => now;
     }
 }
 ```
 
-<img src="image08/polymorphism.png" width="400">
+`StkInstrument`는 아래 그림에서 볼 수 있듯이 다양한 악기의 Parent 클래스이다. 따라서 아래 코드 사례에서 볼 수 있듯이,  `StkInstrument` 배열은 소속의 어떤 악기 객체도 담을 수 있다.
+
+<img src="https://i.imgur.com/mbTrqiH.png" width="400">
 
 
 ```
@@ -572,11 +604,13 @@ for (0 => int i; i < 4; i++) {
 }
 ```
 
-### 8-4. 사례 6 :  스마트 `Mandolin` 만들기 
+### 실습
 
+#### 1. 스마트 `Mandolin`
 
+다음 코드 이해하고, 실행하여 소리를 들어보자.
 
-#### `mandolin.ck`
+##### `MandoPlayer.ck`
 
 ```
 // Listing 9.20 Smart mandolin instrument and player class
@@ -634,7 +668,7 @@ public class MandoPlayer {
         else 3 => whichString;
         Std.mtof(note) => m[whichString].freq;
         now + howLong => time stop;
-        while (now < stop) { 
+        while (now < stop) {
             Std.rand2f(0.5,1.0) => m[whichString].noteOn;
             Std.rand2f(0.06,0.09)::second => now;
         }
@@ -653,7 +687,7 @@ public class MandoPlayer {
 
 
 
-#### `score.ck`
+##### `score.ck`
 
 ```
 MandoPlayer m;
@@ -664,14 +698,14 @@ MandoPlayer m;
 
 // roll
 0 => int i;
-while (i < chords.cap()) { 
+while (i < chords.cap()) {
     m.roll(chords[i], durs[i]::second);
     i++;
 }
 
 // now strum a few notes
 0 => i;
-while (i < strums.cap()) { 
+while (i < strums.cap()) {
     m.strum(strums[i++], 1.0::second);
 }
 
@@ -687,21 +721,20 @@ m.damp(0.01);
 
 
 
-#### `initialize.ck`
+##### `starter.ck`
 
 ```
-Machine.add(me.dir()+"/mandolin.ck");
-Machine.add(me.dir()+"/score.ck"); 
+Machine.add(me.dir()+"mandolin.ck");
+Machine.add(me.dir()+"score.ck");
 ```
 
-### 실습
+#### 2. 합창
 
 지난 실습 시간에 만든 프로그램을 이번엔 음별로 파일을 따로 만든 다음 `Machine`을 활용하여 합주하는 방식으로 개선해보자.
 그리고 필요한 대로 클래스를 만들어서 활용하자.
 
-#### 1. 합창
 
-다음 악보는 멜로디의 뒤 두 마디에 높은 음이 화음으로 추가되고, 아래에 베이스 음이 추가되어 있다. 
+다음 악보는 멜로디의 뒤 두 마디에 높은 음이 화음으로 추가되고, 아래에 베이스 음이 추가되어 있다.
 
 ![Where Is Thumbkin 2](https://i.imgur.com/ajiw85k.png)
 
@@ -709,75 +742,122 @@ Machine.add(me.dir()+"/score.ck");
 
 ```
 [
-F4,G4,A4,F4, F4,G4,A4,F4, A4,Bb4,C5, A4,Bb4,C5,
-C5,D5,C5,Bb4,A4,F4, C5,D5,C5,Bb4,A4,F4, F4,C4,F4, F4,C4,F4
-] @=> int MELODY[];
+"F4","G4","A4","F4",            "F4","G4","A4","F4",
+"A4","Bb4","C5",                "A4","Bb4","C5",
+"C5","D5","C5","Bb4","A4","F4", "C5","D5","C5","Bb4","A4","F4",
+"F4","C4","F4",                 "F4","C4","F4"
+] @=> string melody[];
 
 [
-F4,G4,A4,F4, F4,G4,A4,F4, A4,Bb4,C5, A4,Bb4,C5,
-C5,D5,C5,Bb4,A4,F4, C5,D5,C5,Bb4,A4,F4, A4,E4,A4, A4,E4,A4
-] @=> int MELODY_HIGH[];
+"F4","G4","A4","F4",            "F4","G4","A4","F4",
+"A4","Bb4","C5",                "A4","Bb4","C5",
+"C5","D5","C5","Bb4","A4","F4", "C5","D5","C5","Bb4","A4","F4",
+"A4","E4","A4",                 "A4","E4","A4"
+] @=> string melody_high[];
 
 [
-QN,QN,QN,QN, QN,QN,QN,QN, QN,QN,HN, QN,QN,HN,
-EN,EN,EN,EN,QN,QN, EN,EN,EN,EN,QN,QN, QN,QN,HN, QN,QN,HN
-] @=> dur DURS[];
+ qn,  qn,  qn,  qn,              qn,  qn,  qn,  qn,
+ qn,  qn,  hn,                   qn,  qn,  hn,
+ en,  en,  en,  en,   qn,  qn,   en,  en,  en,  en,   qn,  qn,
+ qn,  qn,  hn,                   qn,  qn,  hn
+] @=> dur durs[];
 
 [
-F3,C4,F3, F3,C4,F3, F3,C4,F3, F3,C4,F3,
-F3,C4,F3, F3,C4,F3, F3,C4,F3, F3,C4,F3
-] @=> int BASS[];
+"F3","C4","F3", "F3","C4","F3", "F3","C4","F3", "F3","C4","F3",
+"F3","C4","F3", "F3","C4","F3", "F3","C4","F3", "F3","C4","F3"
+] @=> string bass[];
 
 [
-QN,QN,HN, QN,QN,HN, QN,QN,HN, QN,QN,HN,
-QN,QN,HN, QN,QN,HN, QN,QN,HN, QN,QN,HN
-]
-@=> dur DURS_BASS[];
+ qn,  qn,  hn,   qn,  qn,  hn,   qn,  qn,  hn,   qn,  qn,  hn,
+ qn,  qn,  hn,   qn,  qn,  hn,   qn,  qn,  hn,   qn,  qn,  hn
+] @=> dur durs_bass[];
 ```
 
-#### 2. 돌림노래
+#### 3. 돌림노래
 
-이번엔 다음 곡을 돌림노래로 연주해보자. 
+이번엔 다음 곡을 돌림노래로 연주해보자.
 
 ![Row-Row-Row-Your-Boat](https://i.imgur.com/rvB5d4E.png)
 
-4개의 개별 개체를 만들어 차례로 2 마디씩 늦게 연주를 시작하도록 하면 돌림노래가 완성된다. 
+```
+[
+"C4",          "C4",             "C4",     "D4","E4",       
+"E4",     "D4","E4",     "F4",   "G4",
+"C5","C5","C5","G4","G4","G4",   "E4","E4","E4","C4","C4","C4",
+"G4",     "F4","E4",     "D4",   "C4"
+] @=> string melody[];
+
+[
+ n3,            n3,               n2,       n1,  n3,       
+ n2,       n1,  n2,       n1,     n6,
+ n1,  n1,  n1,  n1,  n1,  n1,     n1,  n1,  n1,  n1,  n1,  n1,
+ n2,       n1,  n2,       n1,     n6
+] @=> dur durs[];
+```
+
+4개의 개별 개체를 만들어 차례로 2 마디씩 늦게 연주를 시작하도록 하면 돌림노래가 완성된다.
 악기는 자유로이 선택한다.
 
 ```
-0.2::second => dur BEAT;
-BEAT => dur SN; // sixth note (1/6)
-BEAT * 2 => dur TN; // third note (1/3)
-BEAT * 3 => dur HN; // half note (1/2)
-BEAT * 6 => dur WN; // whole note (1)
+public class BPM { // Beats Per Minute
 
-[
-C4,C4, C4,D4,E4, E4,D4,E4,F4, G4,
-C5,C5,C5,G4,G4,G4, E4,E4,E4,C4,C4,C4, G4,F4,E4,D4, C4
-] @=> int MELODY[];
+    static dur n1, n2, n3, n6;
 
-[
-HN,HN, TN,SN,HN, TN,SN,TN,SN, WN,
-SN,SN,SN,SN,SN,SN, SN,SN,SN,SN,SN,SN, TN,SN,TN,SN, WN
-] @=> dur DURS[];
+    fun void tempo(float beat) { // beat in BPM
+        60.0 / beat => float spb; // seconds per beat  
+        spb::second => n1;
+        n1 * 2 => n2;
+        n1 * 3 => n3;
+        n1 * 6 => n6;
+    }
+}
 ```
 
-### 숙제 (마감 11월 9일 오전 9시)
+```
+public class Play {
 
-지난 숙제로 만든 드럼 머신 음악을 개선하는 과제이다. 소리 별로 파일을 별도로 작성하고 `score.ck` 파일에서 `Machine`을 활용하여 연주를 지휘하여 좀 더 역동적으로 음악을 연주할 수 있도록 프로그램을 개선하자. 그리고 `BPM.ck`를 포함하여 필요한만큼 클래스도 추가하여 작성해야 한다. 
+    fun void play(StkInstrument instrument, string notes[], dur durs[]) {
+        for (0 => int i; i < notes.size(); i++)
+            playnote(instrument, notes[i], durs[i]);
+    }
 
--   `initialize.ck`에서 연주가 시작할 수 있도록 해야한다. 
+    fun void playnote(StkInstrument instrument, string note, dur duration) {
+        Std.mtof(s2n(note)) => instrument.freq;
+        if (note != "REST")
+            1 => instrument.noteOn;
+        duration => now;
+        1 => instrument.noteOff;
+    }
+
+    fun int s2n(string name) {
+        [21,23,12,14,16,17,19] @=> int notes[]; // A0,B0,C0,D0,E0,F0,G0
+        name.charAt(0) - 65 => int base; // A=0,B=1,C=2,D=3,E=4,F=5,G=7
+        notes[base] => int note;
+        if (0 <= base && base <= 6) {
+            if (name.charAt(1) == '#' || name.charAt(1) == 's') // sharp
+                notes[base] + 1 => note;
+            if (name.charAt(1) == 'b' || name.charAt(1) == 'f') // flat
+                notes[base] - 1 => note;
+        }
+        else
+            <<< "Illegal Note Name!" >>>;
+        name.charAt(name.length()-1) - 48 => int oct; // 0, 1, 2, ..., 9
+        if (0 <= oct && oct <= 9) {
+            12 * oct +=> note;
+            return note;
+        }
+        else
+            <<< "Illegal Octave!" >>>;
+    }
+
+}
+```
+
+### 숙제 (마감 11월 2일)
+
+지난 숙제로 만든 드럼 머신 음악을 개선하는 과제이다. 소리 별로 파일을 별도로 작성하고 `score.ck` 파일에서 `Machine`을 활용하여 연주를 지휘하여 좀 더 역동적으로 음악을 연주할 수 있도록 프로그램을 개선하자. 그리고 `BPM.ck`를 포함하여 필요한만큼 클래스도 추가하여 작성해야 한다.
+
+-   `initialize.ck`에서 연주가 시작할 수 있도록 해야한다.
 -   지금까지 공부한 지식을 최대한 활용하여 코딩해야 한다.
 -   모든 프로그램 파일의 맨 상단에 본인의 학번과 이름을 영어로 기입한다.
 -   파일은 zip으로 압축하여 묶어서 파일명을 학번으로 하여 LMS에 제출한다.
-
-
-
-
-
-
-
-
-
-
-
