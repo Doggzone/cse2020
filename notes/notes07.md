@@ -615,7 +615,7 @@ fun void play(StkInstrument instrument, int notes[], dur durs[]) {
 악보의 끝 부분에서 같이 끝나도록 하기 위해서 멜로디 주제를 일부만 연주함에 유의하여 작성하자.
 
 
-<img src="https://i.imgur.com/ffTyHng.png" width="600">
+<img src="https://i.imgur.com/YDYw5MA.png" width="600">
 
 
 
