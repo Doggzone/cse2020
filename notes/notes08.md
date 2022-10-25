@@ -606,139 +606,132 @@ for (0 => int i; i < 4; i++) {
 
 ### 실습
 
-#### 1. 스마트 `Mandolin`
+#### 1. 반달
 
-다음 코드 이해하고, 실행하여 소리를 들어보자.
+#### 버전 1
 
-##### `MandoPlayer.ck`
+지난 실습 시간에 작성한 반달을 연주하는 프로그램을 다음 두 클래스 파일을 활용하는 버전으로 수정하자.
+
+##### `BPM.ck`
 
 ```
-// Listing 9.20 Smart mandolin instrument and player class
-// Four Mando "strings", plus some smarts
-// by Perry R. Cook, March 2013
+public class BPM { // Beats Per Minute
 
-public class MandoPlayer {
-    Mandolin m[4];
-    m[0] => JCRev rev => dac;
-    m[1] => rev;
-    m[2] => rev;
-    m[3] => rev;
-    0.25 => rev.gain;
-    0.02 => rev.mix;
+    static dur n1, n2, n3, n5;
 
-    // set all four string frequencies in one function
-    fun void freqs(float g, float d, float a, float e) {
-        m[0].freq(g);
-        m[1].freq(a);
-        m[2].freq(d);
-        m[3].freq(e);
-    }
-
-    // set all four string notes in one function
-    fun void notes(int g, int d, int a, int e) {
-        m[0].freq(Std.mtof(g));
-        m[1].freq(Std.mtof(d));
-        m[2].freq(Std.mtof(a));
-        m[3].freq(Std.mtof(e));
-    }
-
-    // a few named chords to get you started, add your own!!
-    fun void chord(string which) {
-        if (which == "G") this.notes(55,62,71,79);   // G3, D4, B4, G5.
-        else if (which == "C") this.notes(55,64,72,79);
-        else if (which == "D") this.notes(57,62,69,78);
-        else <<< "I don't know this chord: ", which >>>;
-    }
-
-    // roll a chord from lowest note to highest at rate
-    fun void roll(string chord, dur rate) {
-        this.chord(chord);
-        for (0 => int i; i < 4; i++) {
-            1 => m[i].noteOn;
-            rate => now;
-        }
-    }
-
-    // Archetypical tremolo strumming
-    fun void strum(int note, dur howLong) {
-        int whichString;
-        if (note < 62) 0 => whichString;
-        else if (note < 69) 1 => whichString;
-        else if (note < 76) 2 => whichString;
-        else 3 => whichString;
-        Std.mtof(note) => m[whichString].freq;
-        now + howLong => time stop;
-        while (now < stop) {
-            Std.rand2f(0.5,1.0) => m[whichString].noteOn;
-            Std.rand2f(0.06,0.09)::second => now;
-        }
-    }
-
-    // Damp all strings by amount
-    // 0.0 = lots of damping, 1.0 = none
-    fun void damp(float amount) {
-        for (0 => int i; i < 4; i++) {
-            amount => m[i].stringDamping;
-        }
+    fun void tempo(float beat) { // beat in BPM
+        60.0 / beat => float spb; // seconds per beat  
+        spb::second => n1; // 1/6
+        n1 * 2 => n2; // 2/6
+        n1 * 3 => n3; // 3/6
+        n1 * 5 => n5; // 5/6
     }
 }
 ```
 
-
-
-
-##### `score.ck`
+##### `Tool.ck`
 
 ```
-MandoPlayer m;
+public class Tool {
 
-["G","C","G","D","D","D","D","G"] @=> string chords[];
-[0.4,0.4,0.4,0.1,0.1,0.1,0.1,0.01] @=> float durs[];
-[79,81,83] @=> int strums[];
+    fun void play(StkInstrument instrument, int note[], dur length[]) {
+        for (0 => int i; i < note.size(); i++)
+            playnote(instrument, note[i], length[i]);
+    }
 
-// roll
-0 => int i;
-while (i < chords.cap()) {
-    m.roll(chords[i], durs[i]::second);
-    i++;
+    fun void playnote(StkInstrument instrument, int note, dur length) {
+        if (note != -1) {
+            Std.mtof(note) => instrument.freq;
+            1 => instrument.noteOn;
+        }
+        length => now;
+        1 => instrument.noteOff;
+    }
+
 }
-
-// now strum a few notes
-0 => i;
-while (i < strums.cap()) {
-    m.strum(strums[i++], 1.0::second);
-}
-
-// then end up with a big open G chord
-m.damp(1.0);
-m.roll("G", 0.02::second);
-2.0::second => now;
-
-// damp it to silence, letting it ring a little
-m.damp(0.01);
-1.0::second => now;
 ```
 
-
+반달을 연주하는 프로그램은 `play.ck` 파일에 작성하고, 다음 `starter.ck` 파일을 사용하여 실행한다.
 
 ##### `starter.ck`
 
 ```
-Machine.add(me.dir()+"mandolin.ck");
-Machine.add(me.dir()+"score.ck");
+Machine.add(me.dir()+"BPM.ck");
+Machine.add(me.dir()+"Tool.ck");
+Machine.add(me.dir()+"play.ck");
 ```
 
-#### 2. 합창
+#### 버전 2
 
-지난 실습 시간에 만든 프로그램을 이번엔 음별로 파일을 따로 만든 다음 `Machine`을 활용하여 합주하는 방식으로 개선해보자.
-그리고 필요한 대로 클래스를 만들어서 활용하자.
+이번에는 멜로디를 연주하는 파일 `melody.ck`과  화음을 연주하는 `harmony.ck` 파일을 따로 만들어 합주해보자.
+
+#### 2. 돌림노래 Row-Row-Row-Your-Boat
+
+지난 실습 시간에 작성한 반달을 연주하는 다음 프로그램을 `BPM`과 `Tool` 클래스 파일을 활용하는 버전으로 수정하자.
+`BPM` 클래스는 이 노래의 박자에 맞게 수정해야 할 것이다.
+
+```
+// tempo
+0.2::second => dur beat;
+beat => dur n1; // 1/6
+beat * 2 => dur n2; // 2/6
+beat * 3 => dur n3; // 3/6
+beat * 6 => dur n6; // 6/6
+
+[ // melody
+60,60,             60,62,64,          64,62,64,65, 67,
+72,72,72,67,67,67, 64,64,64,60,60,60, 67,65,64,62, 60
+] @=> int melody[];
+
+[ // time
+n3,n3,             n2,n1,n3,          n2,n1,n2,n1, n6,
+n1,n1,n1,n1,n1,n1, n1,n1,n1,n1,n1,n1, n2,n1,n2,n1, n6
+] @=> dur length[];
+
+Rhodey piano[4];
+piano[0] => dac;
+piano[1] => dac;
+piano[2] => dac;
+piano[3] => dac;
+spork ~ play(piano[0], melody, length);
+n6 * 2 => now;
+spork ~ play(piano[1], melody, length);
+n6 * 2 => now;
+spork ~ play(piano[2], melody, length);
+n6 * 2 => now;
+spork ~ play(piano[3], melody, length);
+n6 * 8 => now;
+
+fun void play(StkInstrument instrument, int note[], dur length[]) {
+    for (0 => int i; i < note.size(); i++) {
+        if (note[i] != -1) {
+            Std.mtof(note[i]) => instrument.freq;
+            1 => instrument.noteOn;
+        }
+        length[i] => now;
+        1 => instrument.noteOff;
+    }
+}
+```
+
+#### 3. Bach의 Crab Canon
+
+지난 실습 시간에 작성한 다음 프로그램을 `BPM`과 `Tool` 클래스 파일을 활용하는 버전으로 수정하자.
+이번에는 `BPM`과 `Tool` 클래스를 이 노래에 맞게 수정해야 할 것이다.
 
 
-다음 악보는 멜로디의 뒤 두 마디에 높은 음이 화음으로 추가되고, 아래에 베이스 음이 추가되어 있다.
+#### 4. J.S. Bach, Canon a 2 perpetuus (BWV 1075)
+
+지난 실습 시간에 작성한 다음 프로그램을 `BPM`과 `Tool` 클래스 파일을 활용하는 버전으로 수정하자.
+이번에는 `BPM`과 `Tool` 클래스를 이 노래에 맞게 수정해야 할 것이다.
+
+
+
+### 숙제 (마감 11월 2일)
+
+지난 실습 시간에 만든 프로그램을 이번엔 멜로디 2중창을 파일 하나에, 베이스를 다른 파일에 따로 두고 합주하는 방식으로 개선해보자. 'BPM' 클래스는 만들어 활용하고, `Tool` 클래스는 아래의 클래스를 가져다 활용하도록 한다.
 
 ![Where Is Thumbkin 2](https://i.imgur.com/ajiw85k.png)
-
-멜로디 2중창을 파일 하나에, 베이스를 다른 파일에 따로 두고 합창하도록 작성하자.
 
 ```
 [
@@ -773,48 +766,8 @@ Machine.add(me.dir()+"score.ck");
 ] @=> dur durs_bass[];
 ```
 
-#### 3. 돌림노래
-
-이번엔 다음 곡을 돌림노래로 연주해보자.
-
-![Row-Row-Row-Your-Boat](https://i.imgur.com/rvB5d4E.png)
-
 ```
-[
-"C4",          "C4",             "C4",     "D4","E4",       
-"E4",     "D4","E4",     "F4",   "G4",
-"C5","C5","C5","G4","G4","G4",   "E4","E4","E4","C4","C4","C4",
-"G4",     "F4","E4",     "D4",   "C4"
-] @=> string melody[];
-
-[
- n3,            n3,               n2,       n1,  n3,       
- n2,       n1,  n2,       n1,     n6,
- n1,  n1,  n1,  n1,  n1,  n1,     n1,  n1,  n1,  n1,  n1,  n1,
- n2,       n1,  n2,       n1,     n6
-] @=> dur durs[];
-```
-
-4개의 개별 개체를 만들어 차례로 2 마디씩 늦게 연주를 시작하도록 하면 돌림노래가 완성된다.
-악기는 자유로이 선택한다.
-
-```
-public class BPM { // Beats Per Minute
-
-    static dur n1, n2, n3, n6;
-
-    fun void tempo(float beat) { // beat in BPM
-        60.0 / beat => float spb; // seconds per beat  
-        spb::second => n1;
-        n1 * 2 => n2;
-        n1 * 3 => n3;
-        n1 * 6 => n6;
-    }
-}
-```
-
-```
-public class Play {
+public class Tool {
 
     fun void play(StkInstrument instrument, string notes[], dur durs[]) {
         for (0 => int i; i < notes.size(); i++)
@@ -822,14 +775,14 @@ public class Play {
     }
 
     fun void playnote(StkInstrument instrument, string note, dur duration) {
-        Std.mtof(s2n(note)) => instrument.freq;
+        Std.mtof(ntom(note)) => instrument.freq;
         if (note != "REST")
             1 => instrument.noteOn;
         duration => now;
         1 => instrument.noteOff;
     }
 
-    fun int s2n(string name) {
+    fun int ntom(string name) { // note name to MIDI number
         [21,23,12,14,16,17,19] @=> int notes[]; // A0,B0,C0,D0,E0,F0,G0
         name.charAt(0) - 65 => int base; // A=0,B=1,C=2,D=3,E=4,F=5,G=7
         notes[base] => int note;
@@ -852,12 +805,3 @@ public class Play {
 
 }
 ```
-
-### 숙제 (마감 11월 2일)
-
-지난 숙제로 만든 드럼 머신 음악을 개선하는 과제이다. 소리 별로 파일을 별도로 작성하고 `score.ck` 파일에서 `Machine`을 활용하여 연주를 지휘하여 좀 더 역동적으로 음악을 연주할 수 있도록 프로그램을 개선하자. 그리고 `BPM.ck`를 포함하여 필요한만큼 클래스도 추가하여 작성해야 한다.
-
--   `initialize.ck`에서 연주가 시작할 수 있도록 해야한다.
--   지금까지 공부한 지식을 최대한 활용하여 코딩해야 한다.
--   모든 프로그램 파일의 맨 상단에 본인의 학번과 이름을 영어로 기입한다.
--   파일은 zip으로 압축하여 묶어서 파일명을 학번으로 하여 LMS에 제출한다.
