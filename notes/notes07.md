@@ -432,11 +432,11 @@ n3,   n2,n1,  n2,n1,n2,n1,  n1,n1,n1,n2,n1,  n5,n1
 멜로디 악보를 보면 쉼표는 -1로 표시했다. 이 경우 앞에서 만든 다음 `play` 함수를 사용할 수 없다. 쉼표는 소리를 내지 않도록 이 함수를 수정하자.
 
 ```
-fun void play(StkInstrument instrument, int notes[], dur durs[]) {
-    for (0 => int i; i < notes.size(); i++) {
-        Std.mtof(notes[i]) => instrument.freq;
+fun void play(StkInstrument instrument, int note[], dur length[]) {
+    for (0 => int i; i < note.size(); i++) {
+        Std.mtof(note[i]) => instrument.freq;
         1 => instrument.noteOn;
-        durs[i] => now;
+        length[i] => now;
         1 => instrument.noteOff;
     }
 }
@@ -517,7 +517,7 @@ beat * 6 => dur n6; // 6/6
 [ // time
 n3,n3,             n2,n1,n3,          n2,n1,n2,n1, n6,
 n1,n1,n1,n1,n1,n1, n1,n1,n1,n1,n1,n1, n2,n1,n2,n1, n6
-] @=> dur durs[];
+] @=> dur length[];
 ```
 
 
@@ -553,7 +553,7 @@ beat * 2 => dur hn; // half note (1/2)
 63,65,67,68,70,68,67,65,67,68,70,72,73,70,68,67,
 69,71,72,74,75,72,71,69,71,72,74,75,77,74,67,74,
 72,74,75,77,75,74,72,71,72,   67,   63,   60
-] @=> int notes[];
+] @=> int note[];
 
 [ // time
 hn,         hn,         hn,         hn,    
@@ -565,7 +565,7 @@ en,en,en,en,en,en,en,en,en,en,en,en,en,en,en,en,
 en,en,en,en,en,en,en,en,en,en,en,en,en,en,en,en,      
 en,en,en,en,en,en,en,en,en,en,en,en,en,en,en,en,      
 en,en,en,en,en,en,en,en,qn,   qn,   qn,   qn
-] @=> dur durs[];
+] @=> dur length[];
 ```
 
 #### 5. J.S. Bach, Canon a 2 perpetuus (BWV 1075)
@@ -590,19 +590,19 @@ n1,n1,n1,n1,n1,n1,
 n2,   n1,n1,n1,n1,
 n1,n1,n1,n1,n1,n1,
 n2,   n1,n1,n1,n1
-] @=> dur durs[];
+] @=> dur length[];
 
 // play
 Rhodey hand => dac;
-play(hand, melody, durs);
+play(hand, melody, length);
 
-fun void play(StkInstrument instrument, int notes[], dur durs[]) {
-    for (0 => int i; i < notes.size(); i++) {
-        if (notes[i] != -1) {
-            Std.mtof(notes[i]) => instrument.freq;
+fun void play(StkInstrument instrument, int note[], dur length[]) {
+    for (0 => int i; i < note.size(); i++) {
+        if (note[i] != -1) {
+            Std.mtof(note[i]) => instrument.freq;
             1 => instrument.noteOn;
         }
-        durs[i] => now;
+        length[i] => now;
         1 => instrument.noteOff;
     }
 }
