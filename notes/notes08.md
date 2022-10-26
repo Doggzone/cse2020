@@ -127,70 +127,10 @@ while (true) {
 }
 ```
 
-#### 8-2-2. 중복
-
-#### 메소드의 중복 정의
-
-클래스 내부에 파라미터의 타입 또는 개수를 차별화하여 같은 이름의 메소드를 몇 개라도 중복(overload)하여 정의할 수 있다. 아래 사례에서는 주파수를 설정하는 `freq` 메소드를 중복하여 정의하고 있다. 인수가 `float` 타입이면 받은대로 주파수를 설정하고, `int` 타입이면 MIDI 번호로 간주하여 해당 주파수로 변환하여 설정하고, `string` 타입이면 계명으로 간주하여 해당 주파수로 변환하여 설정한다.
-
-```
-class ResonantPop {
-    Impulse imp => ResonZ filt => dac;
-    100.0 => filt.Q => filt.gain;
-    1000.0 => filt.freq;
-
-    fun void freq(float freq) {
-        freq => filt.freq;
-    }
-
-    fun void freq(int note) {
-        Std.mtof(note) => filt.freq;
-    }
-
-    fun void freq(string name) {
-        [21,23,12,14,16,17,19] @=> int notes[]; // A0,B0,C0,D0,E0,F0,G0
-        name.charAt(0) - 65 => int base; // A=0,B=1,C=2,D=3,E=4,F=5,G=7
-        notes[base] => int note;
-        if (0 <= base && base <= 6) {
-            if (name.charAt(1) == '#' || name.charAt(1) == 's') // sharp
-                notes[base] + 1 => note;
-            if (name.charAt(1) == 'b' || name.charAt(1) == 'f') // flat
-                notes[base] - 1 => note;
-        }
-        else
-            <<< "Illegal Note Name!" >>>;
-        name.charAt(name.length()-1) - 48 => int oct; // 0, 1, 2, ..., 9
-        if (0 <= oct && oct <= 9) {
-            12 * oct +=> note;
-            this.freq(note);
-        }
-        else
-            <<< "Illegal Octave!" >>>;
-    }
-
-    fun void setQ(float Q) {
-        Q => filt.Q;
-    }
-
-    fun void setGain(float gain) {
-        filt.Q() * gain => imp.gain;
-    }
-
-    fun void noteOn(float volume) {
-        volume => imp.next;
-    }
-}
-```
-
-<img src="https://i.imgur.com/c5RGAX9.png" width="450">
 
 
-#### 연산자의 중복
 
-<img src="https://i.imgur.com/8tJkDKm.png" width="500">
-
-
-#### 8-2-3. `public` 클래스
+#### 8-2-2. `public` 클래스
 
 정의한 클래스를 다른 파일에서 사용할 수 있도록 하려면, `class` 키워드 앞에 `public`을 명시하여 공개 의사를 밝혀야 한다. `public` 키워드를 붙이고 실행하면, 선언한 클래스가 버철 머신에 공개 등록되면서 다른 프로그램 파일에서 접근하여 사용할 수 있게 된다. 버철 머신에 공개용으로 일단 등록이 되면, 동일 이름의 `public` 클래스의 재실행은 불가능하다. 클래스의 수정이 필요하다면, `clearVM` 단추를 눌러 버철머신을 청소하여 초기 상태로 되돌려 놓은 다음 재실행하는 수밖에 없다.
 
@@ -204,17 +144,17 @@ class ResonantPop {
 
 ```
 public class BPM { // Beats Per Minute
-    dur quarter; // 1/4
-    dur one_eighth; // 1/8
-    dur one_sixteenth; // 1/16
-    dur one_thirtysecond; // 1/32
+    dur quarter; // 1
+    dur one_8th; // 1/2
+    dur one_16th; // 1/4
+    dur one_32nd; // 1/8
 
     fun void tempo(float beat) { // beat in BPM
         60.0 / beat => float spb; // seconds per beat  
         spb::second => quarter;
-        quarter / 2.0 => one_eighth;
-        quarter / 4.0 => one_sixteenth;
-        quarter / 8.0 => one_thirtysecond;
+        quarter / 2.0 => one_8th;
+        quarter / 4.0 => one_16th;
+        quarter / 8.0 => one_32nd;
     }
 }
 ```
@@ -251,7 +191,7 @@ for (900 => int freq; freq > 400; 50 -=> freq) {
 
 
 
-#### 8-2-4. `static` 변수
+#### 8-2-3. `static` 변수
 
 필드 변수를 아래와 같이 `static` 으로 선언하면 어떤 차이점이 있나?
 - `static`이 아닌 필드 변수는 객체 소속으로, 설정한 값은 생성한 객체가 살아있는 동안만 유효하고 실행이 끝나면 객체와 함께 사라진다.
@@ -261,17 +201,17 @@ for (900 => int freq; freq > 400; 50 -=> freq) {
 
 ```
 public class BPM { // Beats Per Minute
-    static dur quarter; // 1/4
-    static dur one_eighth; // 1/8
-    static dur one_sixteenth; // 1/16
-    static dur one_thirtysecond; // 1/32
+    static dur quarter; // 1
+    static dur one_8th; // 1/2
+    static dur one_16th; // 1/4
+    static dur one_32nd; // 1/8
 
     fun void tempo(float beat) { // beat in BPM
         60.0 / beat => float spb; // seconds per beat  
         spb::second => quarter;
-        quarter / 2.0 => one_eighth;
-        quarter / 4.0 => one_sixteenth;
-        quarter / 8.0 => one_thirtysecond;
+        quarter / 2.0 => one_8th;
+        quarter / 4.0 => one_16th;
+        quarter / 8.0 => one_32nd;
     }
 }
 ```
@@ -306,7 +246,7 @@ for (900 => int freq; freq > 400; 50 -=> freq) {
 }
 ```
 
-####  8-2-5. 합주 활용 사례 1
+####  8-2-4. 합주 활용 사례 1
 
 위의 3 파일과 아래 3 파일을 같은 폴더에 넣고 `starter.ck` 파일을 실행시키면 다음과 같은 순서로 `score.ck`의 쉬레줄에 따라 시간에 맞추어 다음과 같은 순서로 쉬레드가 생긴다. 실행하여 버철머신 모니터를 관찰해보자.
 
@@ -362,7 +302,7 @@ while (true) {
 ```
 
 
-#### 8-2-6. 합주 활용 사례 2 : 드럼 머신
+#### 8-2-5. 합주 활용 사례 2 : 드럼 머신
 
 #### `BPM` 클래스로 합주 박자 동기화하기
 
@@ -418,7 +358,7 @@ while (true) {
     for (0 => int beat; beat < 8; beat++) {
         if (beat == 7)
             0 => cow.pos;
-        bpm.one_eighth => now;
+        bpm.one_8th => now;
     }
 }
 ```
@@ -436,7 +376,7 @@ while (true) {
     for (0 => int beat; beat < 8; beat++) {
         if (beat != 7)
             0 => hat.pos;
-        bpm.one_eighth => now;
+        bpm.one_8th => now;
     }
 }
 ```
@@ -455,7 +395,7 @@ while (true) {
         if (Math.random2(0,7) < 3) {
             0 => clap.pos;
         }
-        bpm.one_sixteenth => now;
+        bpm.one_16th => now;
     }
 }
 ```
