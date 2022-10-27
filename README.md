@@ -48,7 +48,7 @@
 | 7  | [10/12](https://youtu.be/3OW8s-AFYnQ) | - | 리뷰 | [기출문제 및  모범답안](notes/CSE2020-2021exam1sol.pdf) |
 | 7  | - | 10/13 | 시험#1 | [문제 및 답안](notes/CSE2020-2022exam1sol.pdf) |
 | 8  | [10/19](https://youtu.be/wpN016mUNHo) | [10/20](https://youtu.be/IjtnlVbTdkA) | [멀티스레드와 동시 계산](notes/notes07.md), [완성 코드](notes/notes07sol.md) | #6 마감 10/26(수) 오후3시 |
-| 9  | [10/26](https://youtu.be/7PvV8F7fd6w) | 10/27 | [객체와 클래스](notes/notes08.md) | #7 마감 11/2(수) 오후3시 |
+| 9  | [10/26](https://youtu.be/7PvV8F7fd6w) | [10/27](https://youtu.be/0JBxkdCd7UE) | [객체와 클래스](notes/notes08.md) | #7 마감 11/2(수) 오후3시 |
 | 10 | 11/2 | 11/3 | 이벤트 구동 프로그래밍 | 숙제#8 |
 | 11 | 11/9 | 11/10 | MIDI, OSC | - |
 | 12 | 11/16 | - | 리뷰 | 기출문제 및  모범답안 |
