@@ -4,11 +4,8 @@
 
 ## 9. 이벤트 구동 프로그래밍
 
-이벤트 참고 매뉴얼 - [클릭](https://chuck.cs.princeton.edu/doc/language/event.html)
-
-- 외부 연결 기기로부터 이벤트 발생 신호와 정보를 받음
-- 쉬레드끼리 이벤트 발생 신호를 실시간 보내 소통
-
+- 외부 연결 기기와 프로그램의 소통
+- 프로그램 내부 쉬레드끼리의 소통
 
 ### 9-1. 이벤트
 
@@ -16,7 +13,7 @@
 따라서 특정 이벤트를 기다리는 쉬레드는 그 이벤트가 발생하기를 무한정 기다린다.
 그 이벤트가 발생하면 기다리고 있던 쉬레드에게 신호를 보내 다음 작업을 진행하게 한다.
 - 이벤트의 사례
-  - 키보드나 마우스 버튼, MIDI 기기 키 누르기 
+  - 키보드나 마우스 버튼, MIDI 기기 키 누르기
   - 네트워크를 통해 다른 컴퓨터로부터 메시지 오기를 기다리기
   - 동시 실행 중인 다른 쉬레드의 특정 액션 기다리기
 
@@ -28,7 +25,7 @@ event => now;
 해당 이벤트가 발생할 때까지 무작정 실행을 멈춘채 기다린다.
 이벤트가 발생하면 다음 줄 부터 실행을 재개한다.
 
-<img src="image09/event.png" width="500">
+<img src="https://i.imgur.com/69ehPSh.png" width="500">
 
 - 주의: 키보드를 칠 때, miniAudicle 바깥으로 나가기
 
@@ -64,7 +61,7 @@ while (true) {
             5 => imp.next;
         }
         else { // 키 올림 이벤트 처리
-            // 아무 것도 하지 않음 
+            // 아무 것도 하지 않음
         }
     }
 }
@@ -75,7 +72,7 @@ while (true) {
 ```
 Hid hi;
 HidMsg msg;
-0 => int device; 
+0 => int device;
 if (! hi.openKeyboard(device)) me.exit();
 <<< "keyboard '" + hi.name() + "' ready", "" >>>;
 
@@ -104,7 +101,7 @@ while (true) {
 ```
 Hid hi;
 HidMsg msg;
-0 => int device; 
+0 => int device;
 if (! hi.openMouse(device)) me.exit();
 <<< "mouse '" + hi.name() + "' ready", "" >>>;
 
@@ -130,13 +127,13 @@ while (true) {
 
 ### 9-3. 이벤트를 활용한 쉬레드 끼리의 통신
 
-이벤트 발생을 프로그램으로 할 수 있도록 하면, 쉬레드 끼리의 소통이 가능해진다. 다음 그림과 같이 오른쪽 쉬레드가 이벤트를 기다리고 있고, 왼쪽 쉬레드는 `signal()` 메시지를 `Event` 객체에 보내면, 
+이벤트 발생을 프로그램으로 할 수 있도록 하면, 쉬레드 끼리의 소통이 가능해진다. 다음 그림과 같이 오른쪽 쉬레드가 이벤트를 기다리고 있고, 왼쪽 쉬레드는 `signal()` 메시지를 `Event` 객체에 보내면,
 
-<img src="image09/intershred1.png" width="300">
+<img src="https://i.imgur.com/JpUxKrZ.png" width="300">
 
 `Event` 객체는 이벤트를 발생하기를 기다리던 오른쪽 쉬레드에 다음 그림과 같이 알려서 깨우는 식으로 작동한다.
 
-<img src="image09/intershred2.png" width="300">
+<img src="https://i.imgur.com/WRJyyqI.png" width="300">
 
 ### 9-3-1. `signal()`로 두 쉬레드 동기화 하기
 
@@ -148,7 +145,7 @@ fun void foo(Event e) {
     Impulse imp => dac;
     while (true) {
         e => now; // 대기
-        // 행동 개시 
+        // 행동 개시
         <<< "Foo!!!", now / second >>>;
         5 => imp.next;
     }
@@ -158,14 +155,14 @@ spork ~ foo(e);
 
 while (true) {
     e.signal();
-    1::second => now; 
+    1::second => now;
 }
 ```
 
 
 ### 9-3-2. `signal()`로 여러 쉬레드 동기화 하기
 
-<img src="image09/signal.png" width="500">
+<img src="https://i.imgur.com/xA1avAd.png" width="500">
 
 #### `signal()`로 이벤트 하나씩 발생시켜 차례로 하나씩 동기화
 
@@ -182,13 +179,13 @@ fun void bar(Event event, string msg, float freq) {
         // 행동 개시
         <<< msg, freq, now / second >>>;
         freq => rez.freq;
-        50 => imp.next; 
+        50 => imp.next;
     }
 }
 
-spork ~ bar(e, "Do ", 500.0); 
-spork ~ bar(e, "Mi ", 700.0); 
-spork ~ bar(e, "Sol ", 900.0); 
+spork ~ bar(e, "Do ", 500.0);
+spork ~ bar(e, "Mi ", 700.0);
+spork ~ bar(e, "Sol ", 900.0);
 
 while (true) {
     // 이벤트 발생 시그널을 하나 보냄
@@ -216,9 +213,9 @@ fun void bar(Event event, string msg, float freq) {
     }
 }
 
-spork ~ bar(e, "Do ", 500.0); 
-spork ~ bar(e, "Mi ", 700.0); 
-spork ~ bar(e, "Sol ", 900.0); 
+spork ~ bar(e, "Do ", 500.0);
+spork ~ bar(e, "Mi ", 700.0);
+spork ~ bar(e, "Sol ", 900.0);
 
 while (true) {
     // 기다리던 세 쉬레드 모두에게 이벤트 발생 시그널 보냄
@@ -231,7 +228,7 @@ while (true) {
 
 #### `broadcast()`로 여러 쉬레드 한꺼번에 같이 동기화 하기
 
-<img src="image09/broadcast.png" width="300">
+<img src="https://i.imgur.com/ALSEJTg.png" width="300">
 
 
 ```
@@ -251,9 +248,9 @@ fun void bar(Event event, string msg, float freq) {
     }
 }
 
-spork ~ bar(e, "Do ", 500.0); 
-spork ~ bar(e, "Mi ", 700.0); 
-spork ~ bar(e, "Sol ", 900.0); 
+spork ~ bar(e, "Do ", 500.0);
+spork ~ bar(e, "Mi ", 700.0);
+spork ~ bar(e, "Sol ", 900.0);
 
 while (true) {
     // 기다리는 쉬레드 모두에게 발생 시그널 한꺼번에 보냄
@@ -304,7 +301,7 @@ while (true) {
 
 ```
 class TheEvent extends Event {
-    int note; 
+    int note;
     float velocity;
 }
 
@@ -363,7 +360,7 @@ while (true) {
 북 소리 샘플은 `audio.zip` 샘플을 활용한다.
 
 진도아리랑과 장단을 맞출 타악기 박자를 9/8 박자 마디 기준으로 몇 개 사례를 들어보면 다음과 같다.
- 
+
 ```
 [1.0,2.0,1.0,3.0,2.0]
 [3.0,2.0,1.0,1.0,2.0]
@@ -372,7 +369,7 @@ while (true) {
 
 #### 진도 아리랑 악보
 
-<img src="image09/jindoarirang.png" width="600">
+<img src="https://i.imgur.com/IzUKKK0.png" width="600">
 
 ```
 [
@@ -445,17 +442,6 @@ fun int midi(string name) {
 
 ### 숙제 - 키보드 드럼 (마감 11월 16일 오전 9시)
 
-- 프로그램을 완성한 다음, 실행에 필요한 샘플 파일과 함께 폴더에 넣어 zip으로 묶어서 제출한다. 
+- 프로그램을 완성한 다음, 실행에 필요한 샘플 파일과 함께 폴더에 넣어 zip으로 묶어서 제출한다.
 - 압축을 풀면 바로 실행할 수 있어야 한다.
 - 외부기기(키보드)의 어떤 키를 누르면 어떤 북 소리가 나는지 프로그램 상단에 주석으로 달아놓아야 한다.
-
-
-
-
-
-
-
-
-
-
-
