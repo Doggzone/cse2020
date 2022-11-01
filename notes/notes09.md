@@ -4,36 +4,161 @@
 
 ## 9. 이벤트 구동 프로그래밍
 
-- 외부 연결 기기와 프로그램의 소통
-- 프로그램 내부 쉬레드끼리의 소통
+특정 이벤트가 발생했을 때 반응하는 장치를 활용한 프로그래밍
 
-### 9-1. 이벤트
+- 외부 기기(키보드, 마우스)를 통한 입력 신호에 반응
+- 프로그램 내부의 다른 쉬레드가 보내는 신호에 반응
 
-- 이벤트(event)는 어떤 일이 발생했을 때 쉬레드에게 알려주는 메카니즘이다.
-따라서 특정 이벤트를 기다리는 쉬레드는 그 이벤트가 발생하기를 무한정 기다린다.
-그 이벤트가 발생하면 기다리고 있던 쉬레드에게 신호를 보내 다음 작업을 진행하게 한다.
-- 이벤트의 사례
-  - 키보드나 마우스 버튼, MIDI 기기 키 누르기
-  - 네트워크를 통해 다른 컴퓨터로부터 메시지 오기를 기다리기
-  - 동시 실행 중인 다른 쉬레드의 특정 액션 기다리기
+### 9-1. 이벤트와 신호
 
-다음과 같이 `Event` 객체를 만들고 시간을 보내면,
+#### 이벤트 객체 만들어 신호 기다리기
+
+`Event` 객체는 자신을 부르는 신호를 받을 때까지 자신이 속한 쉬레드의 실행을 멈추고 기다리게할 수 있다.
+어떤 쉬레드에서 `e` 라는 이름의 이벤트를 다음과 같이 만들고
 ```
-Event event;
-event => now;
+Event e;
 ```
-해당 이벤트가 발생할 때까지 무작정 실행을 멈춘채 기다린다.
-이벤트가 발생하면 다음 줄 부터 실행을 재개한다.
+다음과 같이 쓰면
+```
+e => now;
+```
+다른 쉬레드 또는 외부에서 이벤트 `e`에게 신호를 보낼 때까지 이 쉬레드는 실행을 멈추고 무한정 기다린다.
 
-<img src="https://i.imgur.com/69ehPSh.png" width="500">
+예를 들어 다음 함수는 이벤트 객체를 인수로 받아서 그 이벤트 신호를 기다리다가, 신호를 받으면 즉시 콘솔모니터에 `Bingo!`를 프린트 하는 함수이다.
+```
+fun int bingo(Event e) {
+    e => now;
+    <<< "Bingo!", "" >>>;
+}
+```
+이제 다음과 같이 `game` 이벤트 객체를 만들고
+```
+Event game;
+```
+이어서 `game` 이벤트를 인수로 받아 `bingo` 함수를 실행하는 자식 쉬레드를 다음과 같이 만들면, 이제 두 개의 쉬레드가 실행할 준비가 된다.
+```
+spork ~ bingo(game);
+```
+그런데 자식 쉬레드는 부모 쉬레드가 실행해야 (동기화 하여) 따라 실행하므로, 다음과 같이 잠시라도 시간을 보내야 한다.
+```
+samp => now;
+```
+그러면 자식 쉬레드인 `bingo` 함수가 바로 실행한다. 그런데 첫 문장이 `game => now` 이므로,  `game` 이벤트 신호를 기다리며 실행을 멈춘다. 아울러 자신이 `game` 이벤트 신호를 대기하고 있다고 등록한다.
 
-- 주의: 키보드를 칠 때, miniAudicle 바깥으로 나가기
+이 시점의 상황을 그림으로 그려보면 다음과 같다.
 
-### 9-2. 이벤트 구동 프로그래밍 - 키보드 입력
+<img src="https://i.imgur.com/zYzc6mr.png" width="500">
+
+**잠깐** : 여기서 시간을 전혀 보내지 않고 자식 쉬레드가 실행하도록 풀어주는 방법은 없을까? 있다. 부모 쉬레드가 `samp => now;` 대신 `me.yield();`를 실행하면 자신이 낳은 모든 쉬레드가 바로 실행을 개시한다.
+
+
+#### 이벤트 신호 보내기
+
+그러면 신호를 기다리고 있는 `game` 이벤트에 신호를 보내고 싶은 쉬레드는 다음과 같은 형식으로 신호를 보낸다.
+```
+game.signal();
+```
+그러면 `game` 이벤트 객체는 신호가 왔음을 등록된 쉬레드에 알려주어 실행을 재개할 수 있도록 한다.
+
+이 시점의 상황을 그림으로 그려보면 다음과 같다.
+
+<img src="https://i.imgur.com/tKu0leP.png" width="500">
+
+이제 신호를 기다리던 쉬레드는 실행을 재개할 준비가 되었다. 이 사례에서 기다리던 쉬레드는 자식 쉬레드이므로 부모 쉬레드는 `samp => now;`와 같이 시간을 보내주든지, `me.yield()`와 같이 풀어주면, 자식 쉬레드는 남은 코드를 실행하여 콘솔 모니터에 `Bingo!`를 프린트 한다.
+
+설명한 대로 실행하여 실행 결과를 확인해보자.
+
+### 9-2. 이벤트 구동으로 쉬레드 동기화
+
+#### 9-2-1. 두 쉬레드 동기화
+
+```
+Event game;
+
+spork ~ play(game,60);
+
+while (true) {
+    game.signal();
+    second => now;
+}
+
+fun void play(Event e, int note) {
+    Mandolin guitar => dac;
+    while (true) {
+        e => now;
+        Std.mtof(note) => guitar.freq;
+        0.5 => guitar.noteOn;
+    }
+}
+```
+
+#### 9-2-2. 여러 쉬레드 차례로 하나씩 동기화
+
+```
+Event game;
+
+spork ~ play(game,60);
+spork ~ play(game,64);
+spork ~ play(game,67);
+
+while (true) {
+    game.signal();
+    second => now;
+}
+```
+
+<img src="https://i.imgur.com/rimD4fI.png" width="1000">
+
+
+#### 9-2-3. 여러 쉬레드 한꺼번에 동기화
+
+```
+Event game;
+
+spork ~ play(game,60);
+spork ~ play(game,64);
+spork ~ play(game,67);
+
+while (true) {
+    game.signal();
+    game.signal();
+    game.signal();
+    second => now;
+}
+```
+
+<img src="https://i.imgur.com/uyxH6FT.png" width="500">
+
+
+#### `broadcast()` 사용
+
+
+```
+Event game;
+
+spork ~ play(game,60);
+spork ~ play(game,64);
+spork ~ play(game,67);
+
+while (true) {
+    game.broadcast();
+    second => now;
+}
+```
+
+<img src="https://i.imgur.com/eVryhyk.png" width="500">
+
+
+
+- 주의: 키보드를 누를 때, miniAudicle 편집기 바깥으로 나가기
+
+### 9-3. 키보드 입력 이벤트
 
 이벤트를 활용하여 외부 기기에서의 비동기적 실시간 입력을 프로그램이 바로 반응하게 할 수 있다.
 
 컴퓨터 키보드를 누르는 이벤트를 기다리고 있다가, 키보드를 누르면 반응하는 프로그램을 만들어보자. 키보드, 마우스 등과 같은 외부 기기에 반응하려면 `Hid`(Human interface device) 객체를 만들어 활용한다.
+
+#### 9-3-1. 키보드 연결
 
 ```
 Hid hid;   // Hid 객체 생성
@@ -44,7 +169,7 @@ if (! hid.openKeyboard(device)) { // 연결 실패 처리
     <<< "Can't open this device!! ", "Sorry." >>>;  
     me.exit();
 }
-// 연결 상태 프린트
+// 연결 상태 확인
 <<< "keyboard '" + hid.name() + "' ready", "" >>>;
 
 // 키보드 Hid 연결 테스트
@@ -67,7 +192,9 @@ while (true) {
 }
 ```
 
-#### 키보드 오르간 만들기
+- 주의: 키보드를 누르기 전에,  miniAudicle 편집창 바깥을 클릭하여 비활성창으로 만드는게 좋다. 그렇지 않으면 누르는 키가 모두 편집기에 기록된다.
+
+#### 9-3-2. 사례 학습 : 키보드 오르간 만들기
 
 ```
 Hid hi;
@@ -96,7 +223,7 @@ while (true) {
 }
 ```
 
-#### 마우스 드럼 만들기
+#### 9-3-2. 마우스 드럼 만들기
 
 ```
 Hid hi;
@@ -125,140 +252,8 @@ while (true) {
 }
 ```
 
-### 9-3. 이벤트를 활용한 쉬레드 끼리의 통신
-
-이벤트 발생을 프로그램으로 할 수 있도록 하면, 쉬레드 끼리의 소통이 가능해진다. 다음 그림과 같이 오른쪽 쉬레드가 이벤트를 기다리고 있고, 왼쪽 쉬레드는 `signal()` 메시지를 `Event` 객체에 보내면,
-
-<img src="https://i.imgur.com/JpUxKrZ.png" width="300">
-
-`Event` 객체는 이벤트를 발생하기를 기다리던 오른쪽 쉬레드에 다음 그림과 같이 알려서 깨우는 식으로 작동한다.
-
-<img src="https://i.imgur.com/WRJyyqI.png" width="300">
-
-### 9-3-1. `signal()`로 두 쉬레드 동기화 하기
-
-```
-Event e;
-
-// 이벤트가 발생하기를 기다리는 함수
-fun void foo(Event e) {
-    Impulse imp => dac;
-    while (true) {
-        e => now; // 대기
-        // 행동 개시
-        <<< "Foo!!!", now / second >>>;
-        5 => imp.next;
-    }
-}
-
-spork ~ foo(e);
-
-while (true) {
-    e.signal();
-    1::second => now;
-}
-```
 
 
-### 9-3-2. `signal()`로 여러 쉬레드 동기화 하기
-
-<img src="https://i.imgur.com/xA1avAd.png" width="500">
-
-#### `signal()`로 이벤트 하나씩 발생시켜 차례로 하나씩 동기화
-
-```
-Event e;
-
-// 이벤트가 발생하기를 기다리는 함수
-fun void bar(Event event, string msg, float freq) {
-    Impulse imp => ResonZ rez => dac;
-    50 => rez.Q;
-    while (true) {
-        // 대기
-        event => now;
-        // 행동 개시
-        <<< msg, freq, now / second >>>;
-        freq => rez.freq;
-        50 => imp.next;
-    }
-}
-
-spork ~ bar(e, "Do ", 500.0);
-spork ~ bar(e, "Mi ", 700.0);
-spork ~ bar(e, "Sol ", 900.0);
-
-while (true) {
-    // 이벤트 발생 시그널을 하나 보냄
-    e.signal();
-    1::second => now;
-}
-```
-
-#### `signal()`로 이벤트 모두 발생시켜 한꺼번에 같이 동기화
-
-```
-Event e;
-
-// 이벤트가 발생하기를 기다리는 함수
-fun void bar(Event event, string msg, float freq) {
-    Impulse imp => ResonZ rez => dac;
-    50 => rez.Q;
-    while (true) {
-        // 대기
-        event => now;
-        // 행동 개시
-        <<< msg, freq, now / second >>>;
-        freq => rez.freq;
-        50 => imp.next;
-    }
-}
-
-spork ~ bar(e, "Do ", 500.0);
-spork ~ bar(e, "Mi ", 700.0);
-spork ~ bar(e, "Sol ", 900.0);
-
-while (true) {
-    // 기다리던 세 쉬레드 모두에게 이벤트 발생 시그널 보냄
-    e.signal();
-    e.signal();
-    e.signal();
-    1::second => now;
-}
-```
-
-#### `broadcast()`로 여러 쉬레드 한꺼번에 같이 동기화 하기
-
-<img src="https://i.imgur.com/ALSEJTg.png" width="300">
-
-
-```
-Event e;
-
-// 이벤트가 발생하기를 기다리는 함수
-fun void bar(Event event, string msg, float freq) {
-    Impulse imp => ResonZ rez => dac;
-    50 => rez.Q;
-    while (true) {
-        // 대기
-        event => now;
-        // 행동 개시
-        <<< msg, freq, now / second >>>;
-        freq => rez.freq;
-        50 => imp.next;
-    }
-}
-
-spork ~ bar(e, "Do ", 500.0);
-spork ~ bar(e, "Mi ", 700.0);
-spork ~ bar(e, "Sol ", 900.0);
-
-while (true) {
-    // 기다리는 쉬레드 모두에게 발생 시그널 한꺼번에 보냄
-    e.broadcast();
-    1::second => now;
-}
-
-```
 
 ### 9-4. 사용자 정의 이벤트
 
@@ -353,7 +348,9 @@ while (true) {
 ```
 
 
-### 실습 - Gamelan 악보 변경, 악기추가 및 드럼 추가
+### 실습 9-1. Gamelan 악보 변경, 악기추가 및 드럼 추가
+
+### 실습 9-2. 진도아리랑
 
 아래에 첨부한 진도아리랑 악보에서 마음에 드는 마디 몇 개를 골라서 여러 악기로 무작위 순서로 연주하는 프로그램을 이벤트 구동 방식으로 작성하자.
 그리고 장단을 맞추는 북 소리를 `SndBuf`를 활용하여 추가하자.
