@@ -39,18 +39,18 @@
 
 | 주 | 강의 | 실습 | 내용 | 숙제 |
 |:--:|:--:|:--:|:--:|:--:|
-| 1  | 9/1 | - | [음악 프로그래밍 소개](notes/notes01.md), [2021.09.02](https://youtu.be/N5kVgNkZjoU) | [샘플 프로그램](code/sample.zip) |
-| 2  | 9/7 | 9/8 | [소리내기 프로그래밍 기본](notes/notes02.md), [2021.09.09](https://youtu.be/yqndPm9CIg4) | #1 마감 9/19(월) 자정 |
-| 3  | 9/14 | 9/15 | [함수 요약](notes/notes03.md) | #2 마감 9/21(수) 오후3시 |
-| 4  | [9/21](https://youtu.be/o330sPWhLOA) | [9/22](https://youtu.be/HPKKIAmTlCs) | [배열](notes/notes04.md) | #3 마감 9/28(수) 오후3시 |
-| 5  | [9/28](https://youtu.be/VcJLnrlCzg4) | [9/29](https://youtu.be/thtWJbKJblg) | [소리 파일 다루기](notes/notes05.md), [audio.zip](code/audio.zip) | #4 마감 10/5(수) 오후3시 |
-| 6  | [10/5](https://youtu.be/5yFuBfmh-_E) | [10/6](https://youtu.be/4P4AvuCmldA) | [소리 합성 및 다듬기 - `UGen`의 활용](notes/notes06.md) | #5 마감 10/12(수) 오후3시 |
+| 1  | 9/1 | - | 1. [음악 프로그래밍 소개](notes/notes01.md), [2021.09.02](https://youtu.be/N5kVgNkZjoU) | [샘플 프로그램](code/sample.zip) |
+| 2  | 9/7 | 9/8 | 2. [소리내기 프로그래밍 기본](notes/notes02.md), [2021.09.09](https://youtu.be/yqndPm9CIg4) | #1 마감 9/19(월) 자정 |
+| 3  | 9/14 | 9/15 | 3. [함수 요약](notes/notes03.md) | #2 마감 9/21(수) 오후3시 |
+| 4  | [9/21](https://youtu.be/o330sPWhLOA) | [9/22](https://youtu.be/HPKKIAmTlCs) | 4. [배열](notes/notes04.md) | #3 마감 9/28(수) 오후3시 |
+| 5  | [9/28](https://youtu.be/VcJLnrlCzg4) | [9/29](https://youtu.be/thtWJbKJblg) | 5. [소리 파일 다루기](notes/notes05.md), [audio.zip](code/audio.zip) | #4 마감 10/5(수) 오후3시 |
+| 6  | [10/5](https://youtu.be/5yFuBfmh-_E) | [10/6](https://youtu.be/4P4AvuCmldA) | 6. [소리 합성 및 다듬기 - `UGen`의 활용](notes/notes06.md) | #5 마감 10/12(수) 오후3시 |
 | 7  | [10/12](https://youtu.be/3OW8s-AFYnQ) | - | 리뷰 | [기출문제 및  모범답안](notes/CSE2020-2021exam1sol.pdf) |
 | 7  | - | 10/13 | 시험#1 | [문제 및 답안](notes/CSE2020-2022exam1sol.pdf) |
-| 8  | [10/19](https://youtu.be/wpN016mUNHo) | [10/20](https://youtu.be/IjtnlVbTdkA) | [멀티스레드와 동시 계산](notes/notes07.md), [완성 코드](notes/notes07sol.md) | #6 마감 10/26(수) 오후3시 |
-| 9  | [10/26](https://youtu.be/7PvV8F7fd6w) | [10/27](https://youtu.be/0JBxkdCd7UE) | [객체와 클래스](notes/notes08.md) | #7 마감 11/2(수) 오후3시 |
-| 10 | 11/2 | 11/3 | 이벤트 구동 프로그래밍 | 숙제#8 |
-| 11 | 11/9 | 11/10 | MIDI, OSC | - |
+| 8  | [10/19](https://youtu.be/wpN016mUNHo) | [10/20](https://youtu.be/IjtnlVbTdkA) | 7. [멀티스레드와 동시 계산](notes/notes07.md), [완성 코드](notes/notes07sol.md) | #6 마감 10/26(수) 오후3시 |
+| 9  | [10/26](https://youtu.be/7PvV8F7fd6w) | [10/27](https://youtu.be/0JBxkdCd7UE) | 8. [객체와 클래스](notes/notes08.md) | #7 마감 11/2(수) 오후3시 |
+| 10 | 11/2 | 11/3 | 9. 이벤트 구동 프로그래밍 | 숙제#8 |
+| 11 | 11/9 | 11/10 | 10. MIDI, OSC | - |
 | 12 | 11/16 | - | 리뷰 | 기출문제 및  모범답안 |
 | 12 | - | 11/17 | 시험#2 | - |
 | 13 | 11/23 | 11/24 | 프로젝트 기획 | 안내 |
