@@ -68,7 +68,7 @@ game.signal();
 
 <img src="https://i.imgur.com/LjFvSNZ.png" width="500">
 
-이제 신호를 기다리던 쉬레드는 실행을 재개할 준비가 되었다. 이 사례에서 기다리던 쉬레드는 자식 쉬레드이므로 부모 쉬레드는 `samp => now;`와 같이 시간을 보내주든지, `me.yield()`와 같이 풀어주면, 자식 쉬레드는 남은 코드를 실행하여 콘솔 모니터에 `Bingo!`를 프린트 한다.
+이제 신호를 기다리던 쉬레드는 실행을 재개할 준비가 되었다. 이 사례에서 기다리던 쉬레드는 자식 쉬레드이므로 부모 쉬레드는 `samp => now;`와 같이 시간을 보내주든지, `me.yield();`와 같이 풀어주면, 자식 쉬레드는 남은 코드를 실행하여 콘솔 모니터에 `Bingo!`를 프린트 한다.
 
 설명한 대로 실행하여 실행 결과를 확인해보자.
 
@@ -81,6 +81,7 @@ Event game;
 
 spork ~ play(game,60);
 
+me.yield();
 while (true) {
     game.signal();
     second => now;
@@ -105,13 +106,14 @@ spork ~ play(game,60);
 spork ~ play(game,64);
 spork ~ play(game,67);
 
+me.yield();
 while (true) {
     game.signal();
     second => now;
 }
 ```
 
-<img src="https://i.imgur.com/rimD4fI.png" width="1000">
+<img src="https://i.imgur.com/8vW2qMW.png" width="1000">
 
 
 #### 9-2-3. 여러 쉬레드 한꺼번에 동기화
@@ -123,6 +125,7 @@ spork ~ play(game,60);
 spork ~ play(game,64);
 spork ~ play(game,67);
 
+me.yield();
 while (true) {
     game.signal();
     game.signal();
@@ -144,6 +147,7 @@ spork ~ play(game,60);
 spork ~ play(game,64);
 spork ~ play(game,67);
 
+me.yield();
 while (true) {
     game.broadcast();
     second => now;
@@ -153,8 +157,6 @@ while (true) {
 <img src="https://i.imgur.com/eVryhyk.png" width="500">
 
 
-
-- 주의: 키보드를 누를 때, miniAudicle 편집기 바깥으로 나가기
 
 ### 9-3. 키보드 입력 이벤트
 
