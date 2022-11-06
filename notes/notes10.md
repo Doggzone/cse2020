@@ -1,5 +1,5 @@
 ```
-(c)도경구 version 0.2 (2021/11/17)
+(c)도경구 version 1.0 (2022/11/06)
 ```
 
 ## 10. MIDI, OSC
@@ -12,7 +12,7 @@
 
 - 가상 MIDI 포트 만들기
   - Mac OS
-    - `Applications/Utilities`(응용 프로그램/유틸리티)에서 `Audio Midi Setup`실행 
+    - `Applications/Utilities`(응용 프로그램/유틸리티)에서 `Audio Midi Setup`실행
     - 메뉴바에서 `Window` > `Show MIDI Studio`
     - `IAC 드라이버` 아이콘 클릭
     - `Device is online` 체크박스 선택
@@ -31,11 +31,11 @@
 - MIDI 표준 제정 (1980년 대)
 - 음악을 다루는 기기들끼리 소통 목적
 
-<img src="image10/midiconnection.png" width="600">
+<img src="https://i.imgur.com/dFdFxrb.png" width="600">
 
 #### MIDI 메시지
 
-<img src="image10/midimessage.png" width="600">
+<img src="https://i.imgur.com/62EEQK7.png" width="600">
 
 
 - Status Byte : `msg.data1` = `1xxxxxxx` (128\~255)
@@ -58,12 +58,12 @@
 
 - 키보드 건반을 마우스로 눌러서 소리가 나는지 확인한다.
 - VMPK 메뉴에서 `Edit` > `MIDI Connections` 선택한다.
-- `MIDI Setup`에서 
+- `MIDI Setup`에서
   - 맨 아래 `Show Advanced Connections`를 선택
   - `MIDI IN Driver`를 `CoreMIDI`로 선택
   - `Input MIDI Connection`에서 Input 연결 버스 선택
 
-- `miniAudicle`의 `Device Browser`를 열어 VMPK에서 설정한 버스의 포트 번호 확인한다. 
+- `miniAudicle`의 `Device Browser`를 열어 VMPK에서 설정한 버스의 포트 번호 확인한다.
 
 다음 프로그램을 실행하여 무작위로 보내는 MIDI 메시지로 연주하여 키보드에서 소리가 나는지 확인한다.
 
@@ -99,13 +99,13 @@ while (true) {
 #### 10-1-2. 외부 키보드에서 MIDI 메시지를 프로그램으로 보내 연주하기 (`MidiIn`)
 
 - VMPK 메뉴바에서 `Edit` > `MIDI Connections` 선택한다.
-- `MIDI Setup`에서 
+- `MIDI Setup`에서
   - 맨 아래 `Show Advanced Connections`를 선택
   - `MIDI OUT Driver`를 `CoreMIDI`로 변경
   - `Output MIDI Connection`에서 Output 연결 버스 선택 (Input 포트와 다른 버스 선택)
 - 이제 건반을 누르면 키보드에서 소리가 나는 대신, 해당 MIDI 메시지를 밖으로 내보낸다.
 
-- `miniAudicle`의 `Device Browser`를 열어 VMPK에서 설정한 버스의 포트 번호 확인한다. 
+- `miniAudicle`의 `Device Browser`를 열어 VMPK에서 설정한 버스의 포트 번호 확인한다.
 
 다음 프로그램을 실행하여 VMPK의 건반을 눌러 ChucK의 `StkInstrument` 악기 소리가 나는지  확인한다.
 
@@ -118,10 +118,10 @@ if (!min.open(port)) {
     me.exit();
 }
 
-Mandolin piano => dac; 
+Mandolin piano => dac;
 
 while (true) {
-    min => now; 
+    min => now;
     while (min.recv(msg)) {
         <<< msg.data1, msg.data2, msg.data3 >>>;
         if (msg.data1 == 144) { // noteOn (144)
@@ -145,24 +145,24 @@ while (true) {
 
 #### 10-1-4. MIDI 메시지로 로봇 악기 제어하기
 
-<img src="image10/robot.png" width="600">
+<img src="https://i.imgur.com/fLniaiE.png" width="600">
 
 #### Yamaha Disklavier
 
-<img src="image10/robotpiano.png" width="600">
+<img src="https://i.imgur.com/nWrzCad.png" width="600">
 
 
 ### 10-2. OSC (Open Sound Control)
 
 - 지휘자(sender) => 연주자(receiver)
 
-- OSC는 컴퓨터 유무선 네트워크를 통해서 디지털 미디어 소프트웨어끼리 음악 정보를 주고 받을 수 있는 프로코콜이다. 
+- OSC는 컴퓨터 유무선 네트워크를 통해서 디지털 미디어 소프트웨어끼리 음악 정보를 주고 받을 수 있는 프로코콜이다.
 - MIDI 보다 앞선 기술이라 할 수 있으며 1997년에 처음 소개되었다.
 - 지휘자(sender)가 연주자(receiver)에게 OSC 메시지를 보낸다.
 - 응용 사례 : 랩탑 오케스트라, 모바일 오케스트라, 인터랙티브 아트 등
 
 #### 송수신 메시지의 구조
-  
+
 - 주소(address): `/bass/play`, `/piano/key/high`
 - 인수(argument): 세 종류 가능, 차례로 나열
   - `int`
@@ -225,13 +225,13 @@ oout.dest("localhost", port);
 
 while (true) {
     oout.start("/chuckie/osctest");    
-    Math.random2(48,80) => int note; 
+    Math.random2(48,80) => int note;
     Math.random2f(0.1,1.0) => float velocity;
     "Oh, Happy day!" => string message;
-    note => oout.add; 
+    note => oout.add;
     velocity => oout.add;
     message => oout.add;
-    oout.send(); 
+    oout.send();
     second => now;
 }
 ```
@@ -263,11 +263,11 @@ while (true) {
 
 
 
-## 숙제 (마감: 11월 23일 (화) 오전 9시)
+## 실습 - 진도 아리랑
 
 지난 주 실습 시간에 작성한 `진도 아리랑 변주곡`을 `Event` 객체를 활용하는 대신 다음 둘 중 하나의 소통 방식으로 재작성해보자.
 
-- 한 파일에서 하나의 쉬레드를 만들도록 프로그램을 여러 파일로 분리하고, `MidiOut`과 `MidiIn`을 활용하여 쉬레드 간에 MIDI 메시지를 보내서 연주하게 한다. 
+- 한 파일에서 하나의 쉬레드를 만들도록 프로그램을 여러 파일로 분리하고, `MidiOut`과 `MidiIn`을 활용하여 쉬레드 간에 MIDI 메시지를 보내서 연주하게 한다.
 
 - 한 파일에서 하나의 쉬레드를 만들도록 프로그램을 여러 파일로 분리하고, `OscOut`과 `OscIn`을 활용하여 쉬레드 간에 메시지를 보내서 연주하게 한다.
 
@@ -362,4 +362,3 @@ while (true) {
     2::second => now;
 }
 ```
-
