@@ -53,7 +53,7 @@
 | 11 | [11/9](https://youtu.be/BvLIficJx3s) | [11/10](https://youtu.be/taahHGTQFQw) | 10. [MIDI, OSC](notes/notes10.md) | - |
 | 12 | 11/16 | - | 리뷰 | [기출문제 모범답안](notes/CSE2020-2021exam2sol.pdf) |
 | 12 | - | 11/17 | 시험#2 | [sound](https://youtu.be/GgSM1I_biG0) |
-| 13 | 11/23 | 11/24 | 프로젝트 기획 | - |
+| 13 | 11/23 | 11/24 | 프로젝트 기획 | [팀 로스터](https://docs.google.com/spreadsheets/d/111d-WnHwHK4jlknSmMsvotcylgh69n1we-6NvQDDcZs/edit?usp=sharing) |
 | 14 | 11/30 | 12/1 | 프로젝트 리허설 | - |
 | 15 | 12/7 | 12/8 | 프로젝트 발표 | - |
 
