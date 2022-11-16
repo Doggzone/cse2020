@@ -8,23 +8,6 @@
 - 프로그램으로 외부 MIDI 기기 실시간 제어하기
 - OSC 프로토콜로 프로그램끼리 우무선 네트워크로 소통하기
 
-#### 가상 MIDI 포트 만들기
-
-- 가상 MIDI 포트 만들기
-  - Mac OS
-    - `Applications/Utilities`(응용 프로그램/유틸리티)에서 `Audio Midi Setup`실행
-    - 메뉴바에서 `Window` > `Show MIDI Studio`
-    - `IAC 드라이버` 아이콘 클릭
-    - `Device is online` 체크박스 선택
-  - Windows
-    - [loopMIDI(virtualMIDI)](https://www.tobias-erichsen.de/software/loopmidi.html) 다운 받아 설치
-    - 좌하단 `+` 버튼 클릭
-  - 주의: miniAudicle이 한글을 처리하지 못하므로 이름은 모두 영어로 붙일 것
-
-- miniAudicle에서 가상 MIDI 포트 번호 확인
-  - miniAudicle의  `Windows` 메뉴에서 `Device Browser`을 찾아 창을 띄운다.
-  - `Device Browser`의 `Source` 메뉴에서 `MIDI`를 선택한다.
-  - 버스 별 연결 포트(port) 번호를 확인한다.
 
 ### 10-1. MIDI (Musical Instrument Digital Interface)
 
@@ -35,16 +18,17 @@
 
 #### MIDI 메시지
 
+MIDI 메시지는 총 3 바이트(byte)로 구성
+
 <img src="https://i.imgur.com/62EEQK7.png" width="600">
 
-
 - Status Byte : `msg.data1` = `1xxxxxxx` (128\~255)
-  - `NoteOff` = `1000xxxx` (128\~143)
-  - `NoteOn` = `1001xxxx` (144\~159)
-  - `Control` = `1011xxxx` (176\~191)  
-  - `AfterTouch` = `1101xxxx` (208\~223)
-  - `PitchBend` = `1110xxxx` (224\~239)
-  - ...
+    - `NoteOff` = `1000xxxx` (128\~143)
+    - `NoteOn` = `1001xxxx` (144\~159)
+    - `Control` = `1011xxxx` (176\~191)  
+    - `AfterTouch` = `1101xxxx` (208\~223)
+    - `PitchBend` = `1110xxxx` (224\~239)
+    - ...
 - MIDI Number : `msg.data2` = `0xxxxxxx` (0\~127)
 - Velocity : `msg.data3` = `0xxxxxxx` (0\~127)
 
@@ -52,6 +36,24 @@
 #### Virtual MIDI Piano Keyboard 설치
 
 - [VMPK](https://vmpk.sourceforge.io/) 내려 받아 컴퓨터에 설치한다.
+
+#### 가상 MIDI 포트 만들기
+
+- 가상 MIDI 포트 만들기
+  - Mac OS
+    - `Applications/Utilities`(응용 프로그램/유틸리티)에서 `Audio Midi Setup`실행
+    - 메뉴바에서 `Window` > `Show MIDI Studio` 선택
+    - `IAC 드라이버` 아이콘 더블 클릭
+    - `Device is online` 체크박스 선택
+  - Windows
+    - [loopMIDI(virtualMIDI)](https://www.tobias-erichsen.de/software/loopmidi.html) 다운 받아 설치
+    - 좌하단 `+` 버튼 클릭
+  - 주의: miniAudicle이 한글을 처리하지 못하므로 이름은 모두 영어로 붙일 것
+
+- miniAudicle에서 가상 MIDI 포트 번호 확인
+  - miniAudicle의  `Windows` 메뉴에서 `Device Browser`을 찾아 창을 띄운다.
+  - `Device Browser`의 `Source` 메뉴에서 `MIDI`를 선택한다.
+  - 버스 별 연결 포트(port) 번호를 확인한다.
 
 
 #### 10-1-1. 프로그램에서 MIDI 메시지 보내 외부 키보드를 연주하기 (`MidiOut`)
@@ -70,29 +72,31 @@
 ```
 MidiOut mout;
 MidiMsg msg;
-0 => int port;
+0 => int port; // 번호는 상황에 따라 달라서 확인 필요
 if (!mout.open(port)) {
     <<< "Error: MIDI port did not open on port: ", port >>>;
     me.exit();
 }
 
 fun void sendOutMIDInote(int on, int note, int velocity) {
-    if (on == 0) 128 => msg.data1; // 10000000 NoteOff
-    else 144 => msg.data1; // 10010000 NoteOn
+    if (on == 0)
+        128 => msg.data1; // 10000000 NoteOff
+    else // on == 1
+        144 => msg.data1; // 10010000 NoteOn
     note => msg.data2;
     velocity => msg.data3;
     <<< msg.data1, msg.data2, msg.data3 >>>;
     mout.send(msg);
 }
 
-int note, velocity;
+int note, volume;
 while (true) {
     Math.random2(60,100) => note;
-    Math.random2(30,127) => velocity;
-    sendOutMIDInote(1, note, velocity);
-    .5::second => now;
-    sendOutMIDInote(0, note, velocity);
-    .5::second => now;
+    Math.random2(30,127) => volume;
+    sendOutMIDInote(1, note, volume);
+    second => now;
+    sendOutMIDInote(0, note, volume);
+    second => now;
 }
 ```
 
@@ -112,7 +116,7 @@ while (true) {
 ```
 MidiIn min;
 MidiMsg msg;     
-1 => int port; // if port number is 1
+1 => int port; // 번호는 상황에 따라 달라서 확인 필요
 if (!min.open(port)) {
     <<< "Error: MIDI port did not open on port: ", port >>>;
     me.exit();
@@ -158,8 +162,8 @@ while (true) {
 
 - OSC는 컴퓨터 유무선 네트워크를 통해서 디지털 미디어 소프트웨어끼리 음악 정보를 주고 받을 수 있는 프로코콜이다.
 - MIDI 보다 앞선 기술이라 할 수 있으며 1997년에 처음 소개되었다.
-- 지휘자(sender)가 연주자(receiver)에게 OSC 메시지를 보낸다.
-- 응용 사례 : 랩탑 오케스트라, 모바일 오케스트라, 인터랙티브 아트 등
+- 지휘자가 연주자에게 OSC 메시지를 보낸다.
+- 응용 사례 : 랩탑 오케스트라, 모바일 오케스트라, 인터랙티브 아트, 등
 
 #### 송수신 메시지의 구조
 
@@ -171,7 +175,7 @@ while (true) {
 
 #### 포드 번호 (port number)
 
-- 1024\~65535 범위에서 임의로 선택
+- `1024`\~`65535` 범위에서 임의로 선택
 - 송신자, 수신자 포트 번호가 동일해야 함
 
 #### 메시지 보내기
@@ -180,7 +184,7 @@ while (true) {
 
 ```
 OscOut oout;
-1979 => int port;
+2022 => int port;
 oout.dest("localhost", port);
 oout.start("/bass/play").add(60).add(0.9).add("C4").send();
 ```
@@ -189,7 +193,7 @@ oout.start("/bass/play").add(60).add(0.9).add("C4").send();
 
 ```
 OscOut oout;
-2021 => int port;
+2022 => int port;
 oout.dest("localhost", port);
 oout.start("/bass/play");
 oout.add(60)
@@ -202,7 +206,7 @@ oout.send();
 
 ```
 OscIn oin;
-2021 => oin.port;
+2022 => oin.port;
 "/bass/play" => oin.addAddress;
 OscMsg msg;
 while (true) {
@@ -258,107 +262,5 @@ while (true) {
         velocity => piano.noteOn;
         <<< message, note, velocity >>>;
     }
-}
-```
-
-
-
-## 실습 - 진도 아리랑
-
-지난 주 실습 시간에 작성한 `진도 아리랑 변주곡`을 `Event` 객체를 활용하는 대신 다음 둘 중 하나의 소통 방식으로 재작성해보자.
-
-- 한 파일에서 하나의 쉬레드를 만들도록 프로그램을 여러 파일로 분리하고, `MidiOut`과 `MidiIn`을 활용하여 쉬레드 간에 MIDI 메시지를 보내서 연주하게 한다.
-
-- 한 파일에서 하나의 쉬레드를 만들도록 프로그램을 여러 파일로 분리하고, `OscOut`과 `OscIn`을 활용하여 쉬레드 간에 메시지를 보내서 연주하게 한다.
-
-힌트 : 지휘 역할을 하는 파일과 연주 역할을 하는 파일을 분리하여, 지휘 역할을 하는 파일에서 연주 역할을 하는 파일로 메시지를 보내서 연주하게 만든다.
-
-
-```
-fun int midi(string name) {
-    [21,23,12,14,16,17,19] @=> int notes[]; // A0,B0,C0,D0,E0,F0,G0
-    name.charAt(0) - 65 => int base; // A=0,B=1,C=2,D=3,E=4,F=5,G=7
-    notes[base] => int note;
-    if (0 <= base && base <= 6) {
-        if (name.charAt(1) == '#' || name.charAt(1) == 's') // sharp
-            notes[base] + 1 => note;
-        if (name.charAt(1) == 'b' || name.charAt(1) == 'f') // flat
-            notes[base] - 1 => note;
-    }
-    else {
-        <<< "Illegal Note Name!" >>>;
-        return 0;
-    }
-    name.charAt(name.length()-1) - 48 => int oct; // 0, 1, 2, ..., 9
-    if (0 <= oct && oct <= 9) {
-        12 * oct +=> note;
-        return note;
-    }
-    else {
-        <<< "Illegal Octave!" >>>;
-        return 0;
-    }
-}
-
-class TheEvent extends Event {
-    int note;
-    float velocity;
-}
-
-TheEvent e1, e2, e3;
-Event e4, e5, e6;
-
-NRev global_reverb => dac;
-0.1 => global_reverb.mix;
-
-fun void poly(StkInstrument instrument, TheEvent e, string notes[], float durs[]) {
-    instrument => global_reverb;
-    while (true) {
-        e => now;
-        for (0 => int i; i < notes.size(); i++) {
-            Std.mtof(midi(notes[i])) => instrument.freq;
-            e.velocity => instrument.noteOn;
-            durs[i]::second / 4.5 => now;
-            1 => instrument.noteOff;
-        }
-    }
-}
-
-fun void buk(string sample, Event e, float durs[], int n) {
-    SndBuf drum => dac;
-    sample => drum.read;
-    drum.samples() => drum.pos;
-    while (true) {
-        e => now;
-        <<< n , "" >>>;
-        for (0 => int i; i < durs.size(); i++) {
-            0 => drum.pos;
-            durs[i]::second / 4.5 => now;
-        }
-    }
-}
-
-spork ~ poly(new StifKarp, e1, ["B3","B3","E4","E4"], [3.0,2.0,1.0,3.0]);
-spork ~ poly(new StifKarp, e1, ["B3","E4","B3","E4","E4"], [2.0,1.0,2.0,1.0,3.0]);
-spork ~ poly(new PercFlut, e2, ["B4","G4","G4","F#4","E4"], [1.0,2.0,1.0,2.0,3.0]);
-spork ~ poly(new PercFlut, e3, ["G4","G4"], [3.0,6.0]);
-
-spork ~ buk(me.dir()+"audio/snare_02.wav", e4, [1.0,2.0,1.0,3.0,2.0], 1);
-spork ~ buk(me.dir()+"audio/hihat_02.wav", e5, [3.0,2.0,1.0,1.0,2.0], 2);
-spork ~ buk(me.dir()+"audio/kick_02.wav", e6, [6.0,3.0], 3);
-
-int dice;
-0.5 => e1.velocity;
-0.8 => e2.velocity;
-0.8 => e3.velocity;
-while (true) {
-    Math.random2(1,6) => dice;
-    if (dice == 1) e2.signal();
-    else if (dice == 6) e3.signal();
-    else e1.signal();
-    if (dice <= 3) e5.signal();
-    else if (dice == 6) e6.signal();
-    else e4.signal();
-    2::second => now;
 }
 ```
