@@ -51,7 +51,7 @@
 | 9  | [10/26](https://youtu.be/7PvV8F7fd6w) | [10/27](https://youtu.be/0JBxkdCd7UE) | 8. [객체와 클래스](notes/notes08.md) | #7 마감 11/2(수) 오후3시 |
 | 10 | 11/2 | [11/3](https://youtu.be/Oj434EyrpGw) | 9. [이벤트 구동 프로그래밍](notes/notes09.md) | #8 마감 11/9(수) 오후 3시 |
 | 11 | [11/9](https://youtu.be/BvLIficJx3s) | [11/10](https://youtu.be/taahHGTQFQw) | 10. [MIDI, OSC](notes/notes10.md) | - |
-| 12 | 11/16 | - | 리뷰 | [기출문제](notes/CSE2020-2021exam2.pdf) 및  모범답안 |
+| 12 | 11/16 | - | 리뷰 | [기출문제](notes/CSE2020-2021exam2.pdf) 및  [모범답안](notes/CSE2020-2021exam2sol.pdf) |
 | 12 | - | 11/17 | 시험#2 | - |
 | 13 | 11/23 | 11/24 | 프로젝트 기획 | - |
 | 14 | 11/30 | 12/1 | 프로젝트 리허설 | - |
