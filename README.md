@@ -17,6 +17,7 @@
 
 ### 참고 문헌
 -	Ajay Kapur, Perry Cook, Spencer Salazar, and Ge Wang, [Programming for Musicians and Digital Artists - Creating Music with ChucK](https://www.manning.com/books/programming-for-musicians-and-digital-artists), Manning Publications Co., 2015. [저자 강의 비디오](https://www.kadenze.com/courses/introduction-to-programming-for-musicians-and-digital-artists/info)
+-   [Tutorials](https://en.flossmanuals.net/chuck/_full/)
 -	Michael Hewitt, Music Theory for Computer Musicians, Course Technology, 2008.
 
 ### 소프트웨어
